@@ -1,0 +1,15 @@
+.title {
+    margin: 0;
+    text-align: center;
+    padding-top: 1rem;
+    color: var(--grey-text-color);
+}
+
+.description {
+    margin: 0;
+    text-align: center;
+}
+
+.pointer {
+    cursor: pointer;
+}

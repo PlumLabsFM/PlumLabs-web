@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Background Color */
+    --card-bg-color: #FFFFFF;
+    --input-bg-color: #F2F2F2;
+
+    /* Text Color */
+    --white-text-color: #FFFFFF;
+    --black-text-color: #000000;
+    --grey-text-color: grey;
+
+    /* Border Radius */
+    --btn-border-radius: 25px;
+    --card-border-radius: 10px;
+}
