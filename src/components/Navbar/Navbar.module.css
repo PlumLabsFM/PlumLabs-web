@@ -1,0 +1,31 @@
+.navbar {
+ padding: 10px;
+}
+.profile {
+    display: flex;
+}
+.names {
+     display:flex;
+    align-items: center;
+}
+.MainContainer {
+    display: flex;
+    justify-content: space-between;
+}
+.title {
+    font-weight: bold;
+    font-size: larger;
+    padding-top: 15px;
+}
+.blockContainer {
+    display: flex;
+    justify-content: space-between;
+}
+.block {
+    padding: 10px;
+}
+.lables {
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
