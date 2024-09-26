@@ -1,29 +1,33 @@
 import React from 'react';
 import { BsGearWide } from "react-icons/bs";
+import { GiBigGear } from "react-icons/gi";
 import { IoPerson } from "react-icons/io5";
+import { PiGearFineBold } from "react-icons/pi";
+import { Heading, SmallText } from '../elements/Typography/Typography';
 import styles from './Navbar.module.css';
+
 export default function Navbar({title, name}) {
 	return (
 		<div className={styles.navbar}>
 			<div className={styles.MainContainer}>
-				<div className={styles.title}>{title}</div>
+				<Heading textColor='black'> {title} </Heading>
 				<div className={styles.blockContainer}>
 					<div className={styles.block}>
-						<BsGearWide style={{ color: "#9A6FF4", fontSize: "40px" }} />
-						<h6 className={styles.lables}>Devs</h6>
+						<BsGearWide style={{ color: "#9A6FF4", width: "35px", height: "35px" }} />
+						<div className={styles.lables}><SmallText > Dev </SmallText></div>
 					</div>
 					<div className={styles.block}>
-						<BsGearWide style={{ color: "#9A6FF4", fontSize: "40px" }} />
-						<h6 className={styles.lables}>Tool Kit</h6>
+						<GiBigGear style={{ color: "#9A6FF4", width: "35px", height: "35px" }} />
+						<div className={styles.lables}><SmallText > Tool Kit </SmallText></div>
 					</div>
 					<div className={styles.block}>
-						<BsGearWide style={{ color: "#9A6FF4", fontSize: "40px" }} />
-						<h6 className={styles.lables}>Devs</h6>
+						<PiGearFineBold style={{ color: "#9A6FF4", width: "35px", height: "35px" }} />
+						<div className={styles.lables}><SmallText > Admin</SmallText></div>
 					</div>
 					<div className={styles.block}>
-						<div className={styles.profile}>
-							<IoPerson style={{ color: "#9A6FF4", fontSize: "40px" }} />
-							<div className={styles.names}> Hello {name}</div>
+						<div className={styles.profile} >
+							<IoPerson style={{ color: "#9A6FF4", width: "35px", height: "35px" }}/>
+							<div className={styles.names}><SmallText>Hello{name}</SmallText></div>
 						</div>
 					</div>
 				</div>
