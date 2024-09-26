@@ -13,20 +13,20 @@ export default function Navbar({title, name}) {
 				<Heading textColor='black'> {title} </Heading>
 				<div className={styles.blockContainer}>
 					<div className={styles.block}>
-						<BsGearWide style={{ color: "#9A6FF4", width: "35px", height: "35px" }} />
-						<div className={styles.lables}><SmallText > Dev </SmallText></div>
+						<BsGearWide className={styles.navIcon}/>
+						<div className={styles.lables}><SmallText > Devs </SmallText></div>
 					</div>
 					<div className={styles.block}>
-						<GiBigGear style={{ color: "#9A6FF4", width: "35px", height: "35px" }} />
+						<GiBigGear className={styles.navIcon} />
 						<div className={styles.lables}><SmallText > Tool Kit </SmallText></div>
 					</div>
 					<div className={styles.block}>
-						<PiGearFineBold style={{ color: "#9A6FF4", width: "35px", height: "35px" }} />
+						<PiGearFineBold className={styles.navIcon} />
 						<div className={styles.lables}><SmallText > Admin</SmallText></div>
 					</div>
 					<div className={styles.block}>
 						<div className={styles.profile} >
-							<IoPerson style={{ color: "#9A6FF4", width: "35px", height: "35px" }}/>
+							<IoPerson className={styles.navIcon}/>
 							<div className={styles.names}><SmallText>Hello{name}</SmallText></div>
 						</div>
 					</div>
