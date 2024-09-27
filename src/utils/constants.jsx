@@ -5,7 +5,7 @@ export const LOGIN_TEXT = {
 
 export const SIGNUP = {
 	FIRST_NAME: "First name",
-	LAST_NAME: "LAST name",
+	LAST_NAME: "Last name",
 	EMAIL: "Email",
 	PASSWORD: "Password"
 };

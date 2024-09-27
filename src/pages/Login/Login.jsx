@@ -20,7 +20,6 @@ const Login = () => {
 
 		try {
 			const response = await loginUser(email.value, password.value);
-			console.info(response, "res");
 			if (response.status === 200) {
 				navigate('/');
 			}
