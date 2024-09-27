@@ -3,6 +3,7 @@
     border-radius: 10px;
     width: 1150px;
     height: 500px;
+   
     
 }
 .upperDiv{
@@ -11,6 +12,7 @@
     border-bottom: 2px solid black;
     border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  
 }
 .blockDiv{
   display: flex;
@@ -18,6 +20,9 @@
   justify-content: center;
   gap: 20px;
   width: 50%;
+  padding: 100px;
+  background: rgb(200,193,240);
+background: radial-gradient(circle, rgba(200,193,240,1) 14%, rgba(181,209,241,0.773546918767507) 26%, rgba(254,254,254,1) 46%);
 }
 .middleDiv{
   display: flex;
