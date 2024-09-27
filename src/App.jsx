@@ -17,7 +17,7 @@ function App() {
 
 	return (
 		<>
-			{selectedNavbarProps.title && <Navbar {...selectedNavbarProps} />}
+			{navbarProps[location.pathname] && <Navbar {...selectedNavbarProps} />}
 			<Routes>
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<Signup />} />

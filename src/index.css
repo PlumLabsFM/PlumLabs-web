@@ -7,6 +7,7 @@ body {
     /* Background Color */
     --card-bg-color: #FFFFFF;
     --input-bg-color: #F2F2F2;
+    --btn-bg-color: #28ACEC;
 
     /* Text Color */
     --white-text-color: #FFFFFF;
@@ -15,5 +16,5 @@ body {
 
     /* Border Radius */
     --btn-border-radius: 25px;
-    --card-border-radius: 10px;
+    --card-border-radius: 20px;
 }

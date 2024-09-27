@@ -1,6 +1,6 @@
 
 .loginBtn {
-    background-color: #28ACEC;
+    background-color: var(--btn-bg-color);
     color: var(--white-text-color);
     font-size: 1em;
     font-weight: bold;
