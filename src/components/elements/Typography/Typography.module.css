@@ -13,3 +13,14 @@
 .pointer {
     cursor: pointer;
 }
+
+.normalText {
+    margin: 0;
+    padding: 0;
+}
+
+.smallText {
+    margin: 0;
+    padding: 0;
+    font-size: smaller;
+}

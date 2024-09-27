@@ -1,0 +1,42 @@
+.navbar {
+    padding: 10px 40px;
+}
+
+.profile {
+    display: flex;
+    align-self: center;
+}
+
+.names {
+    display:flex;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.MainContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    padding-top: 20px;
+}
+
+.blockContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.block {
+    padding: 5px;
+}
+
+.lables {
+    width: 50px;
+}
+
+.navIcon {
+    color: #9A6FF4;
+    width: 35px;
+    height: 35px;
+}
