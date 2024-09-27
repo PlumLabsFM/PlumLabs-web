@@ -6,7 +6,7 @@ import { PiGearFineBold } from "react-icons/pi";
 import { Heading, SmallText } from '../elements/Typography/Typography';
 import styles from './Navbar.module.css';
 
-export default function Navbar({title, name}) {
+export default function Navbar({title}) {
 	return (
 		<div className={styles.navbar}>
 			<div className={styles.MainContainer}>
@@ -27,7 +27,7 @@ export default function Navbar({title, name}) {
 					<div className={styles.block}>
 						<div className={styles.profile} >
 							<IoPerson className={styles.navIcon}/>
-							<div className={styles.names}><SmallText>Hello{name}</SmallText></div>
+							<div className={styles.names}><SmallText>Hello Maria</SmallText></div>
 						</div>
 					</div>
 				</div>
