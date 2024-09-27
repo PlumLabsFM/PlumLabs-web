@@ -1,5 +1,7 @@
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AppStore from '../src/pages/AppStore/AppStore';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
@@ -22,6 +24,7 @@ function App() {
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<Signup />} />
 				<Route path="/" element={<Home />} />
+				<Route path="/app-store" element={<AppStore/>} />
 			</Routes>
 		</>
 	);

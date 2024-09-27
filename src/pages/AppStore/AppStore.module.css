@@ -1,0 +1,26 @@
+.mainDiv{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 1150px;
+    height: 500px;
+    
+}
+.upperDiv{
+    background-color: blueviolet;
+    padding: 0%;
+    border-bottom: 2px solid black;
+    border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.blockDiv{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 50%;
+}
+.middleDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
