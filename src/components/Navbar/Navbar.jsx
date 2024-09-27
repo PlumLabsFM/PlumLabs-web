@@ -14,15 +14,15 @@ export default function Navbar({title, name}) {
 				<div className={styles.blockContainer}>
 					<div className={styles.block}>
 						<BsGearWide className={styles.navIcon}/>
-						<div className={styles.lables}><SmallText > Devs </SmallText></div>
+						<div className={styles.lables}><SmallText>Devs</SmallText></div>
 					</div>
 					<div className={styles.block}>
 						<GiBigGear className={styles.navIcon} />
-						<div className={styles.lables}><SmallText > Tool Kit </SmallText></div>
+						<div className={styles.lables}><SmallText>Tool Kit</SmallText></div>
 					</div>
 					<div className={styles.block}>
 						<PiGearFineBold className={styles.navIcon} />
-						<div className={styles.lables}><SmallText > Admin</SmallText></div>
+						<div className={styles.lables}><SmallText>Admin</SmallText></div>
 					</div>
 					<div className={styles.block}>
 						<div className={styles.profile} >

@@ -16,7 +16,7 @@ export function Heading ({children, textColor}) {
 export function SubHeading ({children, cursor}) {
 	return <h4 className={cursor ? `${style.title} ${style.pointer}` : style.title}>{children}</h4>;
 }
-export function NormalText ({children}) {
+export function MinorText ({children}) {
 	return <h5 className={style.normalText}>{children}</h5>;
 }
 export function SmallText ({children}) {
