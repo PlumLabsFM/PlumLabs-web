@@ -12,8 +12,8 @@ function App() {
 	const location = useLocation();
 
 	const navbarProps = {
-		"/app-store": {title: "APP STORE" },
-		"/tool-kit": {title: "TOOL KIT" }
+		"/app-store": {title: "APPSTORE" },
+		"/tool-kit": {title: "TOOL KIT" },
 	};
 
 	const selectedNavbarProps = navbarProps[location.pathname] || {};

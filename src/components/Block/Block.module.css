@@ -8,9 +8,10 @@
     margin: 25px;
     position: relative;
     padding-top: 15px;
-  }
+    color:var( --black-text-color);
+}
 
-  .containerWhite {
+.containerWhite {
     border-radius:  var(--btn-border-radius);
     padding: 5px;
     display: flex;
@@ -22,73 +23,115 @@
     padding-top: 15px;
     border: 1px solid grey;
 
-  }
+}
 
-  .textContainer {
+.containerBlue {
+    color: var( --white-text-color);
+    border-radius:  var(--btn-border-radius);
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
+    margin: 25px;
+    position: relative;
+    padding-top: 15px;
+}
+
+.containerBlack {
+    color: var( --white-text-color);
+    border-radius:  var(--btn-border-radius);
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
+    margin: 25px;
+    position: relative;
+    padding-top: 15px;
+}
+
+.textContainer {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-  }
+}
 
-  .title {
+.title {
     font-weight: bold;
     font-size: 15px;
     margin-bottom: 5px;
-  }
+}
   
-  .text {
+.text {
     font-size: 12px;
     margin-bottom: 0;
     padding: 5px;
-  }
+}
 
-  .InfoImgContainer {
+.InfoImgContainer {
     display: flex;
     align-self: flex-end;
-  }
+}
 
-  .infoImg {
+.infoImg {
     width: 25px;
     height: 20px;
-    color:var(--white-text-color);
     padding: 5px;
-  }
+    color: white;
+}
 
-  .redImg {
+.infoImgBlue {
+    width: 25px;
+    height: 20px;
+    padding: 5px;
+    color: #9A6FF4; 
+}
+
+.redImg {
     width: 30px;
     height: 50px;
-  } 
+} 
 
-  .redPart {
+.redPart {
     position: absolute;
     top: -20px; 
     right: -10px; 
     color: red;
+}
 
-  }
-
-  .iconImg {
+.iconImg {
     width: 40%;
     height: 40%;
-  }
+}
 
-  .newPart {
+.newPart {
     position: absolute;
     top: 2px;
-    left: -44px;
-  }
+    left: -43px;
+}
 
-  .parallelogram {
+.newText{
+    position: absolute;
+    top: 15px;
+    left: 36px;
+    z-index: 2;
+    color:var(--white-text-color);
+    letter-spacing: -1.5px;
+    font-style: italic;
+    text-align: center;
+}
+.parallelogram {
     color: #9F00FC;
     width: 100px;
     height: 50px;
    
-  }
+}
 
-  .logoImg {
+.logoImg {
     width: 90px;
-    height: 100px;
-    padding: 10px;
+    height: 90px;
+    padding: 0px;
 
-  }
+}

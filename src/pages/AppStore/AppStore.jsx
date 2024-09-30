@@ -7,18 +7,18 @@ export default function AppStore() {
 	return (
 		<div className={styles.middleDiv}>
 			<div className={styles.blockDiv}>
-				{AppStoreData.map((item, index) => (
+				{ AppStoreData.map((item) => (
 					<Block
 						key={item.id}
 						title={item.title}
-						isNew={index === 0 ? true : false}
+						isNew={item.new}
 						text={item.text}
 						width={"120px"}
 						height={"114px"}
+						isInfo={true}
 						isBubble={true}
-						isLogo={item.logo}
-						style={index === AppStoreData.length - 2 ? { backgroundColor: 'white' } : index === AppStoreData.length - 1 ? { backgroundColor: 'blue' } : {}
-						}
+						isIcon={item.icon}
+						backgroundColor = {item.bgColor}
 					/>
 				))}
 			</div>

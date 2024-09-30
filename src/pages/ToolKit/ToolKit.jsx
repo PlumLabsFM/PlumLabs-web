@@ -17,6 +17,7 @@ export default function ToolKit() {
 							height={"114px"}
 							isBubble={false}
 							isLogo={item.logo}
+							isInfo={true}
 							backgroundColor= {item.bgColor}
 						/>
 					))}
@@ -30,6 +31,7 @@ export default function ToolKit() {
 							width={"120px"}
 							height={"114px"}
 							isBubble={false}
+							isInfo={true}
 							isLogo={item.logo}
 							backgroundColor= {item.bgColor}
 						/>

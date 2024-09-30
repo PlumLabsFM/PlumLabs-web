@@ -29,6 +29,7 @@
 
 .block {
     padding: 5px;
+    cursor: pointer;
 }
 
 .lables {
