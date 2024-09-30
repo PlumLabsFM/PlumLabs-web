@@ -49,6 +49,7 @@ export const ToolkitData = [{
 	text: "Tax Loss",
 	icon: true
 }];
+
 export const NavbarConst = {
 	DEV: "Dev",
 	TOOL_KIT: "Tool Kit",
@@ -56,3 +57,38 @@ export const NavbarConst = {
 	HELLO: "Hello Maria"
 
 };
+
+export const AppStoreData = [{
+	id: "1",
+	title: "PLUM Vision",
+	text: "Back Test",
+	logo: false
+},
+{
+	id: "2",
+	title: "Correlate",
+	text: "Correction Analysis",
+	logo: false
+},
+{
+	id: "3",
+	title: "Target",
+	text: "Target Volatility"
+},
+{
+	id: "4",
+	title: "Auto Hedge",
+	text: "All Hedger"
+},
+{
+	id: "5",
+	title: "FORGE",
+	text: "Portfolio Optimizer",
+	logo: true
+},
+{
+	id: "6",
+	title: "Cost Basis",
+	text: "Tax Loss",
+	logo: true
+}];

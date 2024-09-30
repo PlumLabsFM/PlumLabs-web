@@ -75,12 +75,11 @@
 
   .newPart {
     position: absolute;
-   top: 2px;
-   left: -44px;
+    top: 2px;
+    left: -44px;
   }
 
   .parallelogram {
-  
     color: #9F00FC;
     width: 100px;
     height: 50px;
