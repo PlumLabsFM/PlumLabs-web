@@ -1,8 +1,6 @@
 .container {
     border-radius:  var(--btn-border-radius);
     padding: 5px;
-    /* background: rgb(135,97,252);
-    background: linear-gradient(90deg, rgba(135,97,252,1) 0%, rgba(93,193,231,1) 50%); */
     display: flex;
     align-items: center;
     justify-content: end;
@@ -10,6 +8,20 @@
     margin: 25px;
     position: relative;
     padding-top: 15px;
+  }
+
+  .containerWhite {
+    border-radius:  var(--btn-border-radius);
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
+    margin: 25px;
+    position: relative;
+    padding-top: 15px;
+    border: 1px solid grey;
+
   }
 
   .textContainer {
@@ -32,8 +44,8 @@
   }
 
   .InfoImgContainer {
-   display: flex;
-   align-self: flex-end;
+    display: flex;
+    align-self: flex-end;
   }
 
   .infoImg {
@@ -79,7 +91,5 @@
     width: 90px;
     height: 100px;
     padding: 10px;
-    border: 1px solid grey;
-    border-radius:  var(--btn-border-radius);
 
   }

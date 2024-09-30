@@ -49,3 +49,10 @@ export const ToolkitData = [{
 	text: "Tax Loss",
 	icon: true
 }];
+export const NavbarConst = {
+	DEV: "Dev",
+	TOOL_KIT: "Tool Kit",
+	ADMIN: "Admin",
+	HELLO: "Hello Maria"
+
+};

@@ -32,7 +32,7 @@
 }
 
 .lables {
-    width: 50px;
+    width: fit-content;
 }
 
 .navIcon {
