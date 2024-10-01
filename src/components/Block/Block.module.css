@@ -25,6 +25,20 @@
 
 }
 
+.containerTransparent {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
+    margin: 25px;
+    position: relative;
+    padding-top: 15px;
+    opacity: 0;
+    border: 1px solid rgb(177, 12, 12);
+
+}
+
 .containerBlue {
     color: var( --white-text-color);
     border-radius:  var(--btn-border-radius);

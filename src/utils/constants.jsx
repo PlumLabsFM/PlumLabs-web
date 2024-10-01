@@ -1,3 +1,7 @@
+import Api from '../assets/api.png';
+import Csv from '../assets/csv.png';
+import Jupyter from '../assets/jupyter.png';
+
 export const LOGIN_TEXT = {
 	EMAIL: "Email",
 	PASSWORD: "Password"
@@ -27,7 +31,7 @@ export const ToolkitData = [{
 },
 {
 	id: "4",
-	logo: true,
+	logo: Jupyter,
 	bgColor: "#FFFFFF"
 
 },
@@ -133,4 +137,8 @@ export const ExplorerAppStoreData = [{
 	bgColor: "#2F2DB6",
 	new: true
 }
+];
+
+export const PlumVisionData = [
+
 ];
