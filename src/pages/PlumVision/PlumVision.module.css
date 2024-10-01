@@ -8,14 +8,29 @@
 
 .container {
     width: 50%;
-    background: rgb(200,193,240);
-    background: radial-gradient(circle, rgba(200,193,240,1) 14%, rgba(181,209,241,0.773546918767507) 26%, rgba(254,254,254,1) 46%);
+    /* background: rgb(200,193,240);
+    background: radial-gradient(circle, rgba(200,193,240,1) 14%, rgba(181,209,241,0.773546918767507) 26%, rgba(254,254,254,1) 46%); */
     /* background-color: aqua; */
+    display: flex;
+    justify-content: space-around;
+}
+
+.playBtnDiv {
+    padding-top: 180px;
+ 
+}
+
+.playBtn {
+    color: #9A6FF4;
+    width: 60px;
+    cursor: pointer;
+    height: 60px;
 }
 
 .mainDiv {
     display: flex;
-    justify-content: space-around;
+    gap: 130px;
+    /* justify-content: space-around; */
     /* background-color: blue; */
   
 }
@@ -23,7 +38,8 @@
 .logoDiv {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap:50px;
+    /* justify-content: space-between; */
     /* background-color: chartreuse; */
 }
 
@@ -41,6 +57,7 @@
 .csvImage {
     width: 50px;
     z-index: 2;
+    padding: 30px;
 }
 
 .hiddenFileInput {
@@ -79,4 +96,4 @@
     justify-content: center;
     align-items: center;
     padding: 5px;
-  }
+}

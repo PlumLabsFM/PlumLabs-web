@@ -1,4 +1,7 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { FaRegPlayCircle } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import API from '../../assets/api.png';
 import CSV from '../../assets/csv.png';
 import Disk from '../../assets/disk.png';
@@ -9,16 +12,35 @@ import styles from './PlumVision.module.css';
 
 export default function PlumVision() {
 	const [isCSVUploaded, setIsCSVUploaded] = useState(false);
+	const [isFileUploaded, setIsFileUploaded] = useState(false);
+	const navigate = useNavigate();
 
-	const handleFileChange = (event) => {
+	const handleFileChange = async (event) => {
 		const file = event.target.files[0];
-		if (file && file.type === 'text/csv') {
-			console.info('CSV file uploaded:', file);
-			setIsCSVUploaded(true);
+		if (file && file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
+			console.info('XLSX file selected:', file);
+
+			const formData = new FormData();
+			formData.append('files', file);
+
+			try {
+				await axios.post('https://0zzgwn9r-5000.inc1.devtunnels.ms/upload-portfolio/6', formData, {
+					headers: {
+						'Content-Type': 'multipart/form-data'
+					}
+				});
+				setIsFileUploaded(true);
+			} catch (error) {
+				console.error('Error uploading file:', error);
+				setIsFileUploaded(false);
+			}
 		} else {
-			alert('Please upload a valid CSV file.');
-			setIsCSVUploaded(false);
+			alert('Please upload a valid Excel (.xlsx) file.');
+			setIsFileUploaded(false);
 		}
+	};
+	const handlePlayButtonClick = () => {
+		navigate('/chart');
 	};
 
 	return (
@@ -29,8 +51,17 @@ export default function PlumVision() {
 						<div className={styles.logoDiv}>
 							<div className={styles.logoSubDiv}>
 								<SubHeading className={styles.headings}>LOAD DATA</SubHeading>
-
 								<label className={styles.csvUploadLabel}>
+									<img src={CSV} alt="xlsx" className={styles.csvImage} />
+									<input
+										type="file"
+										accept=".xlsx"
+										onChange={handleFileChange}
+										className={styles.hiddenFileInput}
+									/>
+								</label>
+
+								{/* <label className={styles.csvUploadLabel}>
 									<Blocks
 										width={"120px"}
 										height={"114px"}
@@ -45,16 +76,16 @@ export default function PlumVision() {
 										onChange={handleFileChange}
 										className={styles.hiddenFileInput}
 									/>
-								</label>
+								</label> */}
 							</div>
 							<div>
-								<Blocks
+								{/* <Blocks
 									width={"120px"}
 									height={"114px"}
 									isInfo={true}
 									isLogo={PlumVisionData.logo}
 									backgroundColor= {PlumVisionData.bgColor}
-								/>
+								/> */}
 								<img src={API} alt="API" />
 							</div>
 						</div>
@@ -71,6 +102,10 @@ export default function PlumVision() {
 							</div>
 						</div>
 					</div>
+				</div>
+				<div className={styles.playBtnDiv}>
+					<FaRegPlayCircle className={styles.playBtn} onClick={handlePlayButtonClick} />
+
 				</div>
 			</div>
 		</div>
