@@ -9,3 +9,128 @@ export const SIGNUP = {
 	EMAIL: "Email",
 	PASSWORD: "Password"
 };
+
+export const ToolkitData = [{
+	id: "1",
+	title: "Factors"
+},
+{
+	id: "2",
+	title: "Jobs",
+	text: "Scheduled Jobs",
+	logo: false
+},
+{
+	id: "3",
+	title: "Target",
+	text: "Target Volatility"
+},
+{
+	id: "4",
+	logo: true,
+	bgColor: "#FFFFFF"
+
+},
+{
+	id: "5",
+	title: "FORGE",
+	text: "Portfolio Optimizer"
+},
+{
+	id: "6",
+	title: "Cost Basis",
+	text: "Tax Loss"
+},
+{
+	id: "7",
+	title: "Cost Basis",
+	text: "Tax Loss"
+}];
+
+export const NavbarConst = {
+	DEV: "Dev",
+	TOOL_KIT: "Tool Kit",
+	ADMIN: "Admin",
+	HELLO: "Hello Maria"
+
+};
+
+export const AppStoreData = [{
+	id: "1",
+	title: "PLUM Vision",
+	text: "Back Test",
+	logo: false,
+	new: true
+},
+{
+	id: "2",
+	title: "Correlate",
+	text: "Correction Analysis",
+	logo: false
+},
+{
+	id: "3",
+	title: "Target",
+	text: "Target Volatility"
+},
+{
+	id: "4",
+	title: "Auto Hedge",
+	text: "All Hedger"
+},
+{
+	id: "5",
+	title: "FORGE",
+	text: "Portfolio Optimizer",
+	icon: true,
+	bgColor: "#FFFFFF"
+},
+{
+	id: "6",
+	title: "Cost Basis",
+	text: "Tax Loss",
+	icon: true,
+	bgColor: "#2F2DB6"
+}
+];
+
+export const ExplorerAppStoreData = [{
+	id: "1",
+	title: "PLUM Vision",
+	text: "Back Test",
+	logo: false
+},
+{
+	id: "2",
+	title: "Correlate",
+	text: "Correction Analysis",
+	logo: false,
+	bgColor: "#000000"
+},
+{
+	id: "3",
+	title: "Target",
+	text: "Target Volatility",
+	bgColor: "#000000"
+},
+{
+	id: "4",
+	title: "Auto Hedge",
+	text: "All Hedger"
+},
+{
+	id: "5",
+	title: "FORGE",
+	text: "Portfolio Optimizer",
+	icon: true,
+	bgColor: "#FFFF"
+},
+{
+	id: "6",
+	title: "Cost Basis",
+	text: "Tax Loss",
+	icon: true,
+	bgColor: "#2F2DB6",
+	new: true
+}
+];

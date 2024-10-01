@@ -1,5 +1,5 @@
 .navbar {
-    padding: 10px 40px;
+    padding: 10px 50px;
 }
 
 .profile {
@@ -29,10 +29,11 @@
 
 .block {
     padding: 5px;
+    cursor: pointer;
 }
 
 .lables {
-    width: 50px;
+    width: fit-content;
 }
 
 .navIcon {
