@@ -142,3 +142,6 @@ export const ExplorerAppStoreData = [{
 export const PlumVisionData = [
 
 ];
+export const LOCAL_STORAGE = {
+	USER: 'user'
+};

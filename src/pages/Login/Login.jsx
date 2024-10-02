@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaUser, FaLock } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Avatar from '../../assets/user/avatar.png';
 import Button from '../../components/elements/Button/Button';
 import InputField from '../../components/elements/InputField/InputField';
@@ -21,7 +22,11 @@ const Login = () => {
 		try {
 			const response = await loginUser(email.value, password.value);
 			if (response.status === 200) {
-				navigate('/');
+				toast.success("Login sucessful. Welcome to PlumLabs");
+				localStorage.setItem('user', JSON.stringify(response.data.user_data));
+				navigate('/dashboard');
+			} else {
+				toast.error("Something went wrong. Please try again.");
 			}
 		} catch (error) {
 			console.error(error);
