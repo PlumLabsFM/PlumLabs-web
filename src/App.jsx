@@ -3,6 +3,8 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import AppStore from '../src/pages/AppStore/AppStore';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
+import { PageLayout } from './layout/Pagelayout/Pagelayout';
+import Sidebar from './layout/Sidebar/Sidebar';
 import Chart from './pages/Chart/Chart';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
@@ -16,11 +18,13 @@ function App() {
 	const navbarProps = {
 		"/app-store": {title: "APPSTORE" },
 		"/tool-kit": {title: "TOOL KIT" },
-		"/plum-vision": {title: ""},
-		"/chart": {title: ""}
+		"/plum-vision": {title: ""}
 	};
 
 	const selectedNavbarProps = navbarProps[location.pathname] || {};
+	function Protected({ children }) {
+		return children;
+	}
 
 	return (
 		<>
@@ -32,7 +36,10 @@ function App() {
 				<Route path="/app-store" element={<AppStore/>} />
 				<Route path="/tool-kit" element={<ToolKit/>} />
 				<Route path="/plum-vision" element={<PlumVision/>} />
-				<Route path="/chart" element={<Chart/>} />
+				<Route path="/sidebar" element={<Sidebar/>} />
+				<Route path="/chart" element={<PageLayout/>}>
+					<Route path="/chart" element={<Protected><Chart/></Protected>} />
+				</Route>
 			</Routes>
 		</>
 	);

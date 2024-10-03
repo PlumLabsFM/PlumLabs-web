@@ -1,0 +1,23 @@
+.sidebar {
+    position: fixed;   
+    left: 80px;          
+    top: 0;            
+    width: 150px;      
+    height: 100vh;     
+    background-color: #333; 
+    color: white;     
+  }
+  
+
+  
+.link {
+    display: block;
+    color: white;
+    padding: 20px 0;
+    text-decoration: none;
+}
+  
+.link:hover {
+    background-color: #575757;
+}
+
