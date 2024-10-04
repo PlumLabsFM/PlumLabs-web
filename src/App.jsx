@@ -4,7 +4,6 @@ import AppStore from '../src/pages/AppStore/AppStore';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import { PageLayout } from './layout/Pagelayout/Pagelayout';
-import Sidebar from './layout/Sidebar/Sidebar';
 import Chart from './pages/Chart/Chart';
 import Demo from './pages/Demo/Demo';
 import Home from './pages/Home/Home';
@@ -35,7 +34,6 @@ function App() {
 				<Route path="/app-store" element={<AppStore/>} />
 				<Route path="/tool-kit" element={<ToolKit/>} />
 				<Route path="/plum-vision" element={<PlumVision/>} />
-				<Route path="/sidebar" element={<Sidebar/>} />
 				<Route path="/" element={<PageLayout/>}>
 					<Route path="/chart" element={<Chart/>} />
 					<Route path="/demo" element={<Demo/>} />

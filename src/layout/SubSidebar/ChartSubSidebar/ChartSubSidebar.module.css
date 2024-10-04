@@ -38,3 +38,14 @@
     justify-content: center;
     align-items: center;
 }
+.contentOpen {
+    margin-left: 250px;  
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+  }
+  
+  .contentClosed {
+    margin-left: 100px; 
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
