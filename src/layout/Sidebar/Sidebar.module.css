@@ -16,24 +16,27 @@
   }
   
 
-  .sidebarOpen {
-    width: 200px;
-  }
+.sidebarOpen {
+    width: 239px;
+}
   
- 
-  .link {
+.link {
     display: flex;
-    align-items: center;
-    padding: 15px;
+    padding: 15px 0px;
     color: white;
     text-decoration: none;
     transition: background-color 0.3s ease;
-  }
+}
   
+.mainContainer:hover {
+    background: rgb(45,81,185);
+    background: linear-gradient(38deg, rgba(45,81,185,1) 29%, rgba(175,103,222,1) 63%);
+}
 
-  .link:hover {
-    background-color: #575757;
-  }
+.mainContainerW:hover {
+    background: rgb(45,81,185);
+    background: linear-gradient(38deg, rgba(45,81,185,1) 29%, rgba(175,103,222,1) 63%);
+}
   
   
   .menuIcon {
@@ -42,10 +45,9 @@
   }
   
 
-  .label {
-    margin-left: 10px;
+.label {
     text-align: center;
-  }
+}
   
  
   .contentOpen {
@@ -58,6 +60,25 @@
     margin-left: 100px; 
     padding: 20px;
     transition: margin-left 0.3s ease;
-  }
+}
   
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainContainer {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+.mainContainerW {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    width: 100px;
+}
   
