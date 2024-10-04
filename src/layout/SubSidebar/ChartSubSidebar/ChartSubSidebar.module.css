@@ -1,23 +1,40 @@
 .sidebar {
     position: fixed;   
-    left: 80px;          
+    left: 89px;          
     top: 0;            
     width: 150px;      
     height: 100vh;     
-    background-color: #333; 
-    color: white;     
-  }
+    background: rgb(45,81,185);
+    background: linear-gradient(38deg, rgba(45,81,185,1) 29%, rgba(175,103,222,1) 63%);
+    color: white;  
+    border-radius: 20px;   
+}
   
 
   
+
 .link {
-    display: block;
+    display: flex;
+    /* align-items: center; */
+    padding: 15px 0px;
     color: white;
-    padding: 20px 0;
     text-decoration: none;
+    transition: background-color 0.3s ease;
 }
   
+
 .link:hover {
-    background-color: #575757;
+    background: rgb(45,81,185);
+    background: linear-gradient(38deg, rgba(45,81,185,1) 29%, rgba(175,103,222,1) 63%);
 }
 
+.chartDiv {
+    padding: 10px 0px ;
+    height: 100vh;
+}
+
+.charts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

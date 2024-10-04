@@ -1,31 +1,28 @@
 import React from 'react';
-import { FaChartLine, FaRegChartBar } from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { MenuItemsForCharts } from '../../../utils/constants';
+import ChartItem from './ChartItem';
 import styles from './ChartSubSidebar.module.css';
+import ChartCanvas from './ChartCanvas';
 
 const ChartSubSidebar = () => {
 
-	const menuItems = [
-		{ name: 'Chart With NLP', icon: <FaChartLine/> },
-		{ name: 'Annual Revenue', icon: <FaRegChartBar />},
-		{ name: 'Downtrend', icon: <FaRegChartBar/> },
-		{ name: 'Portfolio Growth', icon: <FaRegChartBar /> },
-		{ name: 'Active Returns', icon: <FaRegChartBar />},
-		{ name: 'Billing Returns', icon: <FaRegChartBar />},
-		{ name: 'Billing Mean', icon: <FaRegChartBar />}
-	];
 
 	return (
-		<div>
+		<DndProvider backend={HTML5Backend}>
 			<div className={styles.sidebar}>
-				{menuItems.map((item, index) => (
-					<NavLink to={item.path} key={index} className={styles.link}>
-						{item.icon}
-						<span>{item.name}</span>
-					</NavLink>
-				))}
+				<div className={styles.chartDiv}>
+					{MenuItemsForCharts.map((item, index) => {
+						return (
+							<div key={index} className={styles.charts}>
+								<ChartItem type={item.type} icon={item.icon} label={item.name} className={styles.link}/>
+							</div>
+						);
+					})}
+				</div>
 			</div>
-		</div>
+		</DndProvider>
 	);
 };
 

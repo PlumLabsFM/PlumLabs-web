@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import { PageLayout } from './layout/Pagelayout/Pagelayout';
 import Chart from './pages/Chart/Chart';
 import Dashboard from './pages/Dashboard/Dashboard';
+import Demo from './pages/Demo/Demo';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import PlumVision from './pages/PlumVision/PlumVision';
@@ -46,7 +47,7 @@ function App() {
 				<Route path="/plum-vision" element={<Protected><PlumVision/></Protected>} />
 				<Route path="/" element={<PageLayout/>}>
 					<Route path="/chart" element={<Chart/>} />
-					{/* <Route path="/demo" element={<Demo />} /> */}
+					<Route path="/demo" element={<Demo/>} />
 				</Route>
 			</Routes>
 		</>

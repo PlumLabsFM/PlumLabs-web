@@ -1,3 +1,5 @@
+import React from 'react';
+import { FaChartLine, FaRegChartBar } from 'react-icons/fa';
 import Jupyter from '../assets/jupyter.png';
 
 export const LOGIN_TEXT = {
@@ -143,3 +145,13 @@ export const ExplorerAppStoreData = [
 export const COOKIES = {
 	USER: 'user'
 };
+
+export const MenuItemsForCharts = [
+	{ name: 'Chart With NLP', icon: <FaChartLine />, type: 'line' },
+	{ name: 'Annual Revenue', icon: <FaRegChartBar />, type: 'bar' },
+	{ name: 'Downtrend', icon: <FaRegChartBar />, type: 'bar' },
+	{ name: 'Portfolio Growth', icon: <FaRegChartBar />, type: 'line' },
+	{ name: 'Active Returns', icon: <FaRegChartBar />, type: 'pie' },
+	{ name: 'Billing Returns', icon: <FaRegChartBar />, type: 'pie' },
+	{ name: 'Billing Mean', icon: <FaRegChartBar />, type: 'line' }
+];

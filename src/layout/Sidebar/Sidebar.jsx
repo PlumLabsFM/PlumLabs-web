@@ -12,12 +12,12 @@ export default function Sidebar() {
 
 	const menuItems = [
 		{
-			path: '/app-store',
+			path: '/demo',
 			name: 'App Store',
 			Icon: <PiTrolleyFill />
 		},
 		{
-			path: '/layout',
+			path: '/demo',
 			name: 'Layout',
 			Icon: <RiLayoutMasonryLine />
 		},
@@ -28,7 +28,7 @@ export default function Sidebar() {
 			subSideBar: <ChartSubSidebar></ChartSubSidebar>
 		},
 		{
-			path: '/note-book',
+			path: '/demo',
 			name: 'Notebook',
 			Icon: <SiJupyter />
 		}
@@ -41,14 +41,17 @@ export default function Sidebar() {
 
 	return (
 		<div>
-
 			<div className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : styles.sidebarClosed}`}>
 				{menuItems.map((items, index) => (
-					<NavLink to={items.path} key={index} className={styles.link} onClick={handleToggle}>
-						<div className={styles.menuIcon}>{items.Icon}</div>
-						{/* <div className={styles.label}>{items.name}</div> */}
-						{isOpen && <div className={styles.subSideBar}>{items.subSideBar}</div>}
-					</NavLink>
+					<div key={index} className={`${isOpen ? styles.mainContainerW : styles.mainContainer}`}>
+						<NavLink to={items.path} className={styles.link} onClick={handleToggle}>
+							<div className={styles.container}>
+								<div className={styles.menuIcon}>{items.Icon}</div>
+								<div className={styles.label}>{items.name}</div>
+							</div>
+							{isOpen && items.subSideBar && <div className={styles.subSideBar}>{items.subSideBar}</div>}
+						</NavLink>
+					</div>
 				))}
 			</div>
 		</div>
