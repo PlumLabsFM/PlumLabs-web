@@ -6,7 +6,7 @@ import { PiParallelogramFill } from "react-icons/pi";
 import styles from './Block.module.css';
 
 export default function Blocks({ title, text, width, height, isInfo, isBubble, isLogo, isIcon, isNew, backgroundColor }) {
-	console.info(backgroundColor, "bgColor");
+
 	return (
 		<div className={(backgroundColor === "#FFFFFF") ? styles.containerWhite : (backgroundColor === "#2F2DB6" ? styles.containerBlue : (backgroundColor === "#000000" ? styles.containerBlack : (backgroundColor === "#FFFFFF00" ? styles.containerTransparent : styles.container)))}
 			style={{ width, height, background: backgroundColor || "linear-gradient(90deg, rgba(135,97,252,1) 0%, rgba(93,193,231,1) 50%)"}}>
@@ -28,7 +28,6 @@ export default function Blocks({ title, text, width, height, isInfo, isBubble, i
 					<BsInfoCircle className={(backgroundColor === "#FFFFFF00" || backgroundColor === "#FFFFFF") ? styles.infoImgBlue : styles.infoImg } />
 				</div>
 			) : null }
-
 		</div>
 	);
 }

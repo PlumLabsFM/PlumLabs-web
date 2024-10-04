@@ -59,7 +59,7 @@ const Signup = () => {
 			<div className={style.cardContainer}>
 				<img src={Avatar} className={style.profileImg} alt='Avatar' />
 				<div className={style.formContainer}>
-					<Heading>Sign up</Heading>
+					<Heading textColor="grey">Sign up</Heading>
 					<form onSubmit={handleSubmit}>
 						<div className={style.nameContainer}>
 							<label className={style.labelText}>{SIGNUP.FIRST_NAME}</label>
@@ -103,7 +103,7 @@ const Signup = () => {
 						</div>
 						<Button text='Sign in' type='submit' loading={isLoading} />
 						<div className={style.alreadyAccountContainer}>
-							<Description>
+							<Description textColor="grey">
 								Already have account?
 								<span className={style.signupContent} onClick={signinHandler}> Sign in</span>
 							</Description>

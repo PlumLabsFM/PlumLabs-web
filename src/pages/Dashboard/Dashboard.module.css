@@ -1,0 +1,66 @@
+.pageContainer {
+    height: 100vh;
+    background: rgb(175,196,239);
+    background: radial-gradient(circle, rgba(175,196,239,1) 0%, rgba(191,185,238,1) 20%, rgba(255,255,255,1) 100%);
+    background-size: cover;
+    text-align: center;
+}
+
+.titleContainer {
+    padding: 3rem 0 2rem;
+    font-size: 2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.title {
+    margin-bottom: 0;
+    font-weight: normal;
+    color: #7131F6 !important; 
+}
+
+.pageSubTitle {
+    color: black !important;
+}
+
+.profileName {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: normal;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    gap: 7rem;
+    margin-top: 3rem;
+}
+
+.optionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.appContainer {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 1rem;
+    background: rgb(72,231,176);
+    background: linear-gradient(0deg, rgba(72,231,176,1) 0%, rgba(69,181,205,1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.icon {
+    height: 3.3rem;
+    width: 3.3rem;
+}
+
+.option {
+    font-size: 1.3em;
+    margin: 0;
+    padding-top: 1rem;
+}

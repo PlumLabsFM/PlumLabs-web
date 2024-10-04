@@ -5,7 +5,6 @@
     align-items: center;
     justify-content: end;
     flex-direction: column;
-    margin: 25px;
     position: relative;
     padding-top: 15px;
     color:var( --black-text-color);
@@ -18,7 +17,6 @@
     align-items: center;
     justify-content: end;
     flex-direction: column;
-    margin: 25px;
     position: relative;
     padding-top: 15px;
     border: 1px solid grey;
@@ -47,7 +45,6 @@
     align-items: center;
     justify-content: end;
     flex-direction: column;
-    margin: 25px;
     position: relative;
     padding-top: 15px;
 }
@@ -76,12 +73,14 @@
     font-weight: bold;
     font-size: 15px;
     margin-bottom: 5px;
+    text-align: center;
 }
   
 .text {
     font-size: 12px;
     margin-bottom: 0;
     padding: 5px;
+    text-align: center;
 }
 
 .InfoImgContainer {
@@ -136,6 +135,7 @@
     font-style: italic;
     text-align: center;
 }
+
 .parallelogram {
     color: #9F00FC;
     width: 100px;

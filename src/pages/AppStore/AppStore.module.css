@@ -17,9 +17,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
+  gap: 45px;
   width: 50%;
-  padding: 100px;
+  padding: 50px 100px;
   background: rgb(200,193,240);
   background: radial-gradient(circle, rgba(200,193,240,1) 14%, rgba(181,209,241,0.773546918767507) 26%, rgba(254,254,254,1) 46%);
 }

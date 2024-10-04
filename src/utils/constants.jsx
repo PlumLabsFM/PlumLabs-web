@@ -1,5 +1,3 @@
-import Api from '../assets/api.png';
-import Csv from '../assets/csv.png';
 import Jupyter from '../assets/jupyter.png';
 
 export const LOGIN_TEXT = {
@@ -59,86 +57,89 @@ export const NavbarConst = {
 
 };
 
-export const AppStoreData = [{
-	id: "1",
-	title: "PLUM Vision",
-	text: "Back Test",
-	logo: false,
-	new: true
-},
-{
-	id: "2",
-	title: "Correlate",
-	text: "Correction Analysis",
-	logo: false
-},
-{
-	id: "3",
-	title: "Target",
-	text: "Target Volatility"
-},
-{
-	id: "4",
-	title: "Auto Hedge",
-	text: "All Hedger"
-},
-{
-	id: "5",
-	title: "FORGE",
-	text: "Portfolio Optimizer",
-	icon: true,
-	bgColor: "#FFFFFF"
-},
-{
-	id: "6",
-	title: "Cost Basis",
-	text: "Tax Loss",
-	icon: true,
-	bgColor: "#2F2DB6"
-}
+export const AppStoreData = [
+	{
+		id: "1",
+		title: "PLUM Vision",
+		text: "Back Test",
+		logo: false,
+		new: true,
+		link: "/plum-vision"
+	},
+	{
+		id: "2",
+		title: "Correlate",
+		text: "Correction Analysis",
+		logo: false
+	},
+	{
+		id: "3",
+		title: "Target",
+		text: "Target Volatility"
+	},
+	{
+		id: "4",
+		title: "Auto Hedge",
+		text: "All Hedger"
+	},
+	{
+		id: "5",
+		title: "FORGE",
+		text: "Portfolio Optimizer",
+		icon: true,
+		bgColor: "#FFFFFF"
+	},
+	{
+		id: "6",
+		title: "Cost Basis",
+		text: "Tax Loss",
+		icon: true,
+		bgColor: "#2F2DB6"
+	}
 ];
 
-export const ExplorerAppStoreData = [{
-	id: "1",
-	title: "PLUM Vision",
-	text: "Back Test",
-	logo: false
-},
-{
-	id: "2",
-	title: "Correlate",
-	text: "Correction Analysis",
-	logo: false,
-	bgColor: "#000000"
-},
-{
-	id: "3",
-	title: "Target",
-	text: "Target Volatility",
-	bgColor: "#000000"
-},
-{
-	id: "4",
-	title: "Auto Hedge",
-	text: "All Hedger"
-},
-{
-	id: "5",
-	title: "FORGE",
-	text: "Portfolio Optimizer",
-	icon: true,
-	bgColor: "#FFFF"
-},
-{
-	id: "6",
-	title: "Cost Basis",
-	text: "Tax Loss",
-	icon: true,
-	bgColor: "#2F2DB6",
-	new: true
-}
+export const ExplorerAppStoreData = [
+	{
+		id: "1",
+		title: "PLUM Vision",
+		text: "Back Test",
+		logo: false
+	},
+	{
+		id: "2",
+		title: "Correlate",
+		text: "Correction Analysis",
+		logo: false,
+		bgColor: "#000000"
+	},
+	{
+		id: "3",
+		title: "Target",
+		text: "Target Volatility",
+		bgColor: "#000000"
+	},
+	{
+		id: "4",
+		title: "Auto Hedge",
+		text: "All Hedger"
+	},
+	{
+		id: "5",
+		title: "FORGE",
+		text: "Portfolio Optimizer",
+		icon: true,
+		bgColor: "#FFFF"
+	},
+	{
+		id: "6",
+		title: "Cost Basis",
+		text: "Tax Loss",
+		icon: true,
+		bgColor: "#2F2DB6",
+		new: true
+	}
 ];
 
-export const PlumVisionData = [
-
-];
+export const COOKIES = {
+	USER: 'user'
+};
