@@ -40,7 +40,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
 	];
 
 	return (
-		<div>
+		<>
 			<div className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : styles.sidebarClosed}`}>
 				{menuItems.map((items, index) => (
 					<div
@@ -58,6 +58,6 @@ export default function Sidebar({ isOpen, setIsOpen }) {
 					</div>
 				))}
 			</div>
-		</div>
+		</>
 	);
 }

@@ -34,6 +34,7 @@ function App() {
 
 	const selectedNavbarProps = navbarProps[location.pathname] || {};
 
+
 	return (
 		<>
 			{navbarProps[location.pathname] && <Navbar {...selectedNavbarProps} />}
