@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import React, { useState } from 'react';
 import { FaUser, FaLock } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
@@ -23,7 +24,7 @@ const Login = () => {
 			const response = await loginUser(email.value, password.value);
 			if (response.status === 200) {
 				toast.success("Login sucessful. Welcome to PlumLabs");
-				localStorage.setItem('user', JSON.stringify(response.data.user_data));
+				Cookies.set('user', JSON.stringify(response.data.user_data));
 				navigate('/dashboard');
 			} else {
 				toast.error("Something went wrong. Please try again.");
@@ -53,7 +54,7 @@ const Login = () => {
 			<div className={style.cardContainer}>
 				<img src={Avatar} className={style.profileImg} alt='Avatar' />
 				<div className={style.formContainer}>
-					<Heading>Login</Heading>
+					<Heading textColor="grey">Login</Heading>
 					<form onSubmit={handleSubmit}>
 						<div>
 							<label className={style.labelText}>{LOGIN_TEXT.EMAIL}</label>
@@ -76,8 +77,8 @@ const Login = () => {
 							/>
 						</div>
 						<Button text='Sign in' type='submit' loading={isLoading} />
-						<SubHeading cursor>Forget your password?</SubHeading>
-						<Description>
+						<SubHeading cursor textColor="grey">Forget your password?</SubHeading>
+						<Description textColor="grey">
 							Don&apos;t have account?
 							<span className={style.signupContent} onClick={signupHandler}> Sign up</span>
 						</Description>

@@ -1,7 +1,8 @@
-import { LOCAL_STORAGE } from "./constants";
+import Cookies from 'js-cookie';
+import { COOKIES } from "./constants";
 
-export const isLogin = () => {
-	const user = localStorage.getItem(LOCAL_STORAGE.USER);
+export const isloggedIn = () => {
+	const user = Cookies.get(COOKIES.USER);
 
 	if (user) {
 		return true;

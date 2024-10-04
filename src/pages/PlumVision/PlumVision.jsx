@@ -1,35 +1,36 @@
-import axios from 'axios';
-import React, { useState } from 'react';
+import Cookies from 'js-cookie';
+import React, { useEffect, useState } from 'react';
 import { FaRegPlayCircle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import API from '../../assets/api.png';
 import CSV from '../../assets/csv.png';
 import Disk from '../../assets/disk.png';
-import Blocks from '../../components/Block/Block';
-import { SmallText, SubHeading } from '../../components/elements/Typography/Typography';
-import { PlumVisionData } from '../../utils/constants';
+import { Heading, SubHeading } from '../../components/elements/Typography/Typography';
+import { uploadDocument } from '../../services/apiServices';
 import styles from './PlumVision.module.css';
 
 export default function PlumVision() {
-	const [isCSVUploaded, setIsCSVUploaded] = useState(false);
+	const [userId, setUserId] = useState(null);
 	const [isFileUploaded, setIsFileUploaded] = useState(false);
 	const navigate = useNavigate();
 
+	useEffect(() => {
+		const userData = JSON.parse(Cookies.get('user'));
+		setUserId(userData.id);
+	}, []);
+
 	const handleFileChange = async (event) => {
 		const file = event.target.files[0];
-		if (file && file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
-			console.info('XLSX file selected:', file);
 
+		if (file && file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
 			const formData = new FormData();
 			formData.append('files', file);
 
 			try {
-				await axios.post('https://0zzgwn9r-5000.inc1.devtunnels.ms/upload-portfolio/6', formData, {
-					headers: {
-						'Content-Type': 'multipart/form-data'
-					}
-				});
+				await uploadDocument(userId, formData);
 				setIsFileUploaded(true);
+				toast.success("File uploaded sucessfully.");
 			} catch (error) {
 				console.error('Error uploading file:', error);
 				setIsFileUploaded(false);
@@ -39,8 +40,11 @@ export default function PlumVision() {
 			setIsFileUploaded(false);
 		}
 	};
+
 	const handlePlayButtonClick = () => {
-		navigate('/chart');
+		if (isFileUploaded) {
+			navigate('/chart');
+		}
 	};
 
 	return (
@@ -50,7 +54,7 @@ export default function PlumVision() {
 					<div className={styles.loadData}>
 						<div className={styles.logoDiv}>
 							<div className={styles.logoSubDiv}>
-								<SubHeading className={styles.headings}>LOAD DATA</SubHeading>
+								<Heading className={styles.headings}>LOAD DATA</Heading>
 								<label className={styles.csvUploadLabel}>
 									<img src={CSV} alt="xlsx" className={styles.csvImage} />
 									<input
@@ -92,20 +96,19 @@ export default function PlumVision() {
 					</div>
 					<div className={styles.setParameters}>
 						<div>
-							<SubHeading className={styles.headings}>SET PARAMETERS</SubHeading>
-							<div className={isCSVUploaded ? styles.diskImgContainer : styles.diskImgContainerFaded}>
-								<div className={styles.imgDiv}><SmallText className={styles.textHeading}>Instruments</SmallText><img src={Disk} alt="disk" className={styles.diskImage}/></div>
-								<div className={styles.imgDiv}><h6 className={styles.textHeading}>Data Range</h6><img src={Disk} alt="disk" className={styles.diskImage}/></div>
-								<div className={styles.imgDiv}><h6 className={styles.textHeading}>Valuation Currency</h6><img src={Disk} alt="disk" className={styles.diskImage}/></div>
-								<div className={styles.imgDiv}><h6 className={styles.textHeading}>Instruments</h6><img src={Disk} alt="disk" className={styles.diskImage}/></div>
-								<div className={styles.imgDiv}><h6 className={styles.textHeading}>Instruments</h6><img src={Disk} alt="disk" className={styles.diskImage}/></div>
+							<Heading className={styles.headings}>SET PARAMETERS</Heading>
+							<div className={isFileUploaded ? styles.diskImgContainer : styles.diskImgContainerFaded}>
+								<div className={styles.imgDiv}><SubHeading className={styles.textHeading}>Instruments</SubHeading><img src={Disk} alt="disk" className={styles.diskImage}/></div>
+								<div className={styles.imgDiv}><SubHeading className={styles.textHeading}>Data Range</SubHeading><img src={Disk} alt="disk" className={styles.diskImage}/></div>
+								<div className={styles.imgDiv}><SubHeading className={styles.textHeading}>Valuation Currency</SubHeading><img src={Disk} alt="disk" className={styles.diskImage}/></div>
+								<div className={styles.imgDiv}><SubHeading className={styles.textHeading}>Instruments</SubHeading><img src={Disk} alt="disk" className={styles.diskImage}/></div>
+								<div className={styles.imgDiv}><SubHeading className={styles.textHeading}>Instruments</SubHeading><img src={Disk} alt="disk" className={styles.diskImage}/></div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div className={styles.playBtnDiv}>
+				<div className={isFileUploaded ? styles.playBtnDiv : styles.playBtnDivFaded}>
 					<FaRegPlayCircle className={styles.playBtn} onClick={handlePlayButtonClick} />
-
 				</div>
 			</div>
 		</div>

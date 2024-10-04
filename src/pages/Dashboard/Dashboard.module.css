@@ -28,11 +28,18 @@
     font-weight: normal;
 }
 
-.cardcontainer {
+.cardContainer {
     display: flex;
     justify-content: center;
-    gap: 5rem;
+    gap: 7rem;
     margin-top: 3rem;
+}
+
+.optionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .appContainer {

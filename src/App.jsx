@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import AppStore from '../src/pages/AppStore/AppStore';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
@@ -10,12 +10,22 @@ import Login from './pages/Login/Login';
 import PlumVision from './pages/PlumVision/PlumVision';
 import Signup from './pages/Signup/Signup';
 import ToolKit from './pages/ToolKit/ToolKit';
+import { isloggedIn } from './utils/helper';
 
 function App() {
 	const location = useLocation();
 
+	function Protected({ children }) {
+		if (!isloggedIn()) {
+			return (
+				<Navigate to="/login" replace />
+			);
+		}
+		return children;
+	}
+
 	const navbarProps = {
-		"/app-store": {title: "APPSTORE" },
+		"/app-store": {title: "APP  STORE" },
 		"/tool-kit": {title: "TOOL KIT" },
 		"/plum-vision": {title: ""},
 		"/chart": {title: ""}
@@ -30,11 +40,11 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<Signup />} />
-				<Route path="/dashboard" element={<Dashboard />} />
-				<Route path="/app-store" element={<AppStore/>} />
-				<Route path="/tool-kit" element={<ToolKit/>} />
-				<Route path="/plum-vision" element={<PlumVision/>} />
-				<Route path="/chart" element={<Chart/>} />
+				<Route path="/dashboard" element={<Protected><Dashboard /></Protected>} />
+				<Route path="/app-store" element={<Protected><AppStore/></Protected>} />
+				<Route path="/tool-kit" element={<Protected><ToolKit/></Protected>} />
+				<Route path="/plum-vision" element={<Protected><PlumVision/></Protected>} />
+				<Route path="/chart" element={<Protected><Chart/></Protected>} />
 			</Routes>
 		</>
 	);

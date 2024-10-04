@@ -1,8 +1,7 @@
 .title {
     margin: 0;
     text-align: center;
-    padding-top: 1rem;
-    color: var(--grey-text-color);
+    color: var(--black-text-color);
 }
 
 .description {

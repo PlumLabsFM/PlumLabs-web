@@ -5,5 +5,11 @@ export const AUTH_SERVICE = {
 	SIGN_UP: `${BASE_URL}/create-user`
 };
 
+export const DOCUMENT = {
+	UPLOAD_DOCUMENT: `${BASE_URL}/upload-portfolio`
+};
+
 export const LOGIN = AUTH_SERVICE.LOGIN;
 export const SIGNUP = AUTH_SERVICE.SIGN_UP;
+
+export const UPLOAD_DOCUMENT = DOCUMENT.UPLOAD_DOCUMENT;
