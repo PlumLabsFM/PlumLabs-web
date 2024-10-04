@@ -7,8 +7,13 @@ import { NavLink } from 'react-router-dom';
 import ChartSubSidebar from '../SubSidebar/ChartSubSidebar/ChartSubSidebar';
 import styles from './Sidebar.module.css';
 
-export default function Sidebar() {
-	const [isOpen, setIsOpen] = useState(false);
+export default function Sidebar({ isOpen, setIsOpen }) {
+	const [activeItem, setActiveItem] = useState(null);
+
+	const handleToggle = (index) => {
+		setIsOpen(!isOpen);
+		setActiveItem(index);
+	};
 
 	const menuItems = [
 		{
@@ -25,7 +30,7 @@ export default function Sidebar() {
 			path: '/chart',
 			name: 'Chart',
 			Icon: <FaRegChartBar />,
-			subSideBar: <ChartSubSidebar></ChartSubSidebar>
+			subSideBar: <ChartSubSidebar isOpen={isOpen} setIsOpen={setIsOpen}></ChartSubSidebar>
 		},
 		{
 			path: '/demo',
@@ -34,17 +39,16 @@ export default function Sidebar() {
 		}
 	];
 
-
-	const handleToggle = () => {
-		setIsOpen(!isOpen);
-	};
-
 	return (
 		<div>
 			<div className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : styles.sidebarClosed}`}>
 				{menuItems.map((items, index) => (
-					<div key={index} className={`${isOpen ? styles.mainContainerW : styles.mainContainer}`}>
-						<NavLink to={items.path} className={styles.link} onClick={handleToggle}>
+					<div
+						key={index}
+						className={`${isOpen ? styles.mainContainerW : styles.mainContainer} 
+							${activeItem === index ? styles.active : ''}`}
+					>
+						<NavLink to={items.path} className={styles.link} onClick={() => handleToggle(index)}>
 							<div className={styles.container}>
 								<div className={styles.menuIcon}>{items.Icon}</div>
 								<div className={styles.label}>{items.name}</div>

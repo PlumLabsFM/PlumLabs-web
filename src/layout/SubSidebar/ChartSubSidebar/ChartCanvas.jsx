@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDrop } from 'react-dnd';
 import BarChart from '../ChartSubSidebar/Barchart';
+import LineChart from './LineChart';
 import PieChart from './PieChart';
-// import LineChart from '../ChartSubSidebar/LineChart';
 
 const ChartCanvas = () => {
 	const [droppedChartType, setDroppedChartType] = useState(null);
@@ -19,8 +19,8 @@ const ChartCanvas = () => {
 		switch (droppedChartType) {
 		case 'bar':
 			return <BarChart />;
-			// case 'line':
-			//     return <LineChart />;
+		case 'line':
+			return <LineChart />;
 		case 'pie':
 			return <PieChart />;
 		default:

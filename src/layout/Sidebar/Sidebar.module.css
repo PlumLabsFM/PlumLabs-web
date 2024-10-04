@@ -39,7 +39,7 @@
 }
   
   
-  .menuIcon {
+.menuIcon {
     margin-right: 10px;
     font-size: 24px;
   }
@@ -50,17 +50,7 @@
 }
   
  
-  .contentOpen {
-    margin-left: 250px;  
-    padding: 20px;
-    transition: margin-left 0.3s ease;
-  }
-  
-  .contentClosed {
-    margin-left: 100px; 
-    padding: 20px;
-    transition: margin-left 0.3s ease;
-}
+ 
   
 .container {
     display: flex;
@@ -73,6 +63,7 @@
     display: flex;
     align-items: start;
     justify-content: center;
+    cursor: pointer;
 }
 
 .mainContainerW {
@@ -81,4 +72,8 @@
     justify-content: center;
     width: 100px;
 }
-  
+
+.active {
+    background: rgb(45,81,185);
+    background: linear-gradient(38deg, rgba(45,81,185,1) 29%, rgba(175,103,222,1) 63%);
+}
