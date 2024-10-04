@@ -3,6 +3,7 @@ import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import AppStore from '../src/pages/AppStore/AppStore';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
+import { PageLayout } from './layout/Pagelayout/Pagelayout';
 import Chart from './pages/Chart/Chart';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Home from './pages/Home/Home';
@@ -27,8 +28,7 @@ function App() {
 	const navbarProps = {
 		"/app-store": {title: "APP  STORE" },
 		"/tool-kit": {title: "TOOL KIT" },
-		"/plum-vision": {title: ""},
-		"/chart": {title: ""}
+		"/plum-vision": {title: ""}
 	};
 
 	const selectedNavbarProps = navbarProps[location.pathname] || {};
@@ -44,7 +44,10 @@ function App() {
 				<Route path="/app-store" element={<Protected><AppStore/></Protected>} />
 				<Route path="/tool-kit" element={<Protected><ToolKit/></Protected>} />
 				<Route path="/plum-vision" element={<Protected><PlumVision/></Protected>} />
-				<Route path="/chart" element={<Protected><Chart/></Protected>} />
+				<Route path="/" element={<PageLayout/>}>
+					<Route path="/chart" element={<Chart/>} />
+					{/* <Route path="/demo" element={<Demo />} /> */}
+				</Route>
 			</Routes>
 		</>
 	);
