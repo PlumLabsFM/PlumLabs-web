@@ -8,7 +8,7 @@ import ChartSubSidebar from '../SubSidebar/ChartSubSidebar/ChartSubSidebar';
 import styles from './Sidebar.module.css';
 
 export default function Sidebar({ isOpen, setIsOpen }) {
-	const [activeItem, setActiveItem] = useState(null);
+	const [activeItem, setActiveItem] = useState(3);
 
 	const handleToggle = (index) => {
 		setIsOpen(!isOpen);

@@ -34,7 +34,8 @@ const ChartCanvas = () => {
 			style={{
 				backgroundColor: isOver ? '#e6f7ff' : 'white',
 				padding: '20px',
-				minHeight: '250px'
+				minHeight: '250px',
+				width: '79%'
 			}}
 		>
 			{droppedChartType ? renderChart() : (
