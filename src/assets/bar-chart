@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="p:domain_verify" content="666add26d1fc9dda2454e38b4d120d7a">
+    <link rel="icon" href="/site/img/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/site/img/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/site/img/apple-touch-icon.png">
+    <link rel="canonical" href="https://vizzlo.com/data-viz-guide/bar-chart/what-is-a-bar-chart">
+
+    <meta name="description" content="Learn the definition, history and development of the bar chart">
+    <meta name="keywords" content="chart, graphics, infographics, diagrams, business graphics, presentations, chart designer, chart maker, online chart maker, presentation tool, chart tool">
+    <meta property="og:title" content="All about the Bar Chart">
+    <meta property="og:site_name" content="Vizzlo">
+    <meta property="og:description" content="Learn the definition, history and development of the bar chart">
+    <meta property="og:url" content="https://vizzlo.com/data-viz-guide/bar-chart/what-is-a-bar-chart">
+    <meta property="og:image" content="https://vizzlo.com/site/img/logo200.png">
+
+    <link rel="preload" href="/site/fonts/euclid-flex/EuclidFlex-Bold-WebXL.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="sitemap" href="/sitemap-index.xml">
+
+    <title>All about the Bar Chart — Vizzlo</title>
+
+    <script type="text/javascript">
+        try {
+            (function () {
+                var t = document.createElement("script");
+                (t.type = "text/javascript"),
+                    (t.async = !0),
+                    (t.src = "https://cdn.firstpromoter.com/fprom.js"),
+                    (t.onload = t.onreadystatechange =
+                        function () {
+                            var t = this.readyState;
+                            if (!t || "complete" == t || "loaded" == t)
+                                try {
+                                    $FPROM.init("uye389we", ".vizzlo.com");
+                                } catch (t) {}
+                        });
+                var e = document.getElementsByTagName("script")[0];
+                e.parentNode.insertBefore(t, e);
+            })();
+        } catch (e) {
+            console.log(e);
+            throw e;
+        }
+    </script>
+
+    <script defer data-api="/c/event" data-domain="vizzlo.com" src="/c/script.js"></script>
+<link rel="stylesheet" href="/_astro/style.DqD1klvw.css">
+<style>.demo-dialog-container[data-astro-cid-zkp5prov]{position:fixed;inset:0;z-index:10000;transform:scale(0);transition:transform .15s ease-in-out}.demo-dialog--overlay[data-astro-cid-zkp5prov]{background:#0a0a0a33;position:fixed;inset:0;z-index:10000;width:100vw;height:100vh;display:none}.vzl-primary-btn[data-astro-cid-zkp5prov]{box-shadow:none!important;background:#45b5c3!important;color:#fff!important}.vzl-description-dialog[data-astro-cid-zkp5prov]{position:relative;background:#fff}.vzl-description-dialog[data-astro-cid-zkp5prov] .close-btn[data-astro-cid-zkp5prov]{position:absolute;top:10px;right:15px}.vzl-description-dialog[data-astro-cid-zkp5prov] .bp4-dialog-body[data-astro-cid-zkp5prov]{padding:5px 10px}.vzl-description-dialog[data-astro-cid-zkp5prov] .vzl-description-dialog-heading[data-astro-cid-zkp5prov] h4[data-astro-cid-zkp5prov]{max-width:calc(100% - 5px);margin-bottom:5px}.vzl-description-dialog[data-astro-cid-zkp5prov] .vzl-description-dialog-heading[data-astro-cid-zkp5prov] .lead[data-astro-cid-zkp5prov]{font-size:16px;line-height:1.3em}
+.cookie-notice-wrapper[data-astro-cid-uz2wdcl7]{position:fixed;bottom:50px;left:0;right:0;z-index:1040}.cookie-notice[data-astro-cid-uz2wdcl7]{max-width:560px;background-color:#fbfbfb;box-shadow:0 0 4px #9e9e9e;border-radius:4px}.cookie-notice[data-astro-cid-uz2wdcl7] svg[data-astro-cid-uz2wdcl7]{width:20px;height:20px;cursor:pointer}@media screen and (max-width: 767px){.cookie-notice-wrapper[data-astro-cid-uz2wdcl7]{top:initial;bottom:0}.cookie-notice[data-astro-cid-uz2wdcl7]{font-size:.8em;border-radius:0;width:100%;max-width:100%;box-shadow:0 4px 4px #9e9e9e}}
+</style></head>
+
+    <body class="page--data-viz-guide">
+        <script>
+            if (window.top !== window || window.location.search.indexOf("mode=office") > -1) {
+                document.body.classList.add("office");
+            }
+        </script>
+
+        <div class="position-relative d-block w-100">
+            <nav id="navbar" class="main-navbar main-navbar--public fn-scroll-toggle navbar navbar-expand-md fixed-top navbar-dark pt-2 pb-0 py-md-0">
+    <div id="navbarOverlay" class="navbar-overlay"></div>
+
+    <div class="main-navbar__container container">
+        <div>
+            <button class="navbar-toggler pl-0 pr-3" id="mobile-menu-button" type="button" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
+                <i class="svg-icon navbar-toggler__menu">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+                    </svg>
+                </i>
+            </button>
+
+            <a class="navbar-brand navbar-brand__main" href="/" id="vizzloLogo">
+                <div class="navbar-brand__img--small d-inline-block d-lg-none">
+                    <img src="/_astro/logo80.CNg6H5RK_ZsWjcg.webp" class="img-fluid" alt="Vizzlo" width="28" height="28" loading="lazy" decoding="async">
+                </div>
+
+                <div class="d-none d-lg-inline-block">
+                    <img src="/_astro/vizzlo_brand.BIl42wSQ_WQy0I.svg" class="navbar-brand__img mt-2" alt="Vizzlo" width="110" height="25" loading="lazy" decoding="async">
+
+                    <div class="navbar-brand__patch position-relative mr-2">
+                        <img src="/_astro/patch_white.C-ytbV7T_281YXA.svg" alt="Vizzlo" width="80" height="100" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse offcanvas-collapse" id="navbarSupportedContent">
+            <ul class="main-navbar__menu navbar-nav mr-auto" id="navbarMenu">
+                <!-- Mobile Item -->
+                <li class="nav-item d-block d-md-none ">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+
+                <li class="nav-item ">
+                    <a id="marketLink" class="nav-link" href="/graphs">Create</a>
+                </li>
+
+                <li class="nav-item ">
+                    <a id="galleryLink" class="nav-link" href="/gallery">Gallery</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a id="guideLink" class="nav-link" href="/data-viz-guide">Data Viz Guide</a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="/pricing">Pricing</a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="/apps">Apps</a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="/changelog">Changelog</a>
+                </li>
+
+                <li class="dropdown-divider d-block d-md-none"></li>
+
+                <li class="nav-item d-block d-md-none">
+                    <a class="nav-link" target="_blank" href="/blog">Blog</a>
+                </li>
+
+                <li class="nav-item d-block d-md-none">
+                    <a class="nav-link" target="_blank" href="https://help.vizzlo.com/">Help</a>
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <button id="contactSalesButton" class="btn main-navbar__signin shadow-none no-uppercase" onclick="return showDemo()">
+                Contact Sales
+            </button>
+
+            <span id="signinButtons">
+                <a id="loginButton" class="btn main-navbar__signin shadow-none mr-1 no-uppercase js_login_btn" rel="nofollow" href="/login">
+                    Sign in
+                </a>
+                <a id="regsiterButton" href="/register" class="btn main-navbar__signup btn-outline-light shadow-none no-uppercase js_register_btn" rel="nofollow">
+                    Register
+                </a>
+            </span>
+            <span id="dashboardButton" style="display: none">
+                <a href="/home" class="btn main-navbar__signup btn-outline-light shadow-none no-uppercase" rel="nofollow">
+                    Dashboard →
+                </a>
+            </span>
+        </div>
+    </div>
+
+    <ul class="nav nav-tabs submenu-tabs nav-fill d-md-none w-100 mt-2">
+        <li class="nav-item">
+            <a class="nav-link py-2 pl-0 text-left " href="/graphs">Create</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link py-2 " href="/gallery">Gallery</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link py-2 pr-0 text-right" href="/pricing">Pricing</a>
+        </li>
+    </ul>
+</nav>
+
+
+
+<!-- <script src="{{"https://www.google.com/recaptcha/api.js?render=" ~ config.extra.recaptchaPublicKey}}"></script> -->
+<!-- <script>
+	const csRecaptchaPublicKey = "{{config.extra.recaptchaPublicKey}}";
+	// grecaptcha.ready(function () {
+	// 	grecaptcha.execute(csRecaptchaPublicKey, { action: 'contact_form' }).then(function (token) {
+	// 		document.getElementById("cs-token-input").setAttribute("value", token);
+	// 		document.getElementById("cs-submit-button").removeAttribute("disabled");
+	// 	});
+	// });
+</script> -->
+
+<div class="contact-sales--demo-dialog" data-astro-cid-zkp5prov>
+	<div id="csDialogOverlay" class="demo-dialog--overlay" data-astro-cid-zkp5prov></div>
+	<div class="demo-dialog-container bp4-dialog-container" data-astro-cid-zkp5prov>
+		<div class="vzl-description-dialog bp4-dialog" data-astro-cid-zkp5prov>
+			<input type="hidden" name="demo" value="true" data-astro-cid-zkp5prov>
+			<button id="csCloseBtn" type="button" aria-label="Close" class="close-btn bp4-button bp4-minimal bp4-dialog-close-button" data-astro-cid-zkp5prov>
+				<span class="bp4-icon bp4-icon-small-cross" data-astro-cid-zkp5prov>
+					<svg data-icon="small-cross" width="20" height="20" viewBox="0 0 20 20" data-astro-cid-zkp5prov>
+						<desc data-astro-cid-zkp5prov>small-cross</desc>
+						<path d="M11.41 10l3.29-3.29c.19-.18.3-.43.3-.71a1.003 1.003 0 00-1.71-.71L10 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42L8.59 10 5.3 13.29c-.19.18-.3.43-.3.71a1.003 1.003 0 001.71.71l3.29-3.3 3.29 3.29c.18.19.43.3.71.3a1.003 1.003 0 00.71-1.71L11.41 10z" fill-rule="evenodd" data-astro-cid-zkp5prov></path>
+					</svg>
+				</span>
+			</button>
+			<div class="bp4-dialog-body" data-astro-cid-zkp5prov>
+				<div class="vzl-description-dialog-heading" data-astro-cid-zkp5prov>
+					<h4 data-astro-cid-zkp5prov>Request a Demo</h4>
+					<p class="lead" data-astro-cid-zkp5prov>
+						Fill out the form, and we'll get in touch as soon as possible.
+					</p>
+				</div>
+
+				<input type="hidden" name="_csrf_token" value="" data-astro-cid-zkp5prov>
+
+				<div class="bp4-form-group" data-astro-cid-zkp5prov>
+					<label class="bp4-label" for="rename-folder-input" data-astro-cid-zkp5prov>Name of contact<span class="bp4-text-muted" data-astro-cid-zkp5prov></span></label>
+					<div class="bp4-form-content" data-astro-cid-zkp5prov>
+						<div class="bp4-input-group" data-astro-cid-zkp5prov><input id="demo-contact" placeholder="Ms Doe" class="bp4-input" data-astro-cid-zkp5prov></div>
+					</div>
+				</div>
+				<div class="bp4-form-group" data-astro-cid-zkp5prov>
+					<label class="bp4-label" for="rename-folder-input" data-astro-cid-zkp5prov>Work email<span class="bp4-text-muted" data-astro-cid-zkp5prov></span></label>
+					<div class="bp4-form-content" data-astro-cid-zkp5prov>
+						<div class="bp4-input-group" data-astro-cid-zkp5prov><input id="demo-email" placeholder="janedoe@mail.com" name="email" class="bp4-input" data-astro-cid-zkp5prov></div>
+					</div>
+				</div>
+				<div class="bp4-form-group" data-astro-cid-zkp5prov>
+					<label class="bp4-label" for="rename-folder-input" data-astro-cid-zkp5prov>Company name<span class="bp4-text-muted" data-astro-cid-zkp5prov></span></label>
+					<div class="bp4-form-content" data-astro-cid-zkp5prov>
+						<div class="bp4-input-group" data-astro-cid-zkp5prov><input id="demo-company" placeholder="Company name" name="company" class="bp4-input" data-astro-cid-zkp5prov></div>
+					</div>
+				</div>
+				<div class="bp4-form-group" data-astro-cid-zkp5prov>
+					<label class="bp4-label" for="rename-folder-input" data-astro-cid-zkp5prov>Comment<span class="bp4-text-muted" data-astro-cid-zkp5prov></span></label>
+					<div class="bp4-form-content" data-astro-cid-zkp5prov>
+						<textarea id="demo-comment" rows="5" name="message" class="bp4-input w-100" placeholder="We are interested in Vizzlo for Marketing and Sales, would you be available on Wednesday?" data-astro-cid-zkp5prov></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="bp4-dialog-footer" data-astro-cid-zkp5prov>
+				<div class="bp4-dialog-footer-actions" data-astro-cid-zkp5prov>
+					<!-- <input id="cs-token-input" type="hidden" name="g-recaptcha-response" /> -->
+					<button id="cs-submit-button" type="submit" class="vzl-primary-btn bp4-button bp4-intent-primary" data-astro-cid-zkp5prov>Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="application/javascript">
+	function submitRequest() {
+		const emailField = document.getElementById("demo-email");
+		const contactField = document.getElementById("demo-contact");
+		const email = emailField.value;
+		const contact = contactField.value;
+
+		emailField.classList.remove("bp4-intent-danger");
+		contactField.classList.remove("bp4-intent-danger");
+
+		if (email.length <= 0) {
+			emailField.classList.add("bp4-intent-danger");
+			return;
+		}
+
+		if (contact.length <= 0) {
+			contactField.classList.add("bp4-intent-danger");
+			return;
+		}
+
+		const data = {
+			message: document.getElementById("demo-comment").value,
+			email,
+			action: "demo",
+			fields: {
+				contact,
+				"company": document.getElementById("demo-company").value
+			}
+		};
+
+		fetch("/contact/request", {
+			method: "POST",
+			body: JSON.stringify(data),
+			credentials: "include"
+		}).then(async r => {
+			if (r.ok)
+				return r;
+			throw await r.statusText
+		}).then(r => {
+			hideDemo();
+			clearInputs();
+		}).catch(e => console.error(e))
+	}
+
+	function clearInputs() {
+		document.getElementById("demo-comment").value = "";
+		document.getElementById("demo-company").value = "";
+		document.getElementById("demo-email").value = "";
+		document.getElementById("demo-contact").value = "";
+	}
+
+	function hideDemo() {
+		document.querySelector(".demo-dialog--overlay").style.display = "none";
+		document.querySelector(".demo-dialog-container").style.transform = "scale(0)";
+		document.body.setAttribute('style', '');
+		return false;
+	}
+
+	document.querySelector("#cs-submit-button").addEventListener("click", submitRequest);
+
+	document.querySelector("#csCloseBtn").addEventListener("click", hideDemo);
+	document.querySelector("#csDialogOverlay").addEventListener("click", hideDemo);
+
+	(function () {
+		const f = document.querySelector(".bp4-dialog-body > input[name=_csrf_token]");
+		const m = document.cookie.match(/VZL_CSRF=([^;]*)/) || null;
+		if (f && m) {
+			f.setAttribute("value", m[1]);
+		}
+	})();
+
+</script>
+
+<script type="application/javascript">
+    function showDemo() {
+        document.querySelector(".demo-dialog--overlay").style.display = "block";
+        document.querySelector(".demo-dialog-container").style.transform = "scale(1)";
+        document.body.setAttribute("style", "overflow:hidden !important");
+        return false;
+    }
+
+    (function () {
+        const signin = document.querySelector("#signinButtons");
+        const home = document.querySelector("#dashboardButton");
+        if (signin && home && window.document.cookie.match(/VZL_IN=/)) {
+            signin.style.display = "none";
+            home.style.display = "inline";
+        }
+    })();
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('#mobile-menu-button')?.addEventListener("click", function(e) {
+            document.body.classList.toggle('navbar--open');
+        });
+
+        document.querySelector("#navbarOverlay")?.addEventListener("click", function(e) {
+            document.body.classList.remove('navbar--open');
+        });
+    });
+</script>
+            <!-- {# include "public-login-slider.html" #} -->
+        </div>
+
+        <main class="">
+            <section id="chartVizzardSection" class="chart-vizzard-section py-3 py-lg-3 container-fluid chart-vizzard-nav-section">
+    <div class="container p-0">
+        <div class="row col-12 align-items-center justify-content-lg-center">
+            <div class="d-flex align-items-center mr-md-5">
+                <div class="mr-3 new-tag">
+                    <b>PREVIEW</b>
+                </div>
+                <div class="d-flex flex-column flex-lg-row align-items-lg-center">
+                    <h4 class="mr-lg-3 mb-0 d-flex">Chart Vizzard</h4>
+                    <span class="lead">Vizzlo's AI-based chart generator</span>
+                </div>
+            </div>
+
+            <a href="/ai" class="btn shadow-none btn-outline-light no-uppercase mt-2 mt-lg-0">Learn more and give it a try <i class="svg-icon svg-icon--20">
+                    <svg id="chevron-right" viewBox="0 0 24 24">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+                    </svg>
+                </i></a>
+        </div>
+    </div>
+</section>
+
+            
+
+            
+	<section class="title-section">
+		<div class="container">
+			<div class="d-inline-flex align-items-center">
+				<i class="svg-icon back-icon svg-icon--20 header-arrow">
+					<svg><use xlink:href="/site/img/icons.svg#chevron-left"></use></svg>
+				</i>
+				<b><a href="/data-viz-guide/bar-chart">
+					Bar Charts
+				</a></b>
+
+				
+			</div>
+	
+			
+			<h1 class="display-4 mt-2 mb-3">What is a Bar Chart?</h1>
+			<div class="h3 text-subhead">
+				Learn the definition, history and development of the bar chart
+			</div>
+		</div>
+	</section>
+	
+	<main role="main">
+		<div id="article-wrapper" class="container pt-6">
+			<div class="row">
+				<div class="col-12 col-lg-4 col-xl-3">
+					<div class="sticky-bar">
+					  <div id="sticky-bar__navigation">
+							<h4 id="sticky-bar__title">Sections</h4>
+							<ul class="list-unstyled">
+								<li class="mb-2 sticky-bar__toc-element ">
+										<a href="#bar-chart-definition">Bar Chart Definition</a>
+									</li><li class="mb-2 sticky-bar__toc-element ">
+										<a href="#development-and-history-of-the-bar-chart">Development and History of the Bar Chart</a>
+									</li><li class="mb-2 sticky-bar__toc-element ">
+										<a href="#grouped-and-stacked-bar-charts">Grouped and stacked bar charts</a>
+									</li><li class="mb-2 sticky-bar__toc-element ">
+										<a href="#stacked-bar-chart">Stacked Bar Chart</a>
+									</li><li class="mb-2 sticky-bar__toc-element ">
+										<a href="#segmented-bar-chart">Segmented Bar Chart</a>
+									</li><li class="mb-2 sticky-bar__toc-element ">
+										<a href="#what-is-not-a-bar-chart-histograms">What is not a Bar chart: Histograms</a>
+									</li>
+							</ul>
+						</div>
+						 <!--MOBILE DROPDOWN-->
+						 <div class="market-details__mobile-select">
+							 <button id="mobileDropdownToggleBtn" class="btn btn-light dropdown-toggle shadow-none mb-3 sticky-mobile__button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								navigate to
+							</button>
+							<div id="mobileDropdown" class="flex-column dropdown-menu mt-0 sticky-mobile__drop ">
+                                <ul class="list-unstyled px-3 py-1 mb-0">
+                                    <li class="mb-2 sticky-bar__toc-element ">
+                                            <a href="#bar-chart-definition">Bar Chart Definition</a>
+                                        </li><li class="mb-2 sticky-bar__toc-element ">
+                                            <a href="#development-and-history-of-the-bar-chart">Development and History of the Bar Chart</a>
+                                        </li><li class="mb-2 sticky-bar__toc-element ">
+                                            <a href="#grouped-and-stacked-bar-charts">Grouped and stacked bar charts</a>
+                                        </li><li class="mb-2 sticky-bar__toc-element ">
+                                            <a href="#stacked-bar-chart">Stacked Bar Chart</a>
+                                        </li><li class="mb-2 sticky-bar__toc-element ">
+                                            <a href="#segmented-bar-chart">Segmented Bar Chart</a>
+                                        </li><li class="mb-2 sticky-bar__toc-element ">
+                                            <a href="#what-is-not-a-bar-chart-histograms">What is not a Bar chart: Histograms</a>
+                                        </li>
+                                </ul>
+							</div>
+						 </div>
+					</div>
+				</div>
+				<div id="sticky-bar__readinginfo" class="sticky-bar__readinginfo--wrap sticky-bar__readinginfo--hidden">
+					<!--add reading time-->
+					<div class="d-flex">
+						<div id="sticky-bar__reading-pie" class="sticky-bar__pie-wrap"></div>
+						<p class="sticky-bar__category mb-0"><i>6 min read</i><br>
+							<!--categories list-->
+                            
+						</p>
+					</div>
+				</div>
+				
+	
+	
+				<div class="col-12 col-lg-8 col-xl-9 mb-5 position-relative">
+					<div class="guide-post__content">
+						<h2 id="bar-chart-definition">Bar Chart Definition</h2>
+<p>We are often interested in a representation of the order of magnitude of a series of numbers. For example, we could imagine the number of countries per continent, or the total number of goals scored by football clubs in a season, or <a href="https://vizzlo.com/gallery/bar-chart/example/life-expectancy-gap">the average age of US Americans compared to the average age within all other OECD countries over time</a>.</p>
+<p>In all these cases we have a number of categories (e.g. continents, football clubs or states) and a quantitative value for each category. Typically, a bar chart is the first thing that comes to mind when we want to visualize such orders of magnitude. That is, a bar chart is the most common visual when you want to show numerical values for some set of categories. Take the life expectancy example mentioned above and shown below:</p>
+<figure>
+    <img class="cursor-pointer img-fluid d-block mx-auto " data-toggle="modal" data-target="#site-uploads-us-life-expectancy-gap-png" src="/site/uploads/us-life-expectancy-gap.png" alt="A bar chart showing difference between life expectancy in the USA and OECD countries.">
+    <figcaption class="pt-1 text-center">
+		
+	</figcaption>
+</figure>
+
+<div class="modal fade p-0" id="#site-uploads-us-life-expectancy-gap-png" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <img class="img-fluid text-center d-block mx-auto" onmousedown="if (event.preventDefault) event.preventDefault()" draggable="false" alt="" src="/site/uploads/us-life-expectancy-gap.png">
+    </div>
+</div>
+<p>This is a clever and effective visualization because it contains information from three variables:</p>
+<ol>
+<li>The life expectancy of US citizens</li>
+<li>The life expectancy of OECD citizens</li>
+<li>Time</li>
+</ol>
+<p>For the years between 1960 and 2017, the chart shows the difference in average life expectancy between US and OECD citizens. Strikingly, the shift in ratios is illustrated. While US Americans lived longer on average until the year 2000, the situation has reversed since then. In 2017, US citizens lived on average two years less than people in other OECD countries.</p>
+<p>One problem we commonly encounter with vertical bars is that the labels identifying each bar take up a lot of space. Longer labels are harder to fit into the bar width when you are comparing a larger number of categories. There are 4 ways that this problem can be approached</p>
+<ol>
+<li>Use acronyms, abbreviations or to shorten the terms</li>
+<li>Rotate the axis labels</li>
+<li>Flip the chart vertically</li>
+<li>Hide the axis completely (and use an annotation)</li>
+</ol>
+<p>We have used the fourth approach in the example on life expectancy because the columns are ordered by time anyway and the value for a particular year is of less interest. Rather, it is interesting for the viewer to know the year in which the conditions have reversed, and we have used an annotation for this.</p>
+<p>Let us consider <a href="https://vizzlo.com/gallery/bar-chart/example/carbon-loading">another example taken from our gallery</a>.</p>
+<figure>
+    <img class="cursor-pointer img-fluid d-block mx-auto " data-toggle="modal" data-target="#site-uploads-what-is-bar-chart-example-2-vertical-png" src="/site/uploads/what-is-bar-chart-example-2-vertical.png" alt="A bar chart showing co2 emissions for a person's daily activities.">
+    <figcaption class="pt-1 text-center">
+		
+	</figcaption>
+</figure>
+
+<div class="modal fade p-0" id="#site-uploads-what-is-bar-chart-example-2-vertical-png" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <img class="img-fluid text-center d-block mx-auto" onmousedown="if (event.preventDefault) event.preventDefault()" draggable="false" alt="" src="/site/uploads/what-is-bar-chart-example-2-vertical.png">
+    </div>
+</div>
+<div class="mt-0 mb-3 text-left">
+		<a class="btn btn-secondary shadow-none" href="/create/bar-chart">Make a Bar Chart now</a>
+	</div>
+<p>Using a shorter, abbreviated label doesn’t make much sense in the example above. The best way usually to overcome this problem is to flip the x- and y-axis to make the bars run horizontally. Horizontal labels make the information presented far more accessible.</p>
+<figure>
+    <img class="cursor-pointer img-fluid d-block mx-auto " data-toggle="modal" data-target="#site-uploads-what-is-bar-chart-example-2-horizontal-png" src="/site/uploads/what-is-bar-chart-example-2-horizontal.png" alt="A bar chart showing co2 emissions for a person's daily activities.">
+    <figcaption class="pt-1 text-center">
+		
+	</figcaption>
+</figure>
+
+<div class="modal fade p-0" id="#site-uploads-what-is-bar-chart-example-2-horizontal-png" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <img class="img-fluid text-center d-block mx-auto" onmousedown="if (event.preventDefault) event.preventDefault()" draggable="false" alt="" src="/site/uploads/what-is-bar-chart-example-2-horizontal.png">
+    </div>
+</div>
+<div class="mt-0 text-center register-cta">
+		<div class="lpsection-dashedhorizline-flat mb-2 mt-5"></div>
+			<p class="lead"></p>
+			<a id="regsiterButton" class="col-6 col-lg-3 mx-auto btn btn-secondary shadow-none text-white" href="/register">Try Vizzlo for free</a>
+		<div class="lpsection-dashedhorizline-flat mt-5"></div>
+	</div>
+<p>There are many types of bar chart, e.g. grouped, stacked which can be arranged either <a href="/create/bar-chart">vertically</a> or <a href="/create/horizontal-bar-chart">horizontally</a>. Typically, numerical values are displayed as bar, i.e. rectangles, but instead of using bars, we can also place dots at the location where the corresponding bar would end or use triangles.</p>
+<figure>
+    <img class="cursor-pointer img-fluid d-block mx-auto " data-toggle="modal" data-target="#site-uploads-barstrianglesdots-png" src="/site/uploads/barstrianglesdots.png" alt="Numerical values shown as bars, triangles and dots.">
+    <figcaption class="pt-1 text-center">
+		
+	</figcaption>
+</figure>
+
+<div class="modal fade p-0" id="#site-uploads-barstrianglesdots-png" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <img class="img-fluid text-center d-block mx-auto" onmousedown="if (event.preventDefault) event.preventDefault()" draggable="false" alt="" src="/site/uploads/barstrianglesdots.png">
+    </div>
+</div>
+<h3 id="radial-bar-chart">Radial Bar Chart</h3>
+<p>A <a href="https://vizzlo.com/create/radial-bar-chart">Radial Bar chart</a> or Circular Bar Chart is simply a <a href="https://vizzlo.com/create/bar-chart">Bar Chart</a> plotted on polar coordinates. It is best used for aesthetic reasons because the bars cannot be compared by their lengths. This is because each bar has to be at different radial points, so each bar is judged by its angle. A bar on the outside will be longer by construction than one on the inside, even with an equal value, see example below.</p>
+<figure>
+    <img class="cursor-pointer img-fluid d-block mx-auto " data-toggle="modal" data-target="#site-uploads-what-is-a-bar-chart-radial-bars-png" src="/site/uploads/what-is-a-bar-chart-radial-bars.png" alt="Two radial bar charts showing the same data, once sorted in ascending order and once sorted in descending order.">
+    <figcaption class="pt-1 text-center">
+		<span>Same same but different. Both radial bar charts show the same data but still they give a different impression about it.</span>
+	</figcaption>
+</figure>
+
+<div class="modal fade p-0" id="#site-uploads-what-is-a-bar-chart-radial-bars-png" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <img class="img-fluid text-center d-block mx-auto" onmousedown="if (event.preventDefault) event.preventDefault()" draggable="false" alt="" src="/site/uploads/what-is-a-bar-chart-radial-bars.png">
+    </div>
+</div>
+<p>Humans are better at interpreting straight lines rather than angles, so the Cartesian bar chart is a better choice for comparing values.</p>
+<div class="mt-0 mb-3 text-left">
+		<a class="btn btn-secondary shadow-none" href="/create/radial-bar-chart">Make a Radial Bar Chart now</a>
+	</div>
+<h2 id="development-and-history-of-the-bar-chart">Development and History of the Bar Chart</h2>
+<p>Unusually for such a simple and universally popular diagram, the bar chart did not develop organically over time, with many vague and mysterious sources, but was conceived by a single man (William Playfair) in 1781.</p>
+<p>William Playfair, the Scottish engineer, political economist, and scoundrel, was inspired by Joseph Priestley’s creation of the timeline chart in 1765 as a way of visualizing and comparing information. The major difference between previous data visualizations and Playfair’s invention was that his bar charts measured data by a set (any set) of comparative values, whereas all that had come before was measured either by time (as with Priestly’s timelines) or space (such as coordinates).</p>
+<h2 id="grouped-and-stacked-bar-charts">Grouped and stacked bar charts</h2>
+<p>All examples so far showed how a value varied with respect to one categorical variable. If there are multiple values for each category you want to show, you can use <a href="/create/grouped-bar-chart">a grouped bar chart</a> or <a href="/create/stacked-bar-chart">stack the bars</a> or even <a href="https://vizzlo.com/create/butterfly-chart">a butterfly chart</a>.</p>
+<figure>
+    <img class="cursor-pointer img-fluid d-block mx-auto " data-toggle="modal" data-target="#site-uploads-groupeddbars-stackedbars-butterflychart-png" src="/site/uploads/groupeddbars_stackedbars_butterflychart.png" alt="A grouped bar chart and a stacked bar chart, and a butterfly chart representing the same data.">
+    <figcaption class="pt-1 text-center">
+		
+	</figcaption>
+</figure>
+
+<div class="modal fade p-0" id="#site-uploads-groupeddbars-stackedbars-butterflychart-png" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <img class="img-fluid text-center d-block mx-auto" onmousedown="if (event.preventDefault) event.preventDefault()" draggable="false" alt="" src="/site/uploads/groupeddbars_stackedbars_butterflychart.png">
+    </div>
+</div>
+<h3 id="grouped-bar-chart">Grouped Bar Chart</h3>
+<p><a href="/create/grouped-bar-chart">Grouped bar charts</a> are useful to compares a group of values different values for each category along the x-axis. They can also be referred to as clustered bar graphs, multi-set bar charts, or grouped column charts.</p>
+<figure>
+    <img class="cursor-pointer img-fluid d-block mx-auto " data-toggle="modal" data-target="#site-uploads-what-is-bar-chart-example-3-png" src="/site/uploads/what-is-bar-chart-example-3.png" alt="A grouped bar chart showing how often British people eat animal-free products.">
+    <figcaption class="pt-1 text-center">
+		
+	</figcaption>
+</figure>
+
+<div class="modal fade p-0" id="#site-uploads-what-is-bar-chart-example-3-png" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <img class="img-fluid text-center d-block mx-auto" onmousedown="if (event.preventDefault) event.preventDefault()" draggable="false" alt="" src="/site/uploads/what-is-bar-chart-example-3.png">
+    </div>
+</div>
+<div class="mt-0 mb-3 text-left">
+		<a class="btn btn-secondary shadow-none" href="/create/grouped-bar-chart">Make a Grouped Bar Chart now</a>
+	</div>
+<h3 id="stacked-bar-chart">Stacked Bar Chart</h3>
+<p>Use a <a href="/create/stacked-bar-chart">stacked bar chart</a> when the sum of the amounts represented by the individual stacked bars adds additional information to the chart. Stacking bars instead of grouping them is also appropriate when the individual bars represent counts. <a href="https://vizzlo.com/gallery/stacked-bar-chart/example/hours-spent-with-digital-media">Take the example below, which you can fork from our gallery too</a>. The diagram essentially clarifies two things. Firstly, people in the US are spending more and more time on social media every day, and more and more on their phones.</p>
+<figure>
+    <img class="cursor-pointer img-fluid d-block mx-auto " data-toggle="modal" data-target="#site-uploads-what-is-bar-chart-example-4-png" src="/site/uploads/what-is-bar-chart-example-4.png" alt="A stacked bar chart showing the time in hours spend in the U.S. on digital Media usage per day from 2008 to 2018">
+    <figcaption class="pt-1 text-center">
+		
+	</figcaption>
+</figure>
+
+<div class="modal fade p-0" id="#site-uploads-what-is-bar-chart-example-4-png" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <img class="img-fluid text-center d-block mx-auto" onmousedown="if (event.preventDefault) event.preventDefault()" draggable="false" alt="" src="/site/uploads/what-is-bar-chart-example-4.png">
+    </div>
+</div>
+<p>It is a good idea to display only a small number of different values and then add the actual numbers to the chart. This considerably increases the amount of information conveyed by the chart, keeping the chart clear and eliminating the need for an explicit y-axis.</p>
+<div class="mt-0 mb-3 text-left">
+		<a class="btn btn-secondary shadow-none" href="/create/stacked-bar-chart">Make a Stacked Bar Chart now</a>
+	</div>
+<h3 id="segmented-bar-chart">Segmented Bar Chart</h3>
+<p>Segmented bar charts (also known as “<a href="/create/100percent-stacked-bar-chart">100% stacked bar charts</a>”) show each bar with the same, unified length and a complete value of 100%. The focus here is on the breakdown of each comparative category and their relative sizes rather than their absolute, cumulative values. When there are only two bars in each stack, the resulting visualization can be quite clear. Consider the <a href="https://vizzlo.com/gallery/100percent-stacked-bar-chart/example/women-in-the-workplace">example about the share of women and men in different job roles</a>:</p>
+<figure>
+    <img class="cursor-pointer img-fluid d-block mx-auto " data-toggle="modal" data-target="#site-uploads-what-is-bar-chart-example-5-png" src="/site/uploads/what-is-bar-chart-example-5.png" alt="segmented bar chart showing the percentage of men and women in different job roles">
+    <figcaption class="pt-1 text-center">
+		<span>Source: Five Fifty: The front lines of gender inequality, McKinsey Quarterly—<a href="http://bit.ly/2jzflHw">http://bit.ly/2jzflHw</a></span>
+	</figcaption>
+</figure>
+
+<div class="modal fade p-0" id="#site-uploads-what-is-bar-chart-example-5-png" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <img class="img-fluid text-center d-block mx-auto" onmousedown="if (event.preventDefault) event.preventDefault()" draggable="false" alt="" src="/site/uploads/what-is-bar-chart-example-5.png">
+    </div>
+</div>
+<p>This figure provides an immediate visual representation of the proportions for different job positions. We don’t focus on how many managers or vice-presidents there are in total; to show the comparatively smaller number of C-suite officers than entry-level professionals may give a skewed perspective on the respective importance or power held by these positions. The <em>proportion</em> of those roles that are held by either men or women is the point of interest here.</p>
+<div class="mt-0 mb-3 text-left">
+		<a class="btn btn-secondary shadow-none" href="/create/100percent-stacked-bar-chart">Make a 100% Stacked Bar Chart now</a>
+	</div>
+<h2 id="what-is-not-a-bar-chart-histograms">What is not a Bar chart: Histograms</h2>
+<p>Although a bar chart and a histogram share an almost identical appearance they should not be confused with each other. A histogram shows the distribution of a continuous variable while a bar chart displays a quantitative value for a set of categories.</p>
+<figure>
+    <img class="cursor-pointer img-fluid d-block mx-auto " data-toggle="modal" data-target="#site-uploads-what-is-bar-chart-example-6-png" src="/site/uploads/what-is-bar-chart-example-6.png" alt="A histogram showing the age distribution among the passengers on the Titanic.">
+    <figcaption class="pt-1 text-center">
+		
+	</figcaption>
+</figure>
+
+<div class="modal fade p-0" id="#site-uploads-what-is-bar-chart-example-6-png" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <img class="img-fluid text-center d-block mx-auto" onmousedown="if (event.preventDefault) event.preventDefault()" draggable="false" alt="" src="/site/uploads/what-is-bar-chart-example-6.png">
+    </div>
+</div>
+						</div>
+							<ul class="list-inline guide-post__social d-flex justify-content-center mb-0 mt-8">
+								<li class="list-inline-item mx-3"><a href="https://www.facebook.com/sharer/sharer.php?u=$url" class="mx-1 fa fa-facebook"></a></li>
+								<li class="list-inline-item mx-3"><a href="https://twitter.com/intent/tweet?url=$url" class="mx-1 fa fa-twitter"></a></li>
+								<li class="list-inline-item mx-3"><a href="https://www.linkedin.com/shareArticle?mini=true&url=$url" class="mx-1 fa fa-linkedin" target="_blank"></a></li>
+								<li class="list-inline-item mx-3"><a href="https://pinterest.com/pin/create/button/?url=$url&media=$url.png&description=" class="mx-1 fa fa-pinterest"></a></li>
+							</ul>
+						</div>
+					</div>
+					<div id="btn-top" class="btn btn__totop">
+						<i class="top-icon svg-icon svg-icon--40">
+						<svg><use xlink:href="/site/img/icons.svg#expand-less"></use></svg>
+						</i>
+					</div>
+				</div>
+			
+		
+	
+		
+		<div class="lpsection-dashedline my-6"></div>
+		<div class="section guide-post__annotation col-lg-6 pt-3 pb-2 pl-5 ml-auto mb-lg-6">
+			<h5>Discover More</h5>
+			<ul>
+				<li><a class="guide-post__annotation-item" href="/data-viz-guide/bar-chart/how-to-make-a-bar-chart-for-powerpoint-and-google-slides">The Definitive Guide to Professional Looking Bar Charts</a></li><li><a class="guide-post__annotation-item" href="/data-viz-guide/bar-chart/bar-chart-hacks">Bar Chart Hacks</a></li><li><a class="guide-post__annotation-item" href="/data-viz-guide/bar-chart/how-to-create-a-more-impressive-bar-chart">How to Create a (More Impressive) Bar Chart</a></li>
+			</ul>
+		</div>			
+	
+		<section class="content-section home-hero register-cta">
+			<div class="container text-center justify-content-center">
+				
+						<h2>Want to create a 100% Stacked Bar Chart of your own?</h2>
+						<h3 class="text-subhead mb-5">Creating a 100% Stacked Bar Chart with Vizzlo is quick and easy. Try it for free!</h3>
+					
+				
+				<div class="col-12 col-lg-8 mx-auto">
+						<a id="registerButton" class="btn btn-secondary shadow-none text-white " href="/register">
+							Create free account
+						</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+        </main>
+
+        <footer id="pageFooter" class="content-section footer-section">
+    <div class="container">
+        <div class="row">
+            <dl class="col-12 col-sm-6 col-md-3 col-lg-2">
+                <dt>The Product</dt>
+                <dd><a href="/">Home</a></dd>
+                <dd><a title="Infographics, chart types and visualization templates" href="/graphs">Create</a></dd>
+                <dd><a title="Vizzlo Premium, Business, Enterprise" href="/pricing">Pricing</a></dd>
+                <dd>
+                      <a href="/apps">Apps</a>
+                </dd>
+                <dd>
+                    <a href="/for/google-slides">Google Slides</a>
+                </dd>
+                <dd>
+                    <a href="/for/powerpoint">PowerPoint</a>
+                </dd>
+                <dd><a href="/changelog">Changelog</a></dd>
+            </dl>
+
+            <dl class="col-12 col-sm-6 col-md-3 col-lg-2">
+                <dt>Discover</dt>
+                <dd><a href="/gallery">Examples Gallery</a></dd>
+                <dd><a href="/data-viz-guide">Data Viz Guide</a></dd>
+                <dd><a href="/blog">Blog</a></dd>
+                <dd><a href="https://help.vizzlo.com">Help Center</a></dd>
+            </dl>
+
+            <dl class="col-12 col-sm-6 col-md-3 col-lg-2">
+                <dt>The Solution</dt>
+                <dd><a title="Business Graphics for Project Consultants" href="/for/consultants">Consultants</a></dd>
+                <dd><a title="Business Graphics for Project Managers" href="/for/project-managers">Project Managers</a></dd>
+                <dd><a title="Business Graphics for Enterprises" href="/enterprise">Enterprises</a></dd>
+                <dd><a title="Business Graphics for Teams" href="/for/teams">Teams</a></dd>
+                <dd><a title="Chart Tools for Developers" href="/developers">Developers</a></dd>
+            </dl>
+
+            <dl class="col-12 col-sm-6 col-md-3 col-lg-2">
+                <dt>The Company</dt>
+                <dd><a href="/about">About Us</a></dd>
+                <dd><a href="/jobs">Careers</a></dd>
+                <dd><a href="/contact">Contact Us</a></dd>
+                <dd><a href="https://vizzlo.firstpromoter.com">Affiliates</a></dd>
+                <dd><a href="/security">Security</a></dd>
+            </dl>
+
+            <div class="col-12 col-sm-6 col-md-12 col-lg-4">
+                <dl>
+                    <dt>Follow Us</dt>
+                    <dd>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a href="https://threads.net/@vizzlo" title="Threads" target="_blank">
+                                    <i class="svg-icon svg-icon--36 mr-2 mb-2">
+                                        <svg><use xlink:href="/site/img/icons.svg#threads-rounded"></use></svg>
+                                    </i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/vizzlo" title="Twitter" target="_blank">
+                                    <i class="svg-icon svg-icon--36 mr-2 mb-2">
+                                        <svg><use xlink:href="/site/img/icons.svg#twitter-rounded"></use></svg>
+                                    </i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.linkedin.com/company/vizzlo" title="LinkedIn" target="_blank">
+                                    <i class="svg-icon svg-icon--36 mr-2 mb-2">
+                                        <svg><use xlink:href="/site/img/icons.svg#linkedin-rounded"></use></svg>
+                                    </i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://youtube.com/vizzlo" title="YouTube" target="_blank">
+                                    <i class="svg-icon svg-icon--36 mr-2 mb-2">
+                                        <svg><use xlink:href="/site/img/icons.svg#youtube-rounded"></use></svg>
+                                    </i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/vizzlo" title="GitHub" target="_blank">
+                                    <i class="svg-icon svg-icon--36 mr-2 mb-2">
+                                        <svg><use xlink:href="/site/img/icons.svg#github-rounded"></use></svg>
+                                    </i>
+                                </a>
+                            </li>
+                        </ul>
+                    </dd>
+                    <dd class="border-top border-gray-600 mt-4 pt-4">
+                        <a href="https://itunes.apple.com/us/app/vizzlo/id1457168657" rel="nofollow" target="_blank" class="d-inline-block mr-4 mb-sm-4 mb-md-0">
+                            <img src="/_astro/mac-app-store.CacRoVkw_vNWPS.webp" alt="get app on Mac app store" width="164" height="42" loading="lazy" decoding="async">
+                        </a>
+
+                        <a href="https://www.microsoft.com/en-us/p/vizzlo/9p0kgq2k4qtg" rel="nofollow" class="d-inline-block" target="_blank">
+                            <img src="/_astro/microsoft-btn.IyIyyslT_Z1hUYxq.webp" alt="get app on Microsoft store" width="133" height="48" loading="lazy" decoding="async">
+                        </a>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="row lp-footer__bottomline">
+            <div class="col-md-9 lp-footer__bottomline__copy">
+                © 2024 Vizzlo. Built with ❤ in Leipzig.
+                <br class="d-inline-block d-sm-none">
+                <span class="d-none d-sm-inline-block">&nbsp;</span>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+            </div>
+            <div class="col-md-3 text-md-right mt-4 mt-md-0">
+                <svg width="100px" height="20px" viewBox="0 0 368 79" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"><path d="M0,0.869l19.312,0l17.038,38.512l17.033,-38.512l19.313,0l-36.346,77.9l-36.35,-77.9Z" style="fill:#fff;fill-rule:nonzero;"></path><rect x="78.92" y="0.869" width="17.358" height="77.033" style="fill:#fff;fill-rule:nonzero;"></rect><path d="M139.757,18.012l-31.142,0l0,-17.141l60.759,0l-35.696,59.887l33.417,0l-10.2,17.146l-52.834,0l35.696,-59.892Z" style="fill:#fff;fill-rule:nonzero;"></path><path d="M202.61,17.998l-31.141,0l10.212,-17.141l50.546,0l-35.696,59.887l33.417,0l0,17.146l-63.038,0l35.7,-59.892Z" style="fill:#fff;fill-rule:nonzero;"></path><path d="M238.453,0.869l17.358,0l0,59.783l29.946,0l0,17.25l-47.304,0l0,-77.033Z" style="fill:#fff;fill-rule:nonzero;"></path><path d="M288.809,39.383c0,-21.696 17.688,-39.383 39.383,-39.383c21.705,0 39.392,17.687 39.392,39.383c0,21.704 -17.687,39.384 -39.392,39.384c-21.695,0 -39.383,-17.68 -39.383,-39.384M350.113,39.383c0,-12.366 -9.441,-22.675 -21.921,-22.675c-12.475,0 -21.912,10.309 -21.912,22.675c0,12.367 9.437,22.679 21.912,22.679c12.48,0 21.921,-10.312 21.921,-22.679" style="fill:#fff;fill-rule:nonzero;"></path></svg>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+<div class="cookie-notice-wrapper" id="cookie-notice" style="display: none;" data-astro-cid-uz2wdcl7>
+    <div class="cookie-notice py-2 px-3 d-flex m-auto justify-content-between align-items-center" data-astro-cid-uz2wdcl7>
+        <div data-astro-cid-uz2wdcl7>
+            By using this website, you agree to our use of cookies.
+            <a href="/privacy" data-astro-cid-uz2wdcl7>More info</a>
+        </div>
+        <svg class="cookie-notice__close" viewBox="0 0 16 16" data-astro-cid-uz2wdcl7>
+            <path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M9.41,8l3.29-3.29C12.89,4.53,13,4.28,13,4c0-0.55-0.45-1-1-1
+			c-0.28,0-0.53,0.11-0.71,0.29L8,6.59L4.71,3.29C4.53,3.11,4.28,3,4,3C3.45,3,3,3.45,3,4c0,0.28,0.11,0.53,0.29,0.71L6.59,8
+			l-3.29,3.29C3.11,11.47,3,11.72,3,12c0,0.55,0.45,1,1,1c0.28,0,0.53-0.11,0.71-0.29L8,9.41l3.29,3.29C11.47,12.89,11.72,13,12,13
+			c0.55,0,1-0.45,1-1c0-0.28-0.11-0.53-0.29-0.71L9.41,8z" data-astro-cid-uz2wdcl7></path>
+        </svg>
+    </div>
+</div>
+
+<script>
+    function closeCookieNotice() {
+        localStorage.setItem("cookie-notice", "dismissed");
+        window.document.getElementById("cookie-notice")?.remove();
+    }
+
+	document.querySelector(".cookie-notice__close")?.addEventListener("click", closeCookieNotice);
+
+    const dismissed =
+        localStorage.getItem("cookie-notice") || window.document.cookie.match(/VZL_IN=/);
+    if (!dismissed) {
+        window.document.getElementById("cookie-notice")?.setAttribute("style", "display: block;");
+    }
+</script>
+
+<script>
+    window.vizzloIcons = '/site/img/icons.svg';
+
+    function toggleTopButton(scrollPosition) {
+        const topScrollButton = document.querySelector('#topScrollButton');
+        
+        if(!topScrollButton) return;
+
+        if (scrollPosition > 0) {
+            topScrollButton.classList.remove('d-none');
+            return;
+        }
+
+        topScrollButton.classList.add('d-none');
+    }
+
+    // {# Update navbar and show “topScrollButton” upon scrolling. ------------- #}
+    let lastScrollPosition = 0;
+    let ticking = false;
+
+    const navbar = document.querySelector('#navbar');
+
+    function toggleNavbarColor(scrollPosition) {
+        if (!navbar) {
+            return;
+        }
+
+        if (scrollPosition > 0) {
+            navbar.classList.remove('navbar-dark');
+            navbar.classList.add('navbar-light', 'border-bottom', 'border-gray-200');
+        } else {
+            navbar.classList.remove('navbar-light', 'border-bottom', 'border-gray-200');
+            navbar.classList.add('navbar-dark');
+        }
+    }
+
+    window.addEventListener('scroll', function() {
+        lastScrollPosition = window.pageYOffset;
+
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                let topScrollButton = document.querySelector('#topScrollButton');
+                if (topScrollButton) {
+                    if (lastScrollPosition > 0) {
+                        topScrollButton.classList.remove('d-none');
+                    } else {
+                        topScrollButton.classList.add('d-none');
+                    }
+                }
+
+                if (navbar?.classList.contains('fn-scroll-toggle')) {
+                    toggleNavbarColor(lastScrollPosition)
+                }
+                ticking = false;
+            });
+
+            ticking = true;
+        }
+    });
+
+    // {# ---------------------------------------------------------------------- #}
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const navbar = document.querySelector('#navbar');
+        const scrollToggleClass = 'fn-scroll-toggle';
+
+        if (navbar?.classList.contains(scrollToggleClass)) {
+            toggleNavbarColor(window.scrollY);
+        }
+
+        const backToMarketLink = document.querySelector("#backToMarketLink");
+
+        if (backToMarketLink) {
+            backToMarketLink.addEventListener("click", function (event) {
+                const href = window.sessionStorage.getItem(lastMarketPageKey);
+
+                if(href) {
+                    event.preventDefault();
+                    location.href = href;
+                }
+            });
+        }
+
+        const lastMarkedValue = window.location.pathname === "/" ? window.location.href + "vizzards" : window.location.href;
+        const lastMarketPageKey = "lastMarketPage";
+
+        if(/^\/graphs|^\/$/.test(window.location.pathname)) {
+            window.sessionStorage.setItem(lastMarketPageKey, lastMarkedValue);
+        }
+
+        toggleTopButton(window.pageYOffset);
+    });
+</script>
+    </body></html>
+
+<script type="application/javascript">
+	function getInnerHeight( elm ){
+		const computed = getComputedStyle(elm),
+			padding = parseInt(computed.paddingTop) + parseInt(computed.paddingBottom);
+
+		return elm.clientHeight - padding
+	}
+
+	const triggerEvent = (el, eventName) => {
+		let event;
+
+		if (window.CustomEvent && typeof window.CustomEvent === 'function') {
+			event = new CustomEvent(eventName);
+		} else {
+			event = document.createEvent('CustomEvent');
+			event.initCustomEvent(eventName, true, true);
+		}
+
+		el.dispatchEvent(event);
+	}
+
+
+    var $body = document.querySelector("body");
+    var topScrollButton = document.querySelector("#topScrollButton");
+    var dataVizLastScrollPosition = 0;
+    var dataVizTicking = false;
+    var loryInstance = null;
+    var readingInfoSide = document.querySelector("#sticky-bar__readinginfo");
+    var articleHeight = getInnerHeight(document.querySelector("#article-wrapper"));
+    var newSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    var btnTop = document.querySelector("#btn-top");
+    var guideArtDescription = document.querySelectorAll(".guide-post__description");
+
+    // Lazyload images when visible in viewport
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var lazyImages = [].slice.call(document.querySelectorAll(".lazy"));
+
+        if ("IntersectionObserver" in window) {
+            var lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                for (var i = 0; i < entries.length; i++) {
+                    if (entries[i].isIntersecting) {
+                        var lazyImage = entries[i].target;
+                        lazyImage.src = lazyImage.dataset.src;
+
+                        if (lazyImage.classList.contains("market-details__slide-img")) {
+                            // custom lazyload for slider thumbs
+							triggerEvent(document, "vzl-slide-image-loaded");
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                            continue;
+                        }
+
+                        if (lazyImage.dataset.srcset) {
+                            lazyImage.srcset = lazyImage.dataset.srcset;
+                        }
+
+                        lazyImage.classList.remove("lazy");
+                        lazyImageObserver.unobserve(lazyImage);
+                    }
+                }
+            });
+
+            lazyImages.forEach(function(lazyImage) {
+                lazyImageObserver.observe(lazyImage);
+            });
+
+            return;
+        }
+
+        // IE and Safari :( fallback
+
+        lazyImages.forEach(function(img) {
+            if (img.classList.contains("market-details__slide-img")) {
+                triggerEvent(document, "vzl-slide-image-loaded");
+            }
+
+            img.setAttribute("src", img.getAttribute("data-src"));
+            img.onload = function() {
+                img.removeAttribute("data-src");
+            };
+        });
+    });
+
+    function setReadingInfo() {
+		if(!readingInfoSide) return;
+        readingInfoSide
+            ?.classList.remove("sticky-bar__readinginfo--hidden");
+		readingInfoSide.classList.add("sticky-bar__readinginfo--show");
+    }
+
+    function removeReadingInfo() {
+		if(!readingInfoSide) return;
+        readingInfoSide
+            .classList.remove("sticky-bar__readinginfo--show")
+        readingInfoSide.classList.add("sticky-bar__readinginfo--hidden");
+    }
+
+    function setScrollElements() {
+        btnTop.classList.add("btn__totop-show");
+    }
+
+    function hideScrollElements() {
+        btnTop.classList.remove("btn__totop-show");
+    }
+
+    function toggleReadingInfo(scrollPosition) {
+        var postAnnotation = getInnerHeight(document.querySelector(".guide-post__annotation")) + getInnerHeight(document.querySelector(".lpsection-dashedline"));
+        var titleSection =  document.querySelector(".title-section").clientHeight;
+        setReadingInfoSize();
+        if (scrollPosition > titleSection && scrollPosition < articleHeight - postAnnotation) {
+            setReadingInfo();
+            return;
+        }
+        removeReadingInfo();
+    }
+
+    function toggleArticleSidebar(scrollPosition) {
+        if (scrollPosition > 0) {
+            setScrollElements();
+            toggleReadingInfo(scrollPosition);
+            return;
+        }
+        removeReadingInfo();
+        hideScrollElements();
+    }
+
+    //highlight the active section in the article
+
+    function highlight(scrollPosition) {
+        document.querySelectorAll("#sticky-bar__navigation a").forEach(function(currLink) {
+            const refElement = document.querySelector(currLink.getAttribute("href"));
+			const elementTop = refElement?.getBoundingClientRect()?.top + window.scrollY;
+			const adjustedTop = Math.floor(elementTop) - 75;
+            
+            if (!refElement) {
+                return;
+            } else if (adjustedTop <= scrollPosition) {
+                document.querySelectorAll("#sticky-bar__navigation ul li a").forEach(el => el.classList.remove("sticky__toc-element--active"));
+                currLink.classList.add("sticky__toc-element--active");
+            } else {
+                currLink.classList.remove("sticky__toc-element--active");
+            }
+        });
+    }
+
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this,
+                args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    }
+
+    window.addEventListener("scroll", function() {
+        dataVizLastScrollPosition = window.pageYOffset;
+
+        if (!dataVizTicking) {
+            window.requestAnimationFrame(function() {
+                if (topScrollButton) {
+                    toggleTopButton(dataVizLastScrollPosition);
+                }
+
+				toggleArticleSidebar(dataVizLastScrollPosition);
+				highlight(dataVizLastScrollPosition);
+				handlePie(dataVizLastScrollPosition);
+
+                dataVizTicking = false;
+            });
+
+            dataVizTicking = true;
+        }
+    });
+
+    function setReadingInfoSize() {
+        // Fix size of the readingInfo fixed div
+		if(!readingInfoSide) return; 
+        if (window.innerWidth > 992) {
+            readingInfoSide.style.width = document.querySelector("#sticky-bar__navigation").style.width;
+            readingInfoSide.classList.remove("col-12");
+        } else if (window.innerWidth < 992 && !readingInfoSide.classList.contains(".col-12")) {
+            readingInfoSide.style.width = "auto";
+            readingInfoSide.classList.add("col-12");
+        }
+    }
+
+    // collapse mobile menu on big screen
+
+    var handleResize = debounce(function() {
+        if (window.innerWidth < 768) {
+            return;
+        }
+        setReadingInfoSize();
+
+        var scroll = document.body.scrollTop;
+
+        if ($body.classList.contains("navbar--open")) {
+            $body.classList.remove("navbar--open");
+        }
+    }, 50);
+
+    window.addEventListener("resize", handleResize);
+
+    //Back to top button
+
+    btnTop.addEventListener("click", function(e) {
+        window.scrollTo({top: 0, behavior: "smooth"});
+    });
+
+    // Pie chart in the side-bar
+
+    var handlePie = function(scrollPosition) {
+        var readingStatus = {
+            size: 36,
+            sectors: [
+                {
+                    percentage: 0.01
+                },
+                {
+                    percentage: 0.99
+                }
+            ]
+        };
+
+        function pieScroll(scrollPos) {
+            newSVG.setAttributeNS(
+                null,
+                "style",
+                "width: " + readingStatus.size + "px; height: " + readingStatus.size + "px"
+            );
+            function calculateSectors(readingStatus) {
+                const sectors = [];
+                var fill = ["#45b5c3", "#e0e0e0"];
+                var l = readingStatus.size / 2;
+                var a = 0; // Angle
+                var aRad = 0; // Angle in Rad
+                var z = 0; // Size z
+                var x = 0; // Side x
+                var y = 0; // Side y
+                var X = 0; // SVG X coordinate
+                var Y = 0; // SVG Y coordinate
+                var R = 0; // Rotation
+                let arcSweep = 0;
+
+                for (i = 0; i < readingStatus.sectors.length; i++) {
+                    var readingSector = readingStatus.sectors[i];
+                    a = 360 * readingSector.percentage;
+                    const aCalc = a > 180 ? 360 - a : a;
+                    aRad = (aCalc * Math.PI) / 180;
+                    z = Math.sqrt(2 * l * l - 2 * l * l * Math.cos(aRad));
+                    if (aCalc <= 90) {
+                        x = l * Math.sin(aRad);
+                    } else {
+                        x = l * Math.sin(((180 - aCalc) * Math.PI) / 180);
+                    }
+                    y = Math.sqrt(z * z - x * x);
+                    Y = y;
+                    if (a <= 180) {
+                        X = l + x;
+                        arcSweep = 0;
+                    } else {
+                        X = l - x;
+                        arcSweep = 1;
+                    }
+                    sectors.push({
+                        percentage: readingSector.percentage,
+                        label: readingSector.label,
+                        color: fill[i],
+                        arcSweep: arcSweep,
+                        L: l,
+                        X: X,
+                        Y: Y,
+                        R: R
+                    });
+                    R = R + a;
+                }
+
+                return sectors;
+            }
+            var readPercentage = ((100 / articleHeight) * scrollPos).toFixed(2);
+            readingStatus.sectors[0].percentage = (readPercentage / 100).toFixed(2);
+            readingStatus.sectors[1].percentage = 0.99 - readingStatus.sectors[0].percentage;
+            const sectors = calculateSectors(readingStatus);
+            return sectors;
+        }
+
+        if (scrollPosition > 0 && scrollPosition <= articleHeight) {
+            const sectors = pieScroll(scrollPosition);
+            for (i = 0; i < sectors.length; i++) {
+                var sector = sectors[i];
+                var newSector = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                newSector.setAttributeNS(null, "fill", sector.color);
+                newSector.setAttributeNS(
+                    null,
+                    "d",
+                    "M" +
+                        sector.L +
+                        "," +
+                        sector.L +
+                        " L" +
+                        sector.L +
+                        ",0 A" +
+                        sector.L +
+                        "," +
+                        sector.L +
+                        " 0 " +
+                        sector.arcSweep +
+                        ",1 " +
+                        sector.X +
+                        ", " +
+                        sector.Y +
+                        " z"
+                );
+                newSector.setAttributeNS(
+                    null,
+                    "transform",
+                    "rotate(" + sector.R + ", " + sector.L + ", " + sector.L + ")"
+                );
+                newSVG.appendChild(newSector);
+            }
+            document.getElementById("sticky-bar__reading-pie").appendChild(newSVG);
+        }
+    };
+
+    /// Cut article description
+
+    function truncateText() {
+        for (var i = 0; i < guideArtDescription.length; i++) {
+            var textContent = guideArtDescription[i].textContent;
+            var limit = 150;
+            if (textContent.length >= limit) {
+                textContent = textContent.substring(0, limit) + "...";
+                guideArtDescription[i].innerHTML = textContent;
+            }
+        }
+
+        return guideArtDescription;
+    }
+
+    truncateText(guideArtDescription);
+
+    // cookie check to show/hide register areas in the article
+
+    if (document.cookie.indexOf("VZL_SESSION") >= 0) {
+        var regex = /VZL_SESSION.+[;]?/g;
+        var cookieValue = regex.exec(document.cookie);
+        if (cookieValue[0].indexOf("user") >= 0) {
+            var registerCta = document.getElementsByClassName("register-cta");
+            for (var i = 0; i < registerCta.length; i++) {
+                registerCta[i].classList.add("d-none");
+            }
+        }
+    }
+
+    // article page - scrolls to page link
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+		anchor.addEventListener("click", function(event) {
+			event.preventDefault();
+			const scrollToElement = document.querySelector(anchor.getAttribute("href"));
+			const scrollToY = scrollToElement?.getBoundingClientRect().top + window.scrollY;
+			// scrollToElement.scrollIntoView({behavior: "smooth", block: "start"});
+			console.log("scrollToY - 75", Math.floor(scrollToY) - 75);
+			window.scrollTo({behavior: "smooth", top: Math.floor(scrollToY) - 75});
+    	});
+	}) 
+
+    // article page - all external links will open in a new tab
+
+    function detectExternalLinks() {
+        var content = document.getElementsByClassName("guide-post__content");
+        var links = document.links;
+
+        for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+            if (links[i].hostname != window.location.hostname) {
+                links[i].target = "_blank";
+                links[i].rel = "noopener noreferrer";
+            }
+        }
+    }
+
+    detectExternalLinks();
+
+    document.querySelector("#mobileDropdownToggleBtn")?.addEventListener("click", (e) => {
+        document.querySelector("#mobileDropdown")?.classList.toggle("d-flex");
+    });
+</script>
