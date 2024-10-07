@@ -1,12 +1,10 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import styles from './Chart.module.css';
 // import ChartItem from '../../layout/SubSidebar/ChartSubSidebar/ChartItem';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import ChartCanvas from '../../layout/SubSidebar/ChartSubSidebar/ChartCanvas';
-import { MenuItemsForCharts } from '../../utils/constants';
-import ChartItem from '../../layout/SubSidebar/ChartSubSidebar/ChartItem';
+import styles from './Chart.module.css';
 
 export default function Chart() {
 	const [showChart, setShowChart] = useState();
@@ -14,7 +12,7 @@ export default function Chart() {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await axios.get('https://0zzgwn9r-5000.inc1.devtunnels.ms/portfolio/9', {
+				const response = await axios.get('https://0zzgwn9r-5000.inc1.devtunnels.ms/portfolio/7', {
 					responseType: 'blob'
 				});
 				const imageUrl = URL.createObjectURL(response.data);

@@ -47,8 +47,8 @@ function App() {
 				<Route path="/tool-kit" element={<Protected><ToolKit/></Protected>} />
 				<Route path="/plum-vision" element={<Protected><PlumVision/></Protected>} />
 				<Route path="/" element={<PageLayout/>}>
-					<Route path="/chart" element={<Chart/>} />
 					<Route path="/demo" element={<Demo/>} />
+					<Route path="/chart" element={<Chart/>} />
 				</Route>
 			</Routes>
 		</>

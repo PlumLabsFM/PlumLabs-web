@@ -1,4 +1,4 @@
-export const BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL;
+export const BASE_URL = "https://0zzgwn9r-5000.inc1.devtunnels.ms";
 
 export const AUTH_SERVICE = {
 	LOGIN: `${BASE_URL}/login`,

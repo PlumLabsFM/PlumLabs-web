@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaRegChartBar } from "react-icons/fa";
 import { PiTrolleyFill } from "react-icons/pi";
 import { RiLayoutMasonryLine } from "react-icons/ri";
@@ -8,7 +8,7 @@ import ChartSubSidebar from '../SubSidebar/ChartSubSidebar/ChartSubSidebar';
 import styles from './Sidebar.module.css';
 
 export default function Sidebar({ isOpen, setIsOpen }) {
-	const [activeItem, setActiveItem] = useState(3);
+	const [activeItem, setActiveItem] = useState(2);
 
 	const handleToggle = (index) => {
 		setIsOpen(!isOpen);
@@ -47,8 +47,9 @@ export default function Sidebar({ isOpen, setIsOpen }) {
 						key={index}
 						className={`${isOpen ? styles.mainContainerW : styles.mainContainer} 
 							${activeItem === index ? styles.active : ''}`}
+						onClick={() => handleToggle(index)}
 					>
-						<NavLink to={items.path} className={styles.link} onClick={() => handleToggle(index)}>
+						<NavLink to={items.path} className={styles.link} >
 							<div className={styles.container}>
 								<div className={styles.menuIcon}>{items.Icon}</div>
 								<div className={styles.label}>{items.name}</div>
