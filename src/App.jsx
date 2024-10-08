@@ -47,7 +47,6 @@ function App() {
 				<Route path="/app-store" element={<Protected><AppStore/></Protected>} />
 				<Route path="/tool-kit" element={<Protected><ToolKit/></Protected>} />
 				<Route path="/plum-vision" element={<Protected><PlumVision/></Protected>} />
-				<Route path="/backTestNavbar" element={<BackTestNavbar/>}/>
 				<Route path="/" element={<PageLayout/>}>
 					<Route path="/chart" element={<Chart/>} />
 					<Route path="/demo" element={<Demo/>} />
