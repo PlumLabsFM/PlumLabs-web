@@ -54,7 +54,7 @@ const Login = () => {
 			<div className={style.cardContainer}>
 				<img src={Avatar} className={style.profileImg} alt='Avatar' />
 				<div className={style.formContainer}>
-					<Heading textColor="grey">Login</Heading>
+					<Heading textColor="grey" className={style.loginText}>Login</Heading>
 					<form onSubmit={handleSubmit}>
 						<div>
 							<label className={style.labelText}>{LOGIN_TEXT.EMAIL}</label>
