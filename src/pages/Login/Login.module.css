@@ -21,8 +21,8 @@
 }
 
 .profileImg {
-    height: 7rem;
-    width: 7rem;
+    height: 6rem;
+    width: 6rem;
     background-color: var(--card-bg-color);
     border-radius: 50%;
     z-index: 2;
@@ -35,7 +35,11 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
     width: 300px; 
     position: absolute;
-    top: 5rem;
+    top: 3rem;
+    min-height: 17rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .labelText {

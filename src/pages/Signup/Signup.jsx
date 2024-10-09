@@ -101,7 +101,7 @@ const Signup = () => {
 								required
 							/>
 						</div>
-						<Button text='Sign in' type='submit' loading={isLoading} />
+						<Button text='Sign up' type='submit' loading={isLoading} />
 						<div className={style.alreadyAccountContainer}>
 							<Description textColor="grey">
 								Already have account?
