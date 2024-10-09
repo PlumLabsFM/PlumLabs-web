@@ -1,5 +1,4 @@
 .sidebar {
-    position: fixed;
     left: 0;
     top: 0;
     height: 100vh;
@@ -8,13 +7,13 @@
     display: flex;
     flex-direction: column;
     transition: width 0.3s ease;  
-  }
+}
   
 
-  .sidebarClosed {
+.sidebarClosed {
     width: 100px;
-  }
-  
+}
+
 
 .sidebarOpen {
     width: 239px;
@@ -42,16 +41,13 @@
 .menuIcon {
     margin-right: 10px;
     font-size: 24px;
-  }
+}
   
 
 .label {
     text-align: center;
 }
-  
- 
- 
-  
+   
 .container {
     display: flex;
     flex-direction: column;

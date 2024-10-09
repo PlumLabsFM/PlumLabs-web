@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import AppStore from '../src/pages/AppStore/AppStore';
 import './App.css';
+import BackTestNavbar from './components/BackTestNavbar/BackTestNavbar';
 import Navbar from './components/Navbar/Navbar';
 import { PageLayout } from './layout/Pagelayout/Pagelayout';
 import Chart from './pages/Chart/Chart';

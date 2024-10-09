@@ -1,0 +1,31 @@
+.rightContainer {
+    display:flex;
+    justify-content: center;
+    align-items: start;
+    gap:10px;
+}
+
+.mainContainer {
+    display:flex;
+    justify-content: space-between;
+    padding: 15px;
+
+}
+
+.img {
+    width: 50px;
+    height: 30px;
+    color: #06C1ED;
+}
+
+.imgBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.text {
+    color: #06C1ED ;
+}
