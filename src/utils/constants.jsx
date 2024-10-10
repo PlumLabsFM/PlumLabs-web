@@ -147,8 +147,8 @@ export const COOKIES = {
 };
 
 export const MenuItemsForCharts = [
-	{ name: 'Chart With NLP', icon: <FaChartLine style={{color: 'yellow', width: '50px', height: '30px'}}/>, type: 9 },
-	{ name: 'Annual Returns', icon: <FaRegChartBar style={{color: 'pink', width: '50px', height: '30px'}}/>, type: 7},
-	{ name: 'Drawdown', icon: <FaRegChartBar style={{color: 'red', width: '50px', height: '30px'}}/>, type: 6 },
-	{ name: 'Portfolio Growth', icon: <FaRegChartBar style={{color: 'violet', width: '50px', height: '30px'}}/>, type: 5}
+	{ name: 'Chart With NLP', icon: <FaChartLine style={{color: 'yellow', width: '50px', height: '30px'}}/>, type: 9, graphName:'Portfolio_distribution' },
+	{ name: 'Annual Returns', icon: <FaRegChartBar style={{color: 'pink', width: '50px', height: '30px'}}/>, type: 7, graphName:'Asset_perfomus'},
+	{ name: 'Drawdown', icon: <FaRegChartBar style={{color: 'red', width: '50px', height: '30px'}}/>, type: 6, graphName:'Portfolio_growth'},
+	{ name: 'Portfolio Growth', icon: <FaRegChartBar style={{color: 'violet', width: '50px', height: '30px'}}/>, type: 5, graphName:'Portfolio_drawdown'}
 ];

@@ -5,7 +5,8 @@ import CodeEditor from '../../../components/CodeEditor/CodeEditor';
 import { getChart } from '../../../services/apiServices';
 
 const ChartCanvas = () => {
-	const [droppedChartType, setDroppedChartType] = useState(null);
+	const [droppedChartType, setDroppedChartType] = useState('');
+	const [graphName, setGraphName] = useState(null);
 	const [chartData, setChartData] = useState(null);
 	const [layoutData, setLayoutData] = useState(null);
 
@@ -14,6 +15,7 @@ const ChartCanvas = () => {
 		drop: (item) => {
 			setDroppedChartType(item.type);
 			console.info(item, "item");
+			setGraphName(item.graphName);
 		},
 		collect: (monitor) => ({
 			isOver: monitor.isOver()
@@ -23,7 +25,7 @@ const ChartCanvas = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await getChart(droppedChartType);
+				const response = await getChart(droppedChartType, graphName);
 				setChartData(response?.data?.data);
 				setLayoutData(response?.data?.layout);
 			} catch (error) {
@@ -43,7 +45,7 @@ const ChartCanvas = () => {
 					backgroundColor: isOver ? '#e6f7ff' : 'white',
 					padding: '20px',
 					minHeight: '170px',
-					width: '79%'
+					width: '100%'
 				}}
 			>
 				{chartData !== null ?

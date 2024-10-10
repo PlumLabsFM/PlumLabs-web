@@ -1,5 +1,6 @@
 import MonacoEditor from "@monaco-editor/react";
 import React, { useEffect, useState } from 'react';
+import styles from './CodeEditor.module.css';
 
 const CodeEditor = () => {
 	const [codeValue, setCodeValue] = useState(`# Python Code\nprint("Hello, World!")`);
@@ -18,19 +19,19 @@ const CodeEditor = () => {
 		setCodeValue(value);
 	};
 
-	const saveToFile = () => {
-		const blob = new Blob([codeValue], { type: "text/plain" });
-		const link = document.createElement("a");
-		link.href = URL.createObjectURL(blob);
-		link.download = "code.py";
-		link.click();
-	};
+	// const saveToFile = () => {
+	// 	const blob = new Blob([codeValue], { type: "text/plain" });
+	// 	const link = document.createElement("a");
+	// 	link.href = URL.createObjectURL(blob);
+	// 	link.download = "code.py";
+	// 	link.click();
+	// };
 
 	return (
-		<div>
+		<div className={styles.mainDiv}>
 			<h1>Code Editor</h1>
 			<MonacoEditor
-				height="15rem"
+				height="9rem"
 				width={"40rem"}
 				language="python"
 				value={codeValue}
@@ -39,7 +40,7 @@ const CodeEditor = () => {
 					selectOnLineNumbers: true
 				}}
 			/>
-			<button onClick={saveToFile} style={{ marginTop: "10px" }}>Save to File</button>
+			{/* <button onClick={saveToFile} style={{ marginTop: "10px" }}>Save to File</button> */}
 		</div>
 	);
 };

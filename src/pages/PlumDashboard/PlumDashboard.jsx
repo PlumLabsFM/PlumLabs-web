@@ -5,6 +5,7 @@ import ChartCanvas from '../../layout/SubSidebar/ChartSubSidebar/ChartCanvas';
 import ChartItem from '../../layout/SubSidebar/ChartSubSidebar/ChartItem';
 import { MenuItemsForCharts } from '../../utils/constants';
 import styles from './PlumDashboard.module.css';
+import BackTestNavbar from '../../components/BackTestNavbar/BackTestNavbar';
 
 export default function PlumDashboard() {
 	return (
@@ -15,7 +16,13 @@ export default function PlumDashboard() {
 						{MenuItemsForCharts.map((item, index) => {
 							return (
 								<div key={index} className={styles.charts}>
-									<ChartItem type={item.type} icon={item.icon} label={item.name} className={styles.link}/>
+									<ChartItem 
+                                        type={item.type} 
+                                        icon={item.icon} 
+                                        label={item.name} 
+                                        className={styles.link}
+                                        graphName={item.graphName}
+                                    />
 								</div>
 							);
 						})}
@@ -23,6 +30,7 @@ export default function PlumDashboard() {
 
 				</div>
 				<div className={styles.dropArea}>
+                    <BackTestNavbar />
 					<div className={styles.chartDiv}>
 						<ChartCanvas />
 					</div>

@@ -5,7 +5,7 @@
 }
 
 .subSidebarDiv {
-    width: 12%;
+    width: 8rem;
     height: 100vh;     
     background: rgb(45,81,185);
     background: linear-gradient(38deg, rgba(45,81,185,1) 29%, rgba(175,103,222,1) 63%);
@@ -13,8 +13,8 @@
 }
   
 .dropArea {
-    width: 100%; 
     padding: 20px;
+    width: calc(100% - 15rem);
 }
   
 

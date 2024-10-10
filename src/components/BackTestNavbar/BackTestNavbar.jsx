@@ -1,5 +1,5 @@
 import { Modal } from 'antd';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsFillChatDotsFill } from "react-icons/bs";
 import { BsSearch } from "react-icons/bs";
 import { HiDocument } from "react-icons/hi2";
@@ -11,6 +11,8 @@ import styles from './BackTestNavbar.module.css';
 
 export default function BackTestNavbar() {
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [codeValue, setCodeValue] = useState(`# Python Code\nprint("Hello, World!")`);
+
 	const showModal = () => {
 		setIsModalOpen(true);
 	};
@@ -19,6 +21,23 @@ export default function BackTestNavbar() {
 	};
 	const handleCancel = () => {
 		setIsModalOpen(false);
+	};
+	useEffect(() => {
+		// Fetch the Python file from the public directory
+		fetch("./sample.py")
+			.then((response) => response.text())
+			.then((data) => {
+				setCodeValue(data);
+			})
+			.catch((err) => console.error("Error loading file:", err));
+	}, []);
+
+	const saveToFile = () => {
+		const blob = new Blob([codeValue], { type: "text/plain" });
+		const link = document.createElement("a");
+		link.href = URL.createObjectURL(blob);
+		link.download = "code.py";
+		link.click();
 	};
 	return (
 		<div className={styles.mainContainer}>
@@ -35,8 +54,7 @@ export default function BackTestNavbar() {
 				<div className={styles.imgBlock}>
 					<NavbarButton text='Share' type='submit' onClick={showModal} width={'150px'}/>
 					<Modal title="Share My Results" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-						<p>hi</p>
-
+						<button onClick={saveToFile} style={{ marginTop: "10px" }}>Save to File</button>
 					</Modal>
 				</div>
 			</div>
