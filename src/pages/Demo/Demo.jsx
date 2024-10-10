@@ -2,6 +2,6 @@ import React from 'react';
 
 export default function Demo() {
 	return (
-		<div>Demo</div>
+		<h1 style={{textAlign: 'center'}}> In Progress...</h1>
 	);
 }
