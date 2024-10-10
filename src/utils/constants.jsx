@@ -148,10 +148,7 @@ export const COOKIES = {
 
 export const MenuItemsForCharts = [
 	{ name: 'Chart With NLP', icon: <FaChartLine style={{color: 'yellow', width: '50px', height: '30px'}}/>, type: 'line' },
-	{ name: 'Annual Revenue', icon: <FaRegChartBar style={{color: 'pink', width: '50px', height: '30px'}}/>, type: 'bar' },
-	{ name: 'Downtrend', icon: <FaRegChartBar style={{color: 'red', width: '50px', height: '30px'}}/>, type: 'bar' },
-	{ name: 'Portfolio Growth', icon: <FaRegChartBar style={{color: 'violet', width: '50px', height: '30px'}}/>, type: 'line' },
-	{ name: 'Active Returns', icon: <FaRegChartBar style={{color: 'green', width: '50px', height: '30px'}}/>, type: 'pie' },
-	{ name: 'Billing Returns', icon: <FaRegChartBar style={{color: 'blue', width: '50px', height: '30px'}}/>, type: 'pie' },
-	{ name: 'Billing Mean', icon: <FaRegChartBar style={{color: 'yellow', width: '50px', height: '30px'}} />, type: 'line' }
+	{ name: 'Annual Returns', icon: <FaRegChartBar style={{color: 'pink', width: '50px', height: '30px'}}/>, type: 'bar' },
+	{ name: 'Drawdown', icon: <FaRegChartBar style={{color: 'red', width: '50px', height: '30px'}}/>, type: 'bar' },
+	{ name: 'Portfolio Growth', icon: <FaRegChartBar style={{color: 'violet', width: '50px', height: '30px'}}/>, type: 'line' }
 ];
