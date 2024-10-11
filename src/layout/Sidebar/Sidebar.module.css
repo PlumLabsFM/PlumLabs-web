@@ -6,7 +6,7 @@
     flex-direction: column;
     transition: width 0.3s ease;  
     width: 7rem;
-    gap: 2rem
+   padding: 2rem 0;
 }
   
 

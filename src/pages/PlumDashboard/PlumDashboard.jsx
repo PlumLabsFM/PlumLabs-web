@@ -1,11 +1,11 @@
 import React from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import BackTestNavbar from '../../components/BackTestNavbar/BackTestNavbar';
 import ChartCanvas from '../../layout/SubSidebar/ChartSubSidebar/ChartCanvas';
 import ChartItem from '../../layout/SubSidebar/ChartSubSidebar/ChartItem';
 import { MenuItemsForCharts } from '../../utils/constants';
 import styles from './PlumDashboard.module.css';
-import BackTestNavbar from '../../components/BackTestNavbar/BackTestNavbar';
 
 export default function PlumDashboard() {
 	return (
@@ -16,13 +16,13 @@ export default function PlumDashboard() {
 						{MenuItemsForCharts.map((item, index) => {
 							return (
 								<div key={index} className={styles.charts}>
-									<ChartItem 
-                                        type={item.type} 
-                                        icon={item.icon} 
-                                        label={item.name} 
-                                        className={styles.link}
-                                        graphName={item.graphName}
-                                    />
+									<ChartItem
+										type={item.type}
+										icon={item.icon}
+										label={item.name}
+										className={styles.link}
+										graphName={item.graphName}
+									/>
 								</div>
 							);
 						})}
@@ -30,7 +30,7 @@ export default function PlumDashboard() {
 
 				</div>
 				<div className={styles.dropArea}>
-                    <BackTestNavbar />
+					<BackTestNavbar />
 					<div className={styles.chartDiv}>
 						<ChartCanvas />
 					</div>

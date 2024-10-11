@@ -2,9 +2,11 @@ import { Modal } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { BsFillChatDotsFill } from "react-icons/bs";
 import { BsSearch } from "react-icons/bs";
+import { HiDownload } from "react-icons/hi";
 import { HiDocument } from "react-icons/hi2";
 import { MdOutlinePersonAddAlt } from "react-icons/md";
 import { PiHeadCircuitLight } from "react-icons/pi";
+import { PiCalendarHeart } from "react-icons/pi";
 import NavbarButton from '../elements/NavbarButton/NavbarButton';
 import { Heading, SmallText } from '../elements/Typography/Typography';
 import styles from './BackTestNavbar.module.css';
@@ -16,9 +18,9 @@ export default function BackTestNavbar() {
 	const showModal = () => {
 		setIsModalOpen(true);
 	};
-	const handleOk = () => {
-		setIsModalOpen(false);
-	};
+	// const handleOk = () => {
+	// 	setIsModalOpen(false);
+	// };
 	const handleCancel = () => {
 		setIsModalOpen(false);
 	};
@@ -53,8 +55,20 @@ export default function BackTestNavbar() {
 				<div className={styles.imgBlock}><NavbarButton text='Report' type='submit' /></div>
 				<div className={styles.imgBlock}>
 					<NavbarButton text='Share' type='submit' onClick={showModal} width={'150px'}/>
-					<Modal title="Share My Results" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+					<Modal
+						title="Share My Results"
+						open={isModalOpen}
+						onCancel={handleCancel}
+						footer={null}
+						width={'30%'}
+						style={{ top: 90, right: 0, position: 'absolute' }}
+						bodyStyle={{ maxHeight: '80vh', overflowY: 'auto' }}>
 						<button onClick={saveToFile} style={{ marginTop: "10px" }}>Save to File</button>
+						<hr></hr>
+						<div className={styles.buttons}>
+							<div className={styles.btnImageDiv}><HiDownload className={styles.btnImage}/><SmallText className={styles.textForImg}>Download</SmallText></div>
+							<div className={styles.btnImageDiv}><PiCalendarHeart className={styles.btnImage}/><SmallText className={styles.textForImg}>Share on social</SmallText></div>
+						</div>
 					</Modal>
 				</div>
 			</div>
