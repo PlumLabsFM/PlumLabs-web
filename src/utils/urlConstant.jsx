@@ -10,7 +10,7 @@ export const DOCUMENT = {
 };
 
 export const CHART = {
-	GET_CHART: `${BASE_URL}/portfolio`
+	GET_CHART: `${BASE_URL}/portfolio-graph`
 };
 
 export const LOGIN = AUTH_SERVICE.LOGIN;

@@ -8,7 +8,7 @@
 .mainContainer {
     display:flex;
     justify-content: space-between;
-    padding: 15px;
+    padding: 5px;
 
 }
 
@@ -28,4 +28,25 @@
 
 .text {
     color: #06C1ED ;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 3px;
+}
+
+.btnImageDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btnImage {
+    width: 30px ;
+    height: 25px;
+    padding: 5px;
 }

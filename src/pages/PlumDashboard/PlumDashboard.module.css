@@ -1,21 +1,25 @@
-.sidebar {
-    position: fixed;   
-    left: 89px;          
-    top: 0;            
-    width: 150px;      
+.plumDashboardDiv {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.subSidebarDiv {
+    width: 8rem;
     height: 100vh;     
     background: rgb(45,81,185);
     background: linear-gradient(38deg, rgba(45,81,185,1) 29%, rgba(175,103,222,1) 63%);
     color: white;  
-    border-radius: 20px;   
 }
   
-
+.dropArea {
+    padding: 20px;
+    width: calc(100% - 15rem);
+}
   
 
 .link {
     display: flex;
-    /* align-items: center; */
     padding: 15px 0px;
     color: white;
     text-decoration: none;
@@ -30,7 +34,6 @@
 
 .chartDiv {
     padding: 10px 0px ;
-    height: 100vh;
 }
 
 .charts {
@@ -38,14 +41,4 @@
     justify-content: center;
     align-items: center;
 }
-.contentOpen {
-    margin-left: 250px;  
-    padding: 20px;
-    transition: margin-left 0.3s ease;
-  }
-  
-  .contentClosed {
-    margin-left: 100px; 
-    padding: 20px;
-    transition: margin-left 0.3s ease;
-}
+
