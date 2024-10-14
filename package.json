@@ -12,6 +12,7 @@
     "lint-errors-chart": "eslint --format summary-chart \"src/**/*.{js,jsx}\"",
     "preview": "vite preview"
   },
+  "pre-push": "build",
   "dependencies": {
     "@monaco-editor/react": "^4.6.0",
     "antd": "^5.21.2",
@@ -51,6 +52,7 @@
     "eslint-plugin-react": "^7.36.1",
     "eslint-plugin-react-hooks": "^4.6.2",
     "globals": "^15.9.0",
+    "pre-push": "^0.1.4",
     "prettier": "^3.3.3",
     "typescript": "^5.6.2",
     "vite": "^5.4.1"

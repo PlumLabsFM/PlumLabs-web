@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FaRegChartBar } from "react-icons/fa";
 import { PiTrolleyFill } from "react-icons/pi";
 import { RiLayoutMasonryLine } from "react-icons/ri";
@@ -6,7 +6,7 @@ import { SiJupyter } from "react-icons/si";
 import { NavLink } from 'react-router-dom';
 import styles from './Sidebar.module.css';
 
-export default function Sidebar({ isOpen, setIsOpen }) {
+export default function Sidebar() {
 	const [activeItem, setActiveItem] = useState(2);
 
 	const handleClick = (index) => {
@@ -38,24 +38,22 @@ export default function Sidebar({ isOpen, setIsOpen }) {
 	];
 
 	return (
-	
-			<div className={styles.sidebar}>
-				{menuItems.map((items, index) => (
-					<div
-						key={index}
-						className={`${styles.mainContainer} ${activeItem === index ? styles.active : ''}`}
-						onClick={() => handleClick(index)}
-					>
-						<NavLink to={items.path} className={styles.link}>
-							<div className={styles.container}>
-								<div className={styles.menuIcon}>{items.Icon}</div>
-								<div className={styles.label}>{items.name}</div>
-							</div>
-							{items.subSideBar && <div className={styles.subSideBar}>{items.subSideBar}</div>}
-						</NavLink>
-					</div>
-				))}
-			</div>
-		
+		<div className={styles.sidebar}>
+			{menuItems.map((items, index) => (
+				<div
+					key={index}
+					className={`${styles.mainContainer} ${activeItem === index ? styles.active : ''}`}
+					onClick={() => handleClick(index)}
+				>
+					<NavLink to={items.path} className={styles.link}>
+						<div className={styles.container}>
+							<div className={styles.menuIcon}>{items.Icon}</div>
+							<div className={styles.label}>{items.name}</div>
+						</div>
+						{items.subSideBar && <div className={styles.subSideBar}>{items.subSideBar}</div>}
+					</NavLink>
+				</div>
+			))}
+		</div>
 	);
 }

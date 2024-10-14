@@ -13,6 +13,6 @@ export const uploadDocument = async (id, payload) => {
 	return await HttpPost(`${UPLOAD_DOCUMENT}/${id}`, payload );
 };
 
-export const getChart = async (id, chartName) => {
-	return await HttpGet(`${GET_CHART}/${id}?graph_name=${chartName}`);
+export const getChart = async (userId, chartName) => {
+	return await HttpGet(`${GET_CHART}/${userId}?graph_name=${chartName}`);
 };
