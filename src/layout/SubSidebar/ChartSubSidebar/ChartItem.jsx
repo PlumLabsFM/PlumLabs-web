@@ -2,10 +2,10 @@ import React from 'react';
 import { useDrag } from 'react-dnd';
 import styles from './ChartItem.module.css';
 
-const ChartItem = ({ type, graphName, label, icon }) => {
+const ChartItem = ({graphName, label, icon }) => {
 	const [{ isDragging }, drag] = useDrag({
 		type: 'default',
-		item: { type, graphName },
+		item: { graphName },
 		collect: (monitor) => ({
 			isDragging: monitor.isDragging()
 		})

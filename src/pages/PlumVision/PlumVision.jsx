@@ -43,7 +43,7 @@ export default function PlumVision() {
 
 	const handlePlayButtonClick = () => {
 		if (isFileUploaded) {
-			navigate('/chart');
+			navigate('/plum-dashboard');
 		}
 	};
 

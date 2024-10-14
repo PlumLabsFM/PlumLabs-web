@@ -1,9 +1,8 @@
-import MonacoEditor from "@monaco-editor/react";
-import React, { useEffect, useState } from 'react';
+import MonacoEditor from '@monaco-editor/react';
+import React, { useEffect } from 'react';
 import styles from './CodeEditor.module.css';
 
-const CodeEditor = () => {
-	const [codeValue, setCodeValue] = useState(`# Python Code\nprint("Hello, World!")`);
+const CodeEditor = ({codeValue, setCodeValue}) => {
 
 	useEffect(() => {
 		// Fetch the Python file from the public directory
@@ -19,28 +18,33 @@ const CodeEditor = () => {
 		setCodeValue(value);
 	};
 
-	// const saveToFile = () => {
-	// 	const blob = new Blob([codeValue], { type: "text/plain" });
-	// 	const link = document.createElement("a");
-	// 	link.href = URL.createObjectURL(blob);
-	// 	link.download = "code.py";
-	// 	link.click();
-	// };
+	const handleEditorMount = (editor, monaco) => {
+		monaco.editor.defineTheme('myCustomTheme', {
+			base: 'vs-dark',
+			inherit: true,
+			rules: [],
+			colors: {
+				'editor.background': '#000000',
+				'editor.foreground': '#FFFFFF'
+			}
+		});
+
+		monaco.editor.setTheme('myCustomTheme');
+	};
 
 	return (
 		<div className={styles.mainDiv}>
-			<h1>Code Editor</h1>
 			<MonacoEditor
-				height="9rem"
-				width={"40rem"}
+				height="15rem"
+				width={"100%"}
 				language="python"
 				value={codeValue}
 				onChange={handleEditorChange}
+				onMount={handleEditorMount}
 				options={{
 					selectOnLineNumbers: true
 				}}
 			/>
-			{/* <button onClick={saveToFile} style={{ marginTop: "10px" }}>Save to File</button> */}
 		</div>
 	);
 };

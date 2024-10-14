@@ -6,17 +6,21 @@
 
 .subSidebarDiv {
     width: 8rem;
-    height: 100vh;     
     background: rgb(45,81,185);
     background: linear-gradient(38deg, rgba(45,81,185,1) 29%, rgba(175,103,222,1) 63%);
-    color: white;  
+    color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 7rem;
 }
   
 .dropArea {
-    padding: 20px;
-    width: calc(100% - 15rem);
+    padding: 0 20px;
+    width: calc(100% - 17rem);
+   position: absolute;
+    right: 0;
 }
-  
 
 .link {
     display: flex;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import BackTestNavbar from '../../components/BackTestNavbar/BackTestNavbar';
@@ -8,6 +8,8 @@ import { MenuItemsForCharts } from '../../utils/constants';
 import styles from './PlumDashboard.module.css';
 
 export default function PlumDashboard() {
+	const [codeValue, setCodeValue] = useState(`# Python Code\nprint("Hello, World!")`);
+
 	return (
 		<DndProvider backend={HTML5Backend}>
 			<div className={styles.plumDashboardDiv}>
@@ -27,12 +29,11 @@ export default function PlumDashboard() {
 							);
 						})}
 					</div>
-
 				</div>
 				<div className={styles.dropArea}>
-					<BackTestNavbar />
+					<BackTestNavbar codeValue={codeValue} />
 					<div className={styles.chartDiv}>
-						<ChartCanvas />
+						<ChartCanvas codeValue={codeValue} setCodeValue={setCodeValue} />
 					</div>
 				</div>
 			</div>

@@ -2,18 +2,17 @@ import React from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import AppStore from '../src/pages/AppStore/AppStore';
 import './App.css';
-import BackTestNavbar from './components/BackTestNavbar/BackTestNavbar';
 import Navbar from './components/Navbar/Navbar';
 import { PageLayout } from './layout/Pagelayout/Pagelayout';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Demo from './pages/Demo/Demo';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
+import PlumDashboard from './pages/PlumDashboard/PlumDashboard';
 import PlumVision from './pages/PlumVision/PlumVision';
 import Signup from './pages/Signup/Signup';
 import ToolKit from './pages/ToolKit/ToolKit';
 import { isloggedIn } from './utils/helper';
-import PlumDashboard from './pages/PlumDashboard/PlumDashboard';
 
 function App() {
 	const location = useLocation();
@@ -29,12 +28,10 @@ function App() {
 
 	const navbarProps = {
 		"/app-store": {title: "APP  STORE" },
-		"/tool-kit": {title: "TOOL KIT" },
-		"/plum-vision": {title: ""}
+		"/tool-kit": {title: "TOOL KIT" }
 	};
 
 	const selectedNavbarProps = navbarProps[location.pathname] || {};
-
 
 	return (
 		<>
