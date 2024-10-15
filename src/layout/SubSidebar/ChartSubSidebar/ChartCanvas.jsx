@@ -27,19 +27,30 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 	});
 
 	useEffect(() => {
+		const controller = new AbortController();
 		const fetchData = async () => {
 			setIsLoading(true);
+
+			const { signal } = controller;
+
 			try {
-				const response = await getChart(userId, graphName);
+				const response = await getChart(userId, graphName, signal);
 				setChartData(response?.data?.data);
 			} catch (error) {
-				console.error('Error fetching chart data:', error);
+				console.error(error);
 			} finally {
-				setIsLoading(false);
+				if (!signal.aborted) {
+					setIsLoading(false);
+				}
 			}
 		};
 
 		fetchData();
+
+		return () => {
+			controller.abort();
+		};
+
 	}, [graphName]);
 
 	return (

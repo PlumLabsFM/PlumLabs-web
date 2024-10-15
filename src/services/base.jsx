@@ -8,11 +8,20 @@ const axiosInstance = axios.create({
 	withCredentials: true // to send cookies with every request
 });
 
-export const HttpGet = async ( url, headers = {}, queryParams = {} ) => {
+export const HttpGet = async ( url, headers = {}, queryParams = {}, signal ) => {
 	const queryString = qs.stringify(queryParams);
 
+	const source = axios.CancelToken.source();
+
+	if (signal) {
+		signal.addEventListener('abort', () => {
+			source.cancel('Operation canceled by the user.');
+		});
+	}
+
 	return await axiosInstance.get(`${url}${queryString || ''}`, {
-		headers: { ...headers }
+		headers: { ...headers },
+		cancelToken: source.token
 	});
 };
 
