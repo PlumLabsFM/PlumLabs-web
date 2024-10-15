@@ -152,3 +152,30 @@ export const MenuItemsForCharts = [
 	{ name: 'Drawdown', icon: <FaRegChartBar style={{color: 'red', width: '50px', height: '30px'}}/>, graphName: 'portfolio_drawdown'},
 	{ name: 'Portfolio Growth', icon: <FaRegChartBar style={{color: 'violet', width: '50px', height: '30px'}}/>, graphName: 'portfolio_growth'}
 ];
+
+export const ItemsForDropdown = [
+	{
+		key: '1',
+		label: (
+			<a target="_self" rel="noopener noreferrer" href="">
+				BTC
+			</a>
+		)
+	},
+	{
+		key: '2',
+		label: (
+			<a target="_self" rel="noopener noreferrer" href="">
+				USDC
+			</a>
+		)
+	},
+	{
+		key: '3',
+		label: (
+			<a target="_self" rel="" href="">
+				AAPL
+			</a>
+		)
+	}
+];

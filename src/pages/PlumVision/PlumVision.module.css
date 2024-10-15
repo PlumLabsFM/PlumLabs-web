@@ -1,4 +1,4 @@
-.mainContainer {
+.rootContainer {
     /* background-color: blueviolet; */
     display: flex;
     justify-content: center;
@@ -6,17 +6,17 @@
     padding: 20px;
 }
 
-.container {
+.appContainer {
     width: 50%;
     background: rgb(200,193,240);
     background: radial-gradient(circle, rgba(200,193,240,1) 14%, rgba(181,209,241,0.773546918767507) 26%, rgba(254,254,254,1) 46%);
     display: flex;
-    justify-content: space-around;
+    gap: 100px;
     align-items: center;
     height: 90vh;
 }
 
-.mainDiv {
+.appBox {
     display: flex;
     gap: 130px;
 }
@@ -49,8 +49,9 @@
 }
 
 .diskImage {
-    width: 30px;
-    height: 30px;
+    width: 100px;
+    height: 60px;
+    color:  #28ACEC;
 }
 
 .textHeading {
@@ -82,7 +83,7 @@
     padding: 15px;
 }
 
-.imgDiv {
+.parameterContainer {
     display: flex;
     justify-content: flex-end;
     gap: 0.5rem;
@@ -106,4 +107,63 @@
     opacity: 0.3;
     transition: opacity 0.3s ease;
     cursor: default;
+}
+
+.signs {
+    color: white;
+    width: 35px;
+    height: 30px;
+}
+
+.parameterImageContainer {
+    display: flex; 
+    align-items: center;
+}
+  
+.logoContainer {
+    width: 60px; 
+    height: 60px;
+    background-color:#03CAFF; 
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+}
+  
+.inputContainer {
+    width: 250px;  
+    height: 40px;  
+    background: rgb(59,160,222);
+    background: linear-gradient(38deg, rgba(59,160,222,0.989233193277311) 40%, rgba(14,87,172,0.76234243697479) 59%);
+    border-top-right-radius: 30px; 
+    border-bottom-right-radius: 30px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 40px;
+}
+
+.textCard {
+    background-color: white;
+    width: 50px;
+    height: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 10px;
+}
+
+.datePicker {
+    width: 90%;
+    height: 50%;
+    background-color: transparent;
+    border: none;
+}
+
+.datePicker:hover {
+    border: none; 
+    background-color: transparent;
+    cursor: default; 
 }
