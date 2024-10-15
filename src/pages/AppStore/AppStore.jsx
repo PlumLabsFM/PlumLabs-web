@@ -23,8 +23,8 @@ export default function AppStore() {
 								title={item.title}
 								isNew={item.new}
 								text={item.text}
-								width={"120px"}
-								height={"114px"}
+								width={"136px"}
+								height={"135px"}
 								isInfo={true}
 								isBubble={true}
 								isIcon={item.icon}

@@ -30,7 +30,7 @@ export default function BackTestNavbar({codeValue}) {
 
 	const fileUrl = codeValue;
 	const subject = "Check out this file!";
-	const body = `I wanted to share this file with you: ${fileUrl}`;
+	const body = `I wanted to share this file with you: \n \n ${fileUrl} \n \n`;
 
 	const mailtoLink = `mailto:?subject=${encodeURIComponent(
 		subject

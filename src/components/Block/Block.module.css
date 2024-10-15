@@ -1,37 +1,33 @@
 .container {
     border-radius:  var(--btn-border-radius);
-    padding: 5px;
+    padding: 15px;
     display: flex;
     align-items: center;
     justify-content: end;
     flex-direction: column;
     position: relative;
-    padding-top: 15px;
     color:var( --black-text-color);
 }
 
 .containerWhite {
     border-radius:  var(--btn-border-radius);
-    padding: 5px;
     display: flex;
     align-items: center;
     justify-content: end;
     flex-direction: column;
     position: relative;
-    padding-top: 15px;
     border: 1px solid grey;
-
+    padding: 15px;
 }
 
 .containerTransparent {
-    padding: 5px;
+    padding: 15px;
     display: flex;
     align-items: center;
     justify-content: end;
     flex-direction: column;
     margin: 25px;
     position: relative;
-    padding-top: 15px;
     opacity: 0;
     border: 1px solid rgb(177, 12, 12);
 
