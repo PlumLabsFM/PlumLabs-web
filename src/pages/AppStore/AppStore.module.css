@@ -1,19 +1,4 @@
-.mainDiv {
-    border: 2px solid black;
-    border-radius: 10px;
-    width: 1150px;
-    height: 500px;
-}
-
-.upperDiv {
-    background-color: blueviolet;
-    padding: 0%;
-    border-bottom: 2px solid black;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-}
-
-.blockDiv {
+.optionContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -25,8 +10,23 @@
   background: radial-gradient(circle, rgba(200,193,240,1) 14%, rgba(181,209,241,0.773546918767507) 26%, rgba(254,254,254,1) 46%);
 }
 
-.middleDiv {
+.blockContainer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.mainDiv {
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 1150px;
+  height: 500px;
+}
+
+.upperDiv {
+  background-color: blueviolet;
+  padding: 0%;
+  border-bottom: 2px solid black;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }

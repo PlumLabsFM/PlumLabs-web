@@ -2,6 +2,7 @@ import React from 'react';
 import { FaUserCircle } from "react-icons/fa";
 import { IoCartSharp } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
+import { Heading, Title } from '../../components/elements/Typography/Typography';
 import style from './Dashboard.module.css';
 
 const Dashboard = () => {
@@ -14,12 +15,12 @@ const Dashboard = () => {
 	return (
 		<div className={style.pageContainer}>
 			<div className={style.titleContainer}>
-				<h1 className={style.title}>INNOVATE <span className={style.pageSubTitle}>FASTER</span></h1>
+				<Title className={style.title}>INNOVATE <span className={style.pageSubTitle}>FASTER</span></Title>
 			</div>
 			<div className={style.profileContainer}>
-				<h2 className={style.profileName}>
+				<Heading className={style.profileName}>
 					Welcome Back Maria
-				</h2>
+				</Heading>
 			</div>
 			<div className={style.cardContainer}>
 				<div className={style.optionContainer}>
