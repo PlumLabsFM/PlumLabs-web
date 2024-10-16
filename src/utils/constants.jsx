@@ -154,28 +154,7 @@ export const MenuItemsForCharts = [
 ];
 
 export const ItemsForDropdown = [
-	{
-		key: '1',
-		label: (
-			<a target="_self" rel="noopener noreferrer" href="">
-				BTC
-			</a>
-		)
-	},
-	{
-		key: '2',
-		label: (
-			<a target="_self" rel="noopener noreferrer" href="">
-				USDC
-			</a>
-		)
-	},
-	{
-		key: '3',
-		label: (
-			<a target="_self" rel="" href="">
-				AAPL
-			</a>
-		)
-	}
+	{ value: 'USD', label: 'US Dollar' },
+	{ value: 'EUR', label: 'Euro' },
+	{ value: 'GBP', label: 'British Pound' }
 ];

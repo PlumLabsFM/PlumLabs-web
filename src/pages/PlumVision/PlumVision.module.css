@@ -167,3 +167,8 @@
     background-color: transparent;
     cursor: default; 
 }
+
+.dropdownBtn {
+    font-size: smaller;
+    font-weight: 200;
+}

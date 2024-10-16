@@ -1,9 +1,7 @@
-import { DatePicker, Dropdown, Button} from 'antd';
-import dayjs from 'dayjs';
+import { DatePicker, Select} from 'antd';
 import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineDollar } from "react-icons/ai";
-const dateFormat = 'YYYY/MM/DD';
 import { FaRegPlayCircle } from 'react-icons/fa';
 import { GiPolarBear } from "react-icons/gi";
 import { GrLineChart } from "react-icons/gr";
@@ -13,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import API from '../../assets/api.png';
 import CSV from '../../assets/csv.png';
+import NavbarButton from '../../components/elements/NavbarButton/NavbarButton';
 import { Heading, SubHeading } from '../../components/elements/Typography/Typography';
 const { RangePicker } = DatePicker;
 import { uploadDocument } from '../../services/apiServices';
@@ -122,7 +121,7 @@ export default function PlumVision() {
 										<div className={styles.inputContainer} >
 											<RangePicker
 												placeholder={['Start Date', 'End Date']}
-												format={dateFormat}
+												format={'YYYY/MM/DD'}
 												disabled={!isFileUploaded}
 												className={styles.datePicker}
 											/>
@@ -134,15 +133,17 @@ export default function PlumVision() {
 									<div className={styles.parameterImageContainer}>
 										<div className={styles.logoContainer}><AiOutlineDollar className={styles.signs}/></div>
 										<div className={styles.inputContainer}>
-											<Dropdown
-												menu={{
-													items: ItemsForDropdown
-												}}
-												placement="bottom"
+											<Select
+												showSearch
+												style={{ width: 200 }}
+												placeholder="Select Currency"
+												optionFilterProp="label"
+												filterSort={(optionA, optionB) =>
+													(optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
+												}
+												options={ItemsForDropdown}
 												disabled={!isFileUploaded}
-											>
-												<Button>SELECT CURRENCY</Button>
-											</Dropdown>
+											/>
 										</div>
 									</div>
 								</div>
