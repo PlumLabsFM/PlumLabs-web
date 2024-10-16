@@ -150,7 +150,8 @@ export const MenuItemsForCharts = [
 	{ name: 'Asset Allocation', icon: <FaChartLine style={{color: 'yellow', width: '50px', height: '30px'}}/>, graphName: 'portfolio_distribution' },
 	{ name: 'Asset Performance', icon: <FaRegChartBar style={{color: 'pink', width: '50px', height: '30px'}}/>, graphName: 'asset_performance'},
 	{ name: 'Drawdown', icon: <FaRegChartBar style={{color: 'red', width: '50px', height: '30px'}}/>, graphName: 'portfolio_drawdown'},
-	{ name: 'Portfolio Growth', icon: <FaRegChartBar style={{color: 'violet', width: '50px', height: '30px'}}/>, graphName: 'portfolio_growth'}
+	{ name: 'Portfolio Growth', icon: <FaRegChartBar style={{color: 'violet', width: '50px', height: '30px'}}/>, graphName: 'portfolio_growth'},
+	{ name: 'Financial Table', icon: <FaRegChartBar style={{color: 'violet', width: '50px', height: '30px'}}/>, graphName: 'financial-table-data'}
 ];
 
 export const ItemsForDropdown = [

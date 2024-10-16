@@ -21,6 +21,6 @@ export const getChart = async (userId, chartName, signal) => {
 	return await HttpGet(`${GET_CHART}/${7}?graph_name=${chartName}`, {}, {}, signal);
 };
 
-export const getCodeScript = async (userId, chartName, signal) => {
-	return await HttpGet(`${GET_SCRIPT}/${7}?graph_name=${chartName}`, {}, {}, signal);
+export const getCodeScript = async (chartName, signal) => {
+	return await HttpGet(`${GET_SCRIPT}?graph_name=${chartName}`, {}, {}, signal);
 };
