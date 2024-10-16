@@ -13,9 +13,9 @@ export default function AppStore() {
 	};
 
 	return (
-		<div className={styles.middleDiv}>
-			<div className={styles.blockDiv}>
-				{AppStoreData.map((item) => {
+		<div className={styles.blockContainer}>
+			<div className={styles.optionContainer}>
+				{AppStoreData?.map((item) => {
 					return (
 						<div style={{cursor: "pointer"}} onClick={() => handleItemClick(item)}>
 							<Block

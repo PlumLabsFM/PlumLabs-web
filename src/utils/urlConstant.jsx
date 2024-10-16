@@ -6,7 +6,8 @@ export const AUTH_SERVICE = {
 };
 
 export const DOCUMENT = {
-	UPLOAD_DOCUMENT: `${BASE_URL}/upload-portfolio`
+	UPLOAD_DOCUMENT: `${BASE_URL}/upload-portfolio`,
+	GET_TABLE: `${BASE_URL}/financial-table-data`
 };
 
 export const CHART = {
@@ -17,5 +18,6 @@ export const LOGIN = AUTH_SERVICE.LOGIN;
 export const SIGNUP = AUTH_SERVICE.SIGN_UP;
 
 export const UPLOAD_DOCUMENT = DOCUMENT.UPLOAD_DOCUMENT;
+export const GET_TABLE = DOCUMENT.GET_TABLE;
 
 export const GET_CHART = CHART.GET_CHART;
