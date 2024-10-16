@@ -11,7 +11,8 @@ export const DOCUMENT = {
 };
 
 export const CHART = {
-	GET_CHART: `${BASE_URL}/portfolio-graph`
+	GET_CHART: `${BASE_URL}/portfolio-graph`,
+	GET_SCRIPT: `${BASE_URL}/get-code`
 };
 
 export const LOGIN = AUTH_SERVICE.LOGIN;
@@ -21,3 +22,4 @@ export const UPLOAD_DOCUMENT = DOCUMENT.UPLOAD_DOCUMENT;
 export const GET_TABLE = DOCUMENT.GET_TABLE;
 
 export const GET_CHART = CHART.GET_CHART;
+export const GET_SCRIPT = CHART.GET_SCRIPT;

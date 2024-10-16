@@ -1,4 +1,4 @@
-import { GET_CHART, GET_TABLE, LOGIN, SIGNUP, UPLOAD_DOCUMENT } from "../utils/urlConstant";
+import { GET_CHART, GET_SCRIPT, GET_TABLE, LOGIN, SIGNUP, UPLOAD_DOCUMENT } from "../utils/urlConstant";
 import { HttpGet, HttpPost } from "./base";
 
 export const loginUser = async (email, password) => {
@@ -18,5 +18,9 @@ export const getTable = async (signal) => {
 };
 
 export const getChart = async (userId, chartName, signal) => {
-	return await HttpGet(`${GET_CHART}/${userId}?graph_name=${chartName}`, {}, {}, signal);
+	return await HttpGet(`${GET_CHART}/${7}?graph_name=${chartName}`, {}, {}, signal);
+};
+
+export const getCodeScript = async (userId, chartName, signal) => {
+	return await HttpGet(`${GET_SCRIPT}/${7}?graph_name=${chartName}`, {}, {}, signal);
 };
