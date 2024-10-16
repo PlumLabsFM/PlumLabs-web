@@ -11,7 +11,6 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import API from '../../assets/api.png';
 import CSV from '../../assets/csv.png';
-import NavbarButton from '../../components/elements/NavbarButton/NavbarButton';
 import { Heading, SubHeading } from '../../components/elements/Typography/Typography';
 const { RangePicker } = DatePicker;
 import { uploadDocument } from '../../services/apiServices';
