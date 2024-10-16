@@ -6,6 +6,7 @@ import { useDrop } from 'react-dnd';
 import Plot from "react-plotly.js";
 import CodeEditor from '../../../components/CodeEditor/CodeEditor';
 import { getChart, getCodeScript, getTable } from '../../../services/apiServices';
+import Table from '../../../components/elements/Table/Table';
 import style from './ChartCanvas.module.css';
 
 const ChartCanvas = ({codeValue, setCodeValue}) => {
@@ -14,8 +15,9 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 	const userId = JSON.parse(userData).id;
 	const [graphName, setGraphName] = useState(null);
 	const [chartData, setChartData] = useState(null);
-	const [isLoading, setIsLoading] = useState(false);
 	const [tableData, setTableData] = useState(null);
+	const [isTableView, setIsTableView] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 	const [tableHead, setTableHead] = useState([]);
 	const [codeSnippetValue, setCodeSnippetValue] = useState(null);
 
@@ -89,13 +91,20 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 	}, [graphName]);
 
 	const onChange = (checked) => {
-		console.info(`switch to ${checked}`);
+		setIsTableView(checked);
 	};
 
 	return (
 		<>
 			<div className={style.toggleBtn} >
-				<Switch checkedChildren="Table" unCheckedChildren="Chart" defaultChecked Checked onChange={onChange} disabled={!chartData} />
+				<Switch
+					checkedChildren="Chart"
+					unCheckedChildren="Table"
+					checked={isTableView}
+					onChange={onChange}
+					disabled={!chartData}
+					className={style.customSwitch}
+				/>
 			</div>
 			<div
 				ref={drop}
@@ -163,7 +172,7 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 								<div style={{textAlign: 'center'}}>Drop a chart type to display it here.</div>
 							)
 				) : (
-					<div className = {style.loaderContainer}>
+					<div className={style.loaderContainer}>
 						<Spin indicator={<LoadingOutlined style={{ fontSize: 60 }} spin />} />
 					</div>
 				)}

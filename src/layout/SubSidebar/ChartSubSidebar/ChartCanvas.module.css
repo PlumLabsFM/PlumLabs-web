@@ -18,4 +18,13 @@
 .toggleBtn {
     display: flex;
     justify-content: end;
+    margin: 5px;
+}
+
+.toggleBtn .ant-switch-checked {
+    background-color: #4CAF50 !important; 
+}
+
+.toggleBtn .ant-switch {
+    background-color: #FF5722 !important; 
 }
