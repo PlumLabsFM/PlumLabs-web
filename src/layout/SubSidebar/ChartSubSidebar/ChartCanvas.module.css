@@ -15,21 +15,7 @@
     align-items: center;
 }
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 2rem;
-}
-  
-th, td {
-    text-align: center;
-    padding: 8px;
-}
-  
-th {
-    background-color: #f2f2f2;
-}
-  
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+.toggleBtn {
+    display: flex;
+    justify-content: end;
 }

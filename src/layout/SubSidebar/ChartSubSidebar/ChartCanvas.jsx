@@ -1,5 +1,5 @@
 import { LoadingOutlined } from '@ant-design/icons';
-import { Spin } from 'antd';
+import { Spin, Switch } from 'antd';
 import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
 import { useDrop } from 'react-dnd';
@@ -88,8 +88,15 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 
 	}, [graphName]);
 
+	const onChange = (checked) => {
+		console.info(`switch to ${checked}`);
+	};
+
 	return (
 		<>
+			<div className={style.toggleBtn} >
+				<Switch checkedChildren="Table" unCheckedChildren="Chart" defaultChecked Checked onChange={onChange} disabled={!chartData} />
+			</div>
 			<div
 				ref={drop}
 				style={{

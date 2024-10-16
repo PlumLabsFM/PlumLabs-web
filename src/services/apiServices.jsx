@@ -24,3 +24,7 @@ export const getChart = async (userId, chartName, signal) => {
 export const getCodeScript = async (chartName, signal) => {
 	return await HttpGet(`${GET_SCRIPT}?graph_name=${chartName}`, {}, {}, signal);
 };
+
+export const getTable = async () => {
+	return await HttpGet(`${GET_TABLE}`);
+};
