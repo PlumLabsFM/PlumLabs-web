@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useDrop } from 'react-dnd';
 import Plot from "react-plotly.js";
 import CodeEditor from '../../../components/CodeEditor/CodeEditor';
-import { getChart, getTable } from '../../../services/apiServices';
+import { getChart, getCodeScript, getTable } from '../../../services/apiServices';
 import style from './ChartCanvas.module.css';
 
 const ChartCanvas = ({codeValue, setCodeValue}) => {
@@ -17,6 +17,7 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [tableData, setTableData] = useState(null);
 	const [tableHead, setTableHead] = useState([]);
+	const [codeSnippetValue, setCodeSnippetValue] = useState(null);
 
 	const [{ isOver }, drop] = useDrop({
 		accept: 'default',
@@ -32,13 +33,13 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 		const controller = new AbortController();
 		const fetchData = async () => {
 			setIsLoading(true);
+			setChartData(null);
 
 			const { signal } = controller;
 
 			if (graphName === 'financial-table-data') {
 				try {
 					const response = await getTable(signal);
-					setChartData(null);
 					setTableData(response?.data);
 					const dataKeys = Object.keys(response?.data?.[0]);
 					setTableHead(dataKeys);
@@ -51,8 +52,24 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 				}
 			} else {
 				try {
-					const response = await getChart(userId, graphName, signal);
-					setChartData(response?.data?.data);
+					const response = await Promise.allSettled([
+						getChart(userId, graphName, signal),
+						getCodeScript(graphName, signal)
+					]);
+
+					response?.forEach(result => {
+						if (result?.status === "fulfilled") {
+							if (result?.value?.data?.data) {
+								setChartData(result?.value?.data?.data);
+							} else {
+								setCodeSnippetValue(result?.value?.data?.code);
+								setCodeValue(result?.value?.data?.code);
+							}
+						} else {
+							console.error("Error:", result.reason);
+						}
+					});
+
 				} catch (error) {
 					console.error(error);
 				} finally {
@@ -104,7 +121,7 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 									}}
 								/>
 							</div>
-							<CodeEditor codeValue={codeValue} setCodeValue={setCodeValue} />
+							<CodeEditor codeValue={codeSnippetValue} setCodeValue={setCodeValue} />
 						</>
 						: tableData != null ?
 							<table>

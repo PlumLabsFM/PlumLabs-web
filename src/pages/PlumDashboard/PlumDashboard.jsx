@@ -8,7 +8,7 @@ import { MenuItemsForCharts } from '../../utils/constants';
 import styles from './PlumDashboard.module.css';
 
 export default function PlumDashboard() {
-	const [codeValue, setCodeValue] = useState(`# Python Code\nprint("Hello, World!")`);
+	const [codeValue, setCodeValue] = useState(null);
 
 	return (
 		<DndProvider backend={HTML5Backend}>
