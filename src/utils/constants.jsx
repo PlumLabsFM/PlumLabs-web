@@ -152,3 +152,9 @@ export const MenuItemsForCharts = [
 	{ name: 'Drawdown', icon: <FaRegChartBar style={{color: 'red', width: '50px', height: '30px'}}/>, graphName: 'portfolio_drawdown'},
 	{ name: 'Portfolio Growth', icon: <FaRegChartBar style={{color: 'violet', width: '50px', height: '30px'}}/>, graphName: 'portfolio_growth'}
 ];
+
+export const ItemsForDropdown = [
+	{ value: 'USD', label: 'US Dollar' },
+	{ value: 'EUR', label: 'Euro' },
+	{ value: 'GBP', label: 'British Pound' }
+];
