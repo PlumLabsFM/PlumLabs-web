@@ -1,10 +1,11 @@
 import { LoadingOutlined } from '@ant-design/icons';
-import { Spin } from 'antd';
+import { Spin, Switch } from 'antd';
 import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
 import { useDrop } from 'react-dnd';
 import Plot from "react-plotly.js";
 import CodeEditor from '../../../components/CodeEditor/CodeEditor';
+import Table from '../../../components/elements/Table/Table';
 import { getChart, getCodeScript, getTable } from '../../../services/apiServices';
 import style from './ChartCanvas.module.css';
 
@@ -14,9 +15,9 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 	const userId = JSON.parse(userData).id;
 	const [graphName, setGraphName] = useState(null);
 	const [chartData, setChartData] = useState(null);
-	const [isLoading, setIsLoading] = useState(false);
 	const [tableData, setTableData] = useState(null);
-	const [tableHead, setTableHead] = useState([]);
+	const [isTableView, setIsTableView] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 	const [codeSnippetValue, setCodeSnippetValue] = useState(null);
 
 	const [{ isOver }, drop] = useDrop({
@@ -41,8 +42,6 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 				try {
 					const response = await getTable(signal);
 					setTableData(response?.data);
-					const dataKeys = Object.keys(response?.data?.[0]);
-					setTableHead(dataKeys);
 				} catch (error) {
 					console.error(error);
 				} finally {
@@ -52,6 +51,7 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 				}
 			} else {
 				try {
+					setTableData(null);
 					const response = await Promise.allSettled([
 						getChart(userId, graphName, signal),
 						getCodeScript(graphName, signal)
@@ -61,6 +61,9 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 						if (result?.status === "fulfilled") {
 							if (result?.value?.data?.data) {
 								setChartData(result?.value?.data?.data);
+								if (result?.value?.data?.dataframe) {
+									setTableData(result?.value?.data?.dataframe);
+								}
 							} else {
 								setCodeSnippetValue(result?.value?.data?.code);
 								setCodeValue(result?.value?.data?.code);
@@ -88,8 +91,25 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 
 	}, [graphName]);
 
+	const onChange = (checked) => {
+		setIsTableView(checked);
+	};
+
 	return (
 		<>
+			{tableData && (
+				<div className={style.toggleBtn}>
+					<Switch
+						checkedChildren="Chart"
+						unCheckedChildren="Table"
+						checked={isTableView}
+						onChange={onChange}
+						disabled={!chartData}
+						className={`${style.customSwitch} ${style.largeSwitch}`}
+						defaultChecked
+					/>
+				</div>
+			)}
 			<div
 				ref={drop}
 				style={{
@@ -99,64 +119,41 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 				}}
 			>
 				{!isLoading ? (
-					chartData !== null ?
+					chartData !== null ? (
 						<>
-							<div className = {style.chartContainer}>
-								<Plot
-									data={chartData}
-									layout={{
-										showlegend: false,
-										xaxis: {
-											title: '',
-											showgrid: true,
-											zeroline: true,
-											visible: false
-										}
-									}}
-									config={{
-										responsive: true,
-										displayModeBar: false,
-										showLink: false,
-										showlegend: false
-									}}
-								/>
-							</div>
+							{isTableView && tableData ? (
+								<div className={style.tableContainer}><Table tableData={tableData} /></div>
+							) : (
+								<div className={style.chartContainer}>
+									<Plot
+										data={chartData}
+										layout={{
+											showlegend: false,
+											xaxis: {
+												title: '',
+												showgrid: true,
+												zeroline: true,
+												visible: false
+											}
+										}}
+										config={{
+											responsive: true,
+											displayModeBar: false,
+											showLink: false,
+											showlegend: false
+										}}
+									/>
+								</div>
+							)}
 							<CodeEditor codeValue={codeSnippetValue} setCodeValue={setCodeValue} />
 						</>
-						: tableData != null ?
-							<table>
-								<thead>
-									<tr>
-										{tableHead?.map((item) => {
-											return (
-												<th key={item}>{item}</th>
-											);
-										})}
-									</tr>
-								</thead>
-								<tbody>
-									{tableData?.map((item, index) => (
-										<tr key={index}>
-											<td>{item.Year}</td>
-											<td>{item.Inflation}</td>
-											<td>{item["Global ex-US Stock Market Return"]}</td>
-											<td>{item["US Stock Market Return"]}</td>
-											<td>{item["Total US Bond Market Return"]}</td>
-											<td>{item["REIT Return"]}</td>
-											<td>{item["Portfolio 1 Balance"]}</td>
-											<td>{item["Portfolio 1 Return"]}</td>
-											<td>{item["Portfolio 2 Balance"]}</td>
-											<td>{item["Portfolio 2 Return"]}</td>
-										</tr>
-									))}
-								</tbody>
-							</table>
-
-							: (
-								<div style={{textAlign: 'center'}}>Drop a chart type to display it here.</div>
-							)
+					) : tableData != null ? (
+						<Table tableData={tableData} />
+					) : (
+						<div style={{ textAlign: 'center' }}>Drop a chart type to display it here.</div>
+					)
 				) : (
-					<div className = {style.loaderContainer}>
+					<div className={style.loaderContainer}>
 						<Spin indicator={<LoadingOutlined style={{ fontSize: 60 }} spin />} />
 					</div>
 				)}
