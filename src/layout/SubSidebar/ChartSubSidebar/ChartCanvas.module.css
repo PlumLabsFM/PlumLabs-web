@@ -16,13 +16,13 @@
 }
 
 .tableContainer {
-    margin: 2rem;
+    margin: 2rem 1rem;
 }
 
 .toggleBtn {
     display: flex;
     justify-content: end;
-    margin: 15px;
+    margin: 10px;
    
 }
 
@@ -36,10 +36,21 @@
     height: 22px; 
 }
 
-.toggleBtn .ant-switch-checked {
-    background-color: #4CAF50 !important; 
+.icon {
+    cursor: pointer;
+    color: #28ACEC;
+    background-color: rgb(247, 245, 245);
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px; 
 }
 
-.toggleBtn .ant-switch {
-    background-color: #FF5722 !important; 
+.activeIcon {
+    cursor: pointer;
+    color: white; 
+    background-color: #28ACEC; 
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+    border: 1px solid #28ACEC; 
 }

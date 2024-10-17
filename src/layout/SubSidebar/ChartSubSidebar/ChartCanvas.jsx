@@ -1,16 +1,17 @@
 import { LoadingOutlined } from '@ant-design/icons';
-import { Spin, Switch } from 'antd';
+import { Spin, Tooltip } from 'antd';
 import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
 import { useDrop } from 'react-dnd';
+import { CiViewTable } from "react-icons/ci";
+import { GiChart } from "react-icons/gi";
 import Plot from "react-plotly.js";
 import CodeEditor from '../../../components/CodeEditor/CodeEditor';
 import Table from '../../../components/elements/Table/Table';
 import { getChart, getCodeScript, getTable } from '../../../services/apiServices';
 import style from './ChartCanvas.module.css';
 
-const ChartCanvas = ({codeValue, setCodeValue}) => {
-
+const ChartCanvas = ({ codeValue, setCodeValue }) => {
 	const userData = Cookies.get('user');
 	const userId = JSON.parse(userData).id;
 	const [graphName, setGraphName] = useState(null);
@@ -57,8 +58,8 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 						getCodeScript(graphName, signal)
 					]);
 
-					response?.forEach(result => {
-						if (result?.status === "fulfilled") {
+					response?.forEach((result) => {
+						if (result?.status === 'fulfilled') {
 							if (result?.value?.data?.data) {
 								setChartData(result?.value?.data?.data);
 								if (result?.value?.data?.dataframe) {
@@ -69,10 +70,9 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 								setCodeValue(result?.value?.data?.code);
 							}
 						} else {
-							console.error("Error:", result.reason);
+							console.error('Error:', result.reason);
 						}
 					});
-
 				} catch (error) {
 					console.error(error);
 				} finally {
@@ -88,26 +88,30 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 		return () => {
 			controller.abort();
 		};
-
 	}, [graphName]);
 
-	const onChange = (checked) => {
-		setIsTableView(checked);
+	const toggleView = (view) => {
+		setIsTableView(view === 'table');
 	};
 
 	return (
 		<>
-			{tableData && (
+			{tableData && graphName !== 'financial-table-data' && (
 				<div className={style.toggleBtn}>
-					<Switch
-						checkedChildren="Chart"
-						unCheckedChildren="Table"
-						checked={isTableView}
-						onChange={onChange}
-						disabled={!chartData}
-						className={`${style.customSwitch} ${style.largeSwitch}`}
-						defaultChecked
-					/>
+					<Tooltip placement="bottom" title="Chart">
+						<GiChart
+							size={24}
+							className={!isTableView ? style.activeIcon : style.icon}
+							onClick={() => toggleView('chart')}
+						/>
+					</Tooltip>
+					<Tooltip placement="bottom" title="Table">
+						<CiViewTable
+							size={24}
+							className={isTableView ? style.activeIcon : style.icon}
+							onClick={() => toggleView('table')}
+						/>
+					</Tooltip>
 				</div>
 			)}
 			<div
@@ -122,7 +126,9 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 					chartData !== null ? (
 						<>
 							{isTableView && tableData ? (
-								<div className={style.tableContainer}><Table tableData={tableData} /></div>
+								<div className={style.tableContainer}>
+									<Table tableData={tableData} />
+								</div>
 							) : (
 								<div className={style.chartContainer}>
 									<Plot
