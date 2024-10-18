@@ -5,11 +5,16 @@ import { HiDownload } from "react-icons/hi";
 import { HiDocument } from "react-icons/hi2";
 import { MdOutlinePersonAddAlt } from "react-icons/md";
 import { PiCalendarHeart, PiHeadCircuitLight } from "react-icons/pi";
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { logoutUser } from '../../services/apiServices';
 import NavbarButton from '../elements/NavbarButton/NavbarButton';
 import { Heading, SmallText } from '../elements/Typography/Typography';
 import styles from './BackTestNavbar.module.css';
 
 export default function BackTestNavbar({codeValue}) {
+
+	const navigate = useNavigate();
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const showModal = () => {
@@ -18,6 +23,20 @@ export default function BackTestNavbar({codeValue}) {
 
 	const handleCancel = () => {
 		setIsModalOpen(false);
+	};
+
+	const logoutHandle = async () => {
+		try {
+			const response = await logoutUser();
+			if (response.status === 200) {
+				toast.success(response.data.msg);
+				navigate('/');
+			} else {
+				toast.error('Something went wrong. Please try again.');
+			}
+		} catch (error) {
+			console.error("error", error);
+		}
 	};
 
 	const saveToFile = () => {
@@ -70,6 +89,9 @@ export default function BackTestNavbar({codeValue}) {
 							</a>
 						</div>
 					</Modal>
+				</div>
+				<div className={styles.imgBlock}>
+					<NavbarButton width={'110px'} text='Logout' type='submit' onClick={logoutHandle} />
 				</div>
 			</div>
 		</div>

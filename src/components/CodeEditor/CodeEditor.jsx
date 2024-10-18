@@ -1,21 +1,12 @@
 import MonacoEditor from '@monaco-editor/react';
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './CodeEditor.module.css';
 
-const CodeEditor = ({codeValue, setCodeValue}) => {
-
-	useEffect(() => {
-		// Fetch the Python file from the public directory
-		fetch("./sample.py")
-			.then((response) => response.text())
-			.then((data) => {
-				setCodeValue(data);
-			})
-			.catch((err) => console.error("Error loading file:", err));
-	}, []);
+const CodeEditor = ({ codeValue, setCodeValue, setCodeSnippetData }) => {
 
 	const handleEditorChange = (value) => {
 		setCodeValue(value);
+		setCodeSnippetData(value);
 	};
 
 	const handleEditorMount = (editor, monaco) => {
