@@ -1,17 +1,9 @@
 import React from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
-import AppStore from '../src/pages/AppStore/AppStore';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import { PageLayout } from './layout/Pagelayout/Pagelayout';
-import Dashboard from './pages/Dashboard/Dashboard';
-import Demo from './pages/Demo/Demo';
-import Home from './pages/Home/Home';
-import Login from './pages/Login/Login';
-import PlumDashboard from './pages/PlumDashboard/PlumDashboard';
-import PlumVision from './pages/PlumVision/PlumVision';
-import Signup from './pages/Signup/Signup';
-import ToolKit from './pages/ToolKit/ToolKit';
+import { Dashboard, Home, Login, PlumDashboard, PlumVision, Signup, ToolKit, AppStore, Demo} from './pages';
 import { isloggedIn } from './utils/helper';
 
 function App() {
