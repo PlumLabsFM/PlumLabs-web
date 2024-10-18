@@ -39,6 +39,7 @@ export default function PlumVision() {
 				toast.success("File uploaded sucessfully.");
 			} catch (error) {
 				console.error('Error uploading file:', error);
+				toast.error('An error occurred while uploading the file. Please try again.');
 				setIsFileUploaded(false);
 			}
 		} else {
