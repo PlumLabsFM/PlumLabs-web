@@ -1,8 +1,10 @@
 import { LoadingOutlined } from '@ant-design/icons';
-import { Spin, Switch } from 'antd';
+import { Spin, Tooltip } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useDrop } from 'react-dnd';
+import { CiViewTable } from "react-icons/ci";
 import { FaRegPlayCircle } from 'react-icons/fa';
+import { GiChart } from "react-icons/gi";
 import Plot from "react-plotly.js";
 import { toast } from 'react-toastify';
 import CodeEditor from '../../../components/CodeEditor/CodeEditor';
@@ -69,11 +71,10 @@ const ChartCanvas = ({ setCodeValue }) => {
 		return () => {
 			controller.abort();
 		};
-
 	}, [graphName]);
 
-	const onChange = (checked) => {
-		setIsTableView(checked);
+	const toggleView = (view) => {
+		setIsTableView(view === 'table');
 	};
 
 	const onCodeRunHandler = async() => {
@@ -99,17 +100,22 @@ const ChartCanvas = ({ setCodeValue }) => {
 
 	return (
 		<>
-			{tableData && (
+			{tableData && graphName !== 'financial-table-data' && (
 				<div className={style.toggleBtn}>
-					<Switch
-						checkedChildren="Chart"
-						unCheckedChildren="Table"
-						checked={isTableView}
-						onChange={onChange}
-						disabled={!chartData}
-						className={`${style.customSwitch} ${style.largeSwitch}`}
-						defaultChecked
-					/>
+					<Tooltip placement="bottom" title="Chart">
+						<GiChart
+							size={24}
+							className={!isTableView ? style.activeIcon : style.icon}
+							onClick={() => toggleView('chart')}
+						/>
+					</Tooltip>
+					<Tooltip placement="bottom" title="Table">
+						<CiViewTable
+							size={24}
+							className={isTableView ? style.activeIcon : style.icon}
+							onClick={() => toggleView('table')}
+						/>
+					</Tooltip>
 				</div>
 			)}
 			<div
@@ -123,7 +129,9 @@ const ChartCanvas = ({ setCodeValue }) => {
 					chartData ? (
 						<>
 							{isTableView && tableData ? (
-								<div className={style.tableContainer}><Table tableData={tableData} /></div>
+								<div className={style.tableContainer}>
+									<Table tableData={tableData} />
+								</div>
 							) : (
 								<div className={style.chartContainer}>
 									<Plot
