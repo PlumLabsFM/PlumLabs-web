@@ -1,24 +1,27 @@
 import { LoadingOutlined } from '@ant-design/icons';
 import { Spin, Switch } from 'antd';
-import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
 import { useDrop } from 'react-dnd';
+import { FaRegPlayCircle } from 'react-icons/fa';
 import Plot from "react-plotly.js";
+import { toast } from 'react-toastify';
 import CodeEditor from '../../../components/CodeEditor/CodeEditor';
 import Table from '../../../components/elements/Table/Table';
-import { getChart, getCodeScript, getTable } from '../../../services/apiServices';
+import { getTable } from '../../../services/apiServices';
+import { LOCALSTORAGE } from '../../../utils/constants';
+import { fetchChartAndTable, saveScriptData } from '../../../utils/helper';
 import style from './ChartCanvas.module.css';
 
-const ChartCanvas = ({codeValue, setCodeValue}) => {
+const ChartCanvas = ({ setCodeValue }) => {
 
-	const userData = Cookies.get('user');
+	const userData = localStorage.getItem(LOCALSTORAGE.USER);
 	const userId = JSON.parse(userData).id;
 	const [graphName, setGraphName] = useState(null);
 	const [chartData, setChartData] = useState(null);
 	const [tableData, setTableData] = useState(null);
 	const [isTableView, setIsTableView] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
-	const [codeSnippetValue, setCodeSnippetValue] = useState(null);
+	const [codeSnippetData, setCodeSnippetData] = useState(null);
 
 	const [{ isOver }, drop] = useDrop({
 		accept: 'default',
@@ -50,40 +53,18 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 					}
 				}
 			} else {
-				try {
-					setTableData(null);
-					const response = await Promise.allSettled([
-						getChart(userId, graphName, signal),
-						getCodeScript(graphName, signal)
-					]);
-
-					response?.forEach(result => {
-						if (result?.status === "fulfilled") {
-							if (result?.value?.data?.data) {
-								setChartData(result?.value?.data?.data);
-								if (result?.value?.data?.dataframe) {
-									setTableData(result?.value?.data?.dataframe);
-								}
-							} else {
-								setCodeSnippetValue(result?.value?.data?.code);
-								setCodeValue(result?.value?.data?.code);
-							}
-						} else {
-							console.error("Error:", result.reason);
-						}
-					});
-
-				} catch (error) {
-					console.error(error);
-				} finally {
-					if (!signal.aborted) {
-						setIsLoading(false);
-					}
-				}
+				const { chartDataValue, tableDataValue, codeSnippetValue, loadingValue } = await fetchChartAndTable(userId, graphName, signal);
+				setChartData(chartDataValue);
+				setTableData(tableDataValue);
+				setCodeSnippetData(codeSnippetValue);
+				setCodeValue(codeSnippetValue);
+				setIsLoading(loadingValue);
 			}
+
+			setIsLoading(false);
 		};
 
-		fetchData();
+		if (graphName) fetchData();
 
 		return () => {
 			controller.abort();
@@ -93,6 +74,27 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 
 	const onChange = (checked) => {
 		setIsTableView(checked);
+	};
+
+	const onCodeRunHandler = async() => {
+		setChartData(null);
+		setTableData(null);
+		setIsLoading(true);
+		const response = await saveScriptData(graphName, codeSnippetData);
+		if (response?.data?.message) {
+
+			const controller = new AbortController();
+			const { signal } = controller;
+			toast.success(response?.data?.message);
+			const { chartDataValue, tableDataValue, codeSnippetValue, loadingValue } = await fetchChartAndTable(userId, graphName, signal);
+			setChartData(chartDataValue);
+			setTableData(tableDataValue);
+			setCodeSnippetData(codeSnippetValue);
+			setIsLoading(loadingValue);
+		} else {
+			toast.error('Something went wrong. Please try again');
+		}
+		setIsLoading(false);
 	};
 
 	return (
@@ -114,12 +116,11 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 				ref={drop}
 				style={{
 					backgroundColor: isOver ? '#e6f7ff' : 'white',
-					minHeight: '20rem',
 					width: '100%'
 				}}
 			>
 				{!isLoading ? (
-					chartData !== null ? (
+					chartData ? (
 						<>
 							{isTableView && tableData ? (
 								<div className={style.tableContainer}><Table tableData={tableData} /></div>
@@ -145,12 +146,19 @@ const ChartCanvas = ({codeValue, setCodeValue}) => {
 									/>
 								</div>
 							)}
-							<CodeEditor codeValue={codeSnippetValue} setCodeValue={setCodeValue} />
+							<div className={style.playButtonContainer}>
+								<FaRegPlayCircle
+									title='Run'
+									className={style.playButton}
+									onClick={onCodeRunHandler}
+								/>
+							</div>
+							<CodeEditor codeValue={codeSnippetData} setCodeValue={setCodeValue} setCodeSnippetData={setCodeSnippetData} />
 						</>
-					) : tableData != null ? (
+					) : tableData ? (
 						<Table tableData={tableData} />
 					) : (
-						<div style={{ textAlign: 'center' }}>Drop a chart type to display it here.</div>
+						<div className={style.dropChartContainer}>Drop a chart type to display it here.</div>
 					)
 				) : (
 					<div className={style.loaderContainer}>

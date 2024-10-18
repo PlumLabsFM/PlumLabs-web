@@ -1,5 +1,4 @@
 import { DatePicker, Select} from 'antd';
-import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineDollar } from "react-icons/ai";
 import { FaRegPlayCircle } from 'react-icons/fa';
@@ -14,15 +13,16 @@ import CSV from '../../assets/csv.png';
 import { Heading, SubHeading } from '../../components/elements/Typography/Typography';
 const { RangePicker } = DatePicker;
 import { uploadDocument } from '../../services/apiServices';
-import {ItemsForDropdown} from '../../utils/constants';
+import {ItemsForDropdown, LOCALSTORAGE} from '../../utils/constants';
 import styles from './PlumVision.module.css';
+
 export default function PlumVision() {
 	const [userId, setUserId] = useState(null);
 	const [isFileUploaded, setIsFileUploaded] = useState(false);
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		const userData = JSON.parse(Cookies.get('user'));
+		const userData = JSON.parse(localStorage.getItem(LOCALSTORAGE.USER));
 		setUserId(userData.id);
 	}, []);
 
@@ -71,32 +71,8 @@ export default function PlumVision() {
 										className={styles.hiddenFileInput}
 									/>
 								</label>
-
-								{/* <label className={styles.csvUploadLabel}>
-									<Blocks
-										width={"120px"}
-										height={"114px"}
-										isInfo={true}
-										isLogo={PlumVisionData.logo}
-										backgroundColor= {PlumVisionData.bgColor}
-									/>
-									<img src={CSV} alt="csv" className={styles.csvImage}/>
-									<input
-										type="file"
-										accept=".csv"
-										onChange={handleFileChange}
-										className={styles.hiddenFileInput}
-									/>
-								</label> */}
 							</div>
 							<div>
-								{/* <Blocks
-									width={"120px"}
-									height={"114px"}
-									isInfo={true}
-									isLogo={PlumVisionData.logo}
-									backgroundColor= {PlumVisionData.bgColor}
-								/> */}
 								<img src={API} alt="API" />
 							</div>
 						</div>

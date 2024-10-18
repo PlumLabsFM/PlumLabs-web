@@ -33,7 +33,7 @@ export default function PlumDashboard() {
 				<div className={styles.dropArea}>
 					<BackTestNavbar codeValue={codeValue} />
 					<div className={styles.chartDiv}>
-						<ChartCanvas codeValue={codeValue} setCodeValue={setCodeValue} />
+						<ChartCanvas setCodeValue={setCodeValue} />
 					</div>
 				</div>
 			</div>

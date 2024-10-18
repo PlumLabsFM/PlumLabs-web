@@ -3,6 +3,11 @@
     justify-content: center;
 }
 
+.dropChartContainer {
+    text-align: center;
+    height: 80vh;
+}
+
 .codeEditor {
     display: flex;
     justify-content: center;
@@ -13,6 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 70vh;
 }
 
 .tableContainer {
@@ -42,4 +48,16 @@
 
 .toggleBtn .ant-switch {
     background-color: #FF5722 !important; 
+}
+
+.playButtonContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1em 0;
+}
+
+.playButton {
+    height: 3.7em;
+    width: 3.7em;
+    cursor: pointer;
 }

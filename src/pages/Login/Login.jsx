@@ -1,4 +1,3 @@
-import Cookies from 'js-cookie';
 import React, { useState } from 'react';
 import { FaUser, FaLock } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +7,7 @@ import Button from '../../components/elements/Button/Button';
 import InputField from '../../components/elements/InputField/InputField';
 import {Title, Description, Heading, SubHeading } from '../../components/elements/Typography/Typography';
 import { loginUser } from '../../services/apiServices';
-import { LOGIN_TEXT } from '../../utils/constants';
+import { LOCALSTORAGE, LOGIN_TEXT } from '../../utils/constants';
 import style from './Login.module.css';
 
 const Login = () => {
@@ -24,7 +23,7 @@ const Login = () => {
 			const response = await loginUser(email.value, password.value);
 			if (response.status === 200) {
 				toast.success("Login sucessful. Welcome to PlumLabs");
-				Cookies.set('user', JSON.stringify(response.data.user_data));
+				localStorage.setItem(LOCALSTORAGE.USER, JSON.stringify(response.data.user_data));
 				navigate('/dashboard');
 			} else {
 				toast.error("Something went wrong. Please try again.");
@@ -34,7 +33,6 @@ const Login = () => {
 		}
 		setIsLoading(false);
 	};
-
 
 	const signupHandler = () => {
 		navigate('/signup');

@@ -142,7 +142,7 @@ export const ExplorerAppStoreData = [
 	}
 ];
 
-export const COOKIES = {
+export const LOCALSTORAGE = {
 	USER: 'user'
 };
 
