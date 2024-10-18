@@ -15,11 +15,4 @@ export const CHART = {
 	GET_SCRIPT: `${BASE_URL}/get-code`
 };
 
-export const LOGIN = AUTH_SERVICE.LOGIN;
-export const SIGNUP = AUTH_SERVICE.SIGN_UP;
-
-export const UPLOAD_DOCUMENT = DOCUMENT.UPLOAD_DOCUMENT;
-export const GET_TABLE = DOCUMENT.GET_TABLE;
-
-export const GET_CHART = CHART.GET_CHART;
-export const GET_SCRIPT = CHART.GET_SCRIPT;
+export const API_URL = { AUTH_SERVICE, DOCUMENT, CHART };
