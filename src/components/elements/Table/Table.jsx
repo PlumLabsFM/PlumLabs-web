@@ -9,7 +9,7 @@ export default function Table({ tableData }) {
 			<thead>
 				<tr className={styles.tableRow}>
 					{headers.map((header, index) => (
-						<th className={styles.tableHead} key={index}>{header.replace("_", " ").split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</th>
+						<th className={styles.tableHead} key={index}>{header.replace("_", " ")}</th>
 					))}
 				</tr>
 			</thead>

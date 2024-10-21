@@ -135,7 +135,7 @@ const ChartCanvas = ({ setCodeValue }) => {
 							) : (
 								<div className={style.chartContainer}>
 									<Plot
-										data={chartData}
+										data={Array.isArray(chartData) ? chartData : [chartData]}
 										layout={{
 											showlegend: false,
 											xaxis: {
