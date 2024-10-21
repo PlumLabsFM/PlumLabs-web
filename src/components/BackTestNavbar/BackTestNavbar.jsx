@@ -8,6 +8,7 @@ import { PiCalendarHeart, PiHeadCircuitLight } from "react-icons/pi";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { logoutUser } from '../../services/apiServices';
+import { LOCALSTORAGE } from '../../utils/constants';
 import NavbarButton from '../elements/NavbarButton/NavbarButton';
 import { Heading, SmallText } from '../elements/Typography/Typography';
 import styles from './BackTestNavbar.module.css';
@@ -30,6 +31,7 @@ export default function BackTestNavbar({codeValue}) {
 			const response = await logoutUser();
 			if (response.status === 200) {
 				toast.success(response.data.msg);
+				localStorage.removeItem(LOCALSTORAGE.USER);
 				navigate('/');
 			} else {
 				toast.error('Something went wrong. Please try again.');
