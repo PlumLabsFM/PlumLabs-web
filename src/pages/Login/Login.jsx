@@ -29,6 +29,7 @@ const Login = () => {
 				toast.error("Something went wrong. Please try again.");
 			}
 		} catch (error) {
+			toast.error(error?.response?.data?.error);
 			console.error(error);
 		}
 		setIsLoading(false);
