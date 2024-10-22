@@ -102,14 +102,14 @@ const ChartCanvas = ({ setCodeValue }) => {
 		<>
 			{tableData && graphName !== 'financial-table-data' && (
 				<div className={style.toggleBtn}>
-					<Tooltip placement="bottom" title="Chart">
+					<Tooltip placement="bottom" title="Chart View">
 						<GiChart
 							size={24}
 							className={!isTableView ? style.activeIcon : style.icon}
 							onClick={() => toggleView('chart')}
 						/>
 					</Tooltip>
-					<Tooltip placement="bottom" title="Table">
+					<Tooltip placement="bottom" title="Table View">
 						<CiViewTable
 							size={24}
 							className={isTableView ? style.activeIcon : style.icon}
@@ -143,7 +143,8 @@ const ChartCanvas = ({ setCodeValue }) => {
 												showgrid: true,
 												zeroline: true,
 												visible: false
-											}
+											},
+											height: "300px"
 										}}
 										config={{
 											responsive: true,
@@ -151,6 +152,7 @@ const ChartCanvas = ({ setCodeValue }) => {
 											showLink: false,
 											showlegend: false
 										}}
+										style={{ height: '330px' }}
 									/>
 								</div>
 							)}
