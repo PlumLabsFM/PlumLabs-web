@@ -56,10 +56,11 @@ const Login = () => {
 					<Heading textColor="grey" className={style.loginText}>Login</Heading>
 					<form onSubmit={handleSubmit}>
 						<div>
-							<label className={style.labelText}>{LOGIN_TEXT.EMAIL}</label>
+							<label htmlFor='email' className={style.labelText}>{LOGIN_TEXT.EMAIL}</label>
 							<div className={style.inputWrapper}>
 								<FaUser className={style.inputIcon} />
 								<InputField
+									id="email"
 									type="email"
 									placeholder='Username...'
 									required
@@ -67,9 +68,10 @@ const Login = () => {
 							</div>
 						</div>
 						<div className={style.inputWrapper}>
-							<label className={style.labelText}>{LOGIN_TEXT.PASSWORD}</label>
+							<label htmlFor='password' className={style.labelText}>{LOGIN_TEXT.PASSWORD}</label>
 							<FaLock className={style.inputIcon} />
 							<InputField
+								id='password'
 								type="password"
 								placeholder='Password...'
 								required
