@@ -33,10 +33,10 @@ export default function PlumVision() {
 
 		if (file && file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
 			const formData = new FormData();
-			formData.append('files', file);
+			formData.append('file', file);
 
 			try {
-				await uploadDocument(userId, formData);
+				await uploadDocument(formData);
 				setIsFileUploaded(true);
 				toast.success("File uploaded sucessfully.");
 			} catch (error) {

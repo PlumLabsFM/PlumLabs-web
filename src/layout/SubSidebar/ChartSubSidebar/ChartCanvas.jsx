@@ -56,7 +56,7 @@ const ChartCanvas = ({ setCodeValue }) => {
 					}
 				}
 			} else {
-				const { chartDataValue, tableDataValue, codeSnippetValue, loadingValue } = await fetchChartAndTable(userId, graphName, dateRange, signal);
+				const { chartDataValue, tableDataValue, codeSnippetValue, loadingValue } = await fetchChartAndTable(graphName, dateRange, signal);
 				setChartData(chartDataValue);
 				setTableData(tableDataValue);
 				setCodeSnippetData(codeSnippetValue);
@@ -82,13 +82,17 @@ const ChartCanvas = ({ setCodeValue }) => {
 		setChartData(null);
 		setTableData(null);
 		setIsLoading(true);
-		const response = await saveScriptData(graphName, codeSnippetData);
+		const payload = {
+			code: JSON.stringify(codeSnippetData)
+		};
+		console.log('codeSnippetData',payload)
+		const response = await saveScriptData(graphName, payload);
 		if (response?.data?.message) {
 
 			const controller = new AbortController();
 			const { signal } = controller;
 			toast.success(response?.data?.message);
-			const { chartDataValue, tableDataValue, codeSnippetValue, loadingValue } = await fetchChartAndTable(userId, graphName, dateRange, signal);
+			const { chartDataValue, tableDataValue, codeSnippetValue, loadingValue } = await fetchChartAndTable(graphName, dateRange, signal);
 			setChartData(chartDataValue);
 			setTableData(tableDataValue);
 			setCodeSnippetData(codeSnippetValue);

@@ -30,3 +30,9 @@ export const HttpPost = async (	url, body, headers = {} ) => {
 		headers: { ...headers }
 	});
 };
+
+export const HttpPut = async (	url, body, headers = {} ) => {
+	return axiosInstance.put(`${url}`, body, {
+		headers: { ...headers }
+	});
+};
