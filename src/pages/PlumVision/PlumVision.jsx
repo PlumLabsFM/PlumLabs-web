@@ -1,5 +1,5 @@
-import { DatePicker, Select} from 'antd';
-import React, { useEffect, useState } from 'react';
+import { DatePicker, Select } from 'antd';
+import React, { useContext, useEffect, useState } from 'react';
 import { AiOutlineDollar } from "react-icons/ai";
 import { FaRegPlayCircle } from 'react-icons/fa';
 import { GiPolarBear } from "react-icons/gi";
@@ -13,10 +13,12 @@ import CSV from '../../assets/csv.png';
 import { Heading, SubHeading } from '../../components/elements/Typography/Typography';
 const { RangePicker } = DatePicker;
 import { uploadDocument } from '../../services/apiServices';
-import {ItemsForDropdown, LOCALSTORAGE} from '../../utils/constants';
+import { ItemsForDropdown, LOCALSTORAGE } from '../../utils/constants';
 import styles from './PlumVision.module.css';
+import { MyContext } from '../../utils/ContextProvider';
 
 export default function PlumVision() {
+	const {dateRange, setDateRange} = useContext(MyContext)
 	const [userId, setUserId] = useState(null);
 	const [isFileUploaded, setIsFileUploaded] = useState(false);
 	const navigate = useNavigate();
@@ -56,7 +58,7 @@ export default function PlumVision() {
 
 	return (
 		<div className={styles.rootContainer}>
-			<div className= {styles.appContainer}>
+			<div className={styles.appContainer}>
 				<div className={styles.appBox}>
 					<div className={styles.loadData}>
 						<div className={styles.logoDiv}>
@@ -83,7 +85,7 @@ export default function PlumVision() {
 							<div className={isFileUploaded ? styles.diskImgContainer : styles.diskImgContainerFaded}>
 								<div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Instruments</SubHeading>
 									<div className={styles.parameterImageContainer}>
-										<div className={styles.logoContainer}><GiPolarBear style={{color: 'red', width: '40px', height: '40px'}}/></div>
+										<div className={styles.logoContainer}><GiPolarBear style={{ color: 'red', width: '40px', height: '40px' }} /></div>
 										<div className={styles.inputContainer}>
 											<div className={styles.textCard}>BTC</div>
 											<div className={styles.textCard}>USDC</div>
@@ -93,13 +95,18 @@ export default function PlumVision() {
 								</div>
 								<div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Data Range</SubHeading>
 									<div className={styles.parameterImageContainer}>
-										<div className={styles.logoContainer}><MdOutlineCalendarMonth className={styles.signs}/></div>
+										<div className={styles.logoContainer}><MdOutlineCalendarMonth className={styles.signs} /></div>
 										<div className={styles.inputContainer} >
 											<RangePicker
 												placeholder={['Start Date', 'End Date']}
 												format={'YYYY/MM/DD'}
 												disabled={!isFileUploaded}
 												className={styles.datePicker}
+												onChange={(value, dateString) => {
+													setDateRange({'startDate':dateString[0],
+														'endDate':dateString[1]
+													});
+												  }}
 											/>
 										</div>
 									</div>
@@ -107,7 +114,7 @@ export default function PlumVision() {
 								</div>
 								<div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Valuation Currency</SubHeading>
 									<div className={styles.parameterImageContainer}>
-										<div className={styles.logoContainer}><AiOutlineDollar className={styles.signs}/></div>
+										<div className={styles.logoContainer}><AiOutlineDollar className={styles.signs} /></div>
 										<div className={styles.inputContainer}>
 											<Select
 												showSearch
@@ -125,19 +132,19 @@ export default function PlumVision() {
 								</div>
 								<div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Revaluation Frequency</SubHeading>
 									<div className={styles.parameterImageContainer}>
-										<div className={styles.logoContainer}><LuClock3 className={styles.signs}/></div>
+										<div className={styles.logoContainer}><LuClock3 className={styles.signs} /></div>
 										<div className={styles.inputContainer}></div>
 									</div>
 								</div>
 								<div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Rebalance Frequency</SubHeading>
 									<div className={styles.parameterImageContainer}>
-										<div className={styles.logoContainer}><LuClock3 className={styles.signs}/></div>
+										<div className={styles.logoContainer}><LuClock3 className={styles.signs} /></div>
 										<div className={styles.inputContainer}></div>
 									</div>
 								</div>
 								<div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Market Feed</SubHeading>
 									<div className={styles.parameterImageContainer}>
-										<div className={styles.logoContainer}><GrLineChart className={styles.signs}/></div>
+										<div className={styles.logoContainer}><GrLineChart className={styles.signs} /></div>
 										<div className={styles.inputContainer}></div>
 									</div>
 								</div>

@@ -1,0 +1,62 @@
+.people{
+    display: flex;
+    flex-direction: column;
+
+}
+.person{
+    margin: 0.3rem 0;
+    display: flex;
+    align-items: center;
+    font-family: sans-serif;
+    height: 3.4rem;
+    padding: 0 0.2rem;
+    border-radius: 0.4rem;
+}
+.person:hover{
+    background: var(--grad-bg-color);
+    color: var(--white-text-color);
+    cursor: pointer;
+}
+.personImg{
+    height: 3rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+.personDetails{
+    line-height: 0.1rem;
+}
+.personDetails>p:last-child{
+    font-size: 0.61rem;
+    color: var(--grey-text-color);
+    font-weight: 700;
+}
+.totalChat{
+    width: 100%;
+    overflow-y: auto;
+    height: 500px;
+    border-radius: 0.31rem;
+    transition: height 0.2s ease;
+    background-color: #f9f9f9;
+}
+.devider{
+    border-color: var(--grey-text-color);
+    margin: 0;
+}
+.chatSystem {
+    display: flex;
+    margin-top: 0.6rem;
+}
+.sendButton{
+    background: var(--grad-bg-color);
+    border-radius: 50%;
+    width: 2.2rem;
+    height: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.25rem;
+    cursor: pointer;
+}
+.sendLogo{
+    size: 10rem;
+}

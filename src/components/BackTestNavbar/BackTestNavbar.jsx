@@ -13,7 +13,7 @@ import NavbarButton from '../elements/NavbarButton/NavbarButton';
 import { Heading, SmallText } from '../elements/Typography/Typography';
 import styles from './BackTestNavbar.module.css';
 
-export default function BackTestNavbar({codeValue}) {
+export default function BackTestNavbar({codeValue, showDrawer}) {
 
 	const navigate = useNavigate();
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,10 +60,10 @@ export default function BackTestNavbar({codeValue}) {
 	return (
 		<div className={styles.mainContainer}>
 			<div>
-				<Heading textColor='black'>Back Testing   </Heading>
+				<Heading textColor='black'>Back Testing</Heading>
 			</div>
 			<div className={styles.rightContainer}>
-				<div className={styles.imgBlock}><BsFillChatDotsFill className={styles.img} /><SmallText><span className={styles.text}>Chat</span></SmallText></div>
+				<div className={styles.imgBlock}><BsFillChatDotsFill className={styles.img} onClick={showDrawer} /><SmallText><span className={styles.text}>Chat</span></SmallText></div>
 				<div className={styles.imgBlock}><HiDocument className={styles.img} /><SmallText><span className={styles.text}>Python</span></SmallText></div>
 				<div className={styles.imgBlock}><PiHeadCircuitLight className={styles.img} /><SmallText><span className={styles.text}>Linage</span></SmallText></div>
 				<div className={styles.imgBlock}><BsSearch className={styles.img} /><SmallText ><span className={styles.text}>Insights</span></SmallText></div>

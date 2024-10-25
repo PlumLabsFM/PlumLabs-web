@@ -21,8 +21,8 @@ export const getTable = async (signal) => {
 	return await HttpGet(API_URL.DOCUMENT.GET_TABLE, {}, {}, signal);
 };
 
-export const getChart = async (userId, chartName, signal) => {
-	return await HttpGet(`${API_URL.CHART.GET_CHART}/${userId}?graph_name=${chartName}`, {}, {}, signal);
+export const getChart = async (userId, chartName,dateRange, signal) => {
+	return await HttpGet(`${API_URL.CHART.GET_CHART}/${userId}?graph_name=${chartName}&start_date=${dateRange.startDate}&end_date=${dateRange.endDate}`, {}, {}, signal);
 };
 
 export const getCodeScript = async (chartName, signal) => {
