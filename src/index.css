@@ -9,6 +9,7 @@ body {
     --card-bg-color: #FFFFFF;
     --input-bg-color: #F2F2F2;
     --btn-bg-color: #28ACEC;
+    --grad-bg-color: linear-gradient(38deg, rgb(80, 105, 181) 29%, rgb(194, 149, 224) 63%);
 
     /* Text Color */
     --white-text-color: #FFFFFF;

@@ -11,7 +11,7 @@ export const isloggedIn = () => {
 	return false;
 };
 
-export const fetchChartAndTable = async (userId, graphName, signal) => {
+export const fetchChartAndTable = async (graphName, dateRange, signal) => {
 
 	let chartDataValue = null;
 	let tableDataValue = null;
@@ -20,7 +20,7 @@ export const fetchChartAndTable = async (userId, graphName, signal) => {
 
 	try {
 		const response = await Promise.allSettled([
-			getChart(userId, graphName, signal),
+			getChart( graphName, dateRange, signal),
 			getCodeScript(graphName, signal)
 		]);
 
@@ -48,6 +48,7 @@ export const fetchChartAndTable = async (userId, graphName, signal) => {
 };
 
 export const saveScriptData = async(graphName, data) => {
+	console.log('data',data)
 	let response;
 	try {
 		response = await saveCodeScript(graphName, data);

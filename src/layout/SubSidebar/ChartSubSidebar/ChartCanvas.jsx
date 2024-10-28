@@ -1,6 +1,6 @@
 import { LoadingOutlined } from '@ant-design/icons';
 import { Spin, Tooltip } from 'antd';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useDrop } from 'react-dnd';
 import { CiViewTable } from "react-icons/ci";
 import { FaRegPlayCircle } from 'react-icons/fa';
@@ -13,9 +13,10 @@ import { getTable } from '../../../services/apiServices';
 import { LOCALSTORAGE } from '../../../utils/constants';
 import { fetchChartAndTable, saveScriptData } from '../../../utils/helper';
 import style from './ChartCanvas.module.css';
+import { MyContext } from '../../../utils/ContextProvider';
 
 const ChartCanvas = ({ setCodeValue }) => {
-
+	const {dateRange, setDateRange} = useContext(MyContext)
 	const userData = localStorage.getItem(LOCALSTORAGE.USER);
 	const userId = JSON.parse(userData).id;
 	const [graphName, setGraphName] = useState(null);
@@ -34,8 +35,8 @@ const ChartCanvas = ({ setCodeValue }) => {
 			isOver: monitor.isOver()
 		})
 	});
-
 	useEffect(() => {
+		console.log('mycontext',dateRange)
 		const controller = new AbortController();
 		const fetchData = async () => {
 			setIsLoading(true);
@@ -55,7 +56,7 @@ const ChartCanvas = ({ setCodeValue }) => {
 					}
 				}
 			} else {
-				const { chartDataValue, tableDataValue, codeSnippetValue, loadingValue } = await fetchChartAndTable(userId, graphName, signal);
+				const { chartDataValue, tableDataValue, codeSnippetValue, loadingValue } = await fetchChartAndTable(graphName, dateRange, signal);
 				setChartData(chartDataValue);
 				setTableData(tableDataValue);
 				setCodeSnippetData(codeSnippetValue);
@@ -81,13 +82,17 @@ const ChartCanvas = ({ setCodeValue }) => {
 		setChartData(null);
 		setTableData(null);
 		setIsLoading(true);
-		const response = await saveScriptData(graphName, codeSnippetData);
+		const payload = {
+			code: JSON.stringify(codeSnippetData)
+		};
+		console.log('codeSnippetData',payload)
+		const response = await saveScriptData(graphName, payload);
 		if (response?.data?.message) {
 
 			const controller = new AbortController();
 			const { signal } = controller;
 			toast.success(response?.data?.message);
-			const { chartDataValue, tableDataValue, codeSnippetValue, loadingValue } = await fetchChartAndTable(userId, graphName, signal);
+			const { chartDataValue, tableDataValue, codeSnippetValue, loadingValue } = await fetchChartAndTable(graphName, dateRange, signal);
 			setChartData(chartDataValue);
 			setTableData(tableDataValue);
 			setCodeSnippetData(codeSnippetValue);

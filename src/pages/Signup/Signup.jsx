@@ -29,7 +29,7 @@ const Signup = () => {
 
 		try {
 			const response = await signinUser(payload);
-			if (response.status === 201) {
+			if (response.status === 200) {
 				toast.success("user created successfully.");
 				signinHandler();
 			} else {
