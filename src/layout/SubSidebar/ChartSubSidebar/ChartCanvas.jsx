@@ -36,7 +36,6 @@ const ChartCanvas = ({ setCodeValue }) => {
 		})
 	});
 	useEffect(() => {
-		console.log('mycontext',dateRange)
 		const controller = new AbortController();
 		const fetchData = async () => {
 			setIsLoading(true);
@@ -85,7 +84,6 @@ const ChartCanvas = ({ setCodeValue }) => {
 		const payload = {
 			code: JSON.stringify(codeSnippetData)
 		};
-		console.log('codeSnippetData',payload)
 		const response = await saveScriptData(graphName, payload);
 		if (response?.data?.message) {
 
