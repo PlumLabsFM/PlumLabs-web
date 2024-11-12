@@ -9,24 +9,35 @@ import {Title, Description, Heading, SubHeading } from '../../components/element
 import { loginUser } from '../../services/apiServices';
 import { LOCALSTORAGE, LOGIN_TEXT } from '../../utils/constants';
 import style from './Login.module.css';
+import { fireLoginAuth } from '../../utils/helper';
+
 
 const Login = () => {
 	const navigate = useNavigate();
 	const [isLoading, setIsLoading] = useState(false);
-
+	
 	const handleSubmit = async (e) => {
 		setIsLoading(true);
 		e.preventDefault();
 		const [email, password] = e.target.elements;
-
+		let payload = {
+			email: email.value,
+			password: password.value
+		};
 		try {
 			const response = await loginUser(email.value, password.value);
-			if (response.status === 200) {
-				toast.success("Login sucessful. Welcome to PlumLabs");
+			const fireResponse = await fireLoginAuth(payload);
+
+			if (response.status === 200 && fireResponse.success) {
+				toast.success("Login successful. Welcome to PlumLabs!");
 				localStorage.setItem(LOCALSTORAGE.USER, JSON.stringify(response.data.user_data));
+				localStorage.setItem(LOCALSTORAGE.FIREBASE_ID, JSON.stringify( fireResponse.user.uid));
 				navigate('/dashboard');
 			} else {
 				toast.error("Something went wrong. Please try again.");
+				if (fireResponse.errorCode) {
+					toast.error(fireResponse.errorMessage)
+				}
 			}
 		} catch (error) {
 			toast.error(error?.response?.data?.error);

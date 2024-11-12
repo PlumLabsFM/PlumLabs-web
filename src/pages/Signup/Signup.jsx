@@ -10,6 +10,9 @@ import { Description, Heading, Title } from '../../components/elements/Typograph
 import { signinUser } from '../../services/apiServices';
 import { SIGNUP } from '../../utils/constants';
 import style from './Signup.module.css';
+import { fireSighupAuth } from '../../utils/helper';
+import { doc, setDoc } from "firebase/firestore";
+import { db } from '../../Firebase';
 
 const Signup = () => {
 	const [isLoading, setIsLoading] = useState(false);
@@ -26,17 +29,27 @@ const Signup = () => {
 			email: email.value,
 			password: password.value
 		};
-
 		try {
 			const response = await signinUser(payload);
-			if (response.status === 200) {
-				toast.success("user created successfully.");
+			const fireResponse = await fireSighupAuth(payload);
+
+			if (response.status === 200 && fireResponse.success) {
+				await setDoc(doc(db, "users", fireResponse.user.uid), {
+					firstname: payload.firstname,
+					lastname: payload.lastname,
+					email: payload.lastname,
+					uid: fireResponse.user.uid,
+				});
+				await setDoc(doc(db, "userChats", fireResponse.user.uid), {});
+				toast.success("User created successfully.");
 				signinHandler();
 			} else {
-				toast.error("something went wrong. Please try again.");
+				toast.error("Something went wrong. Please try again.");
+				if (fireResponse.errorCode) {
+					toast.error(fireResponse.errorMessage);
+				}
 			}
 		} catch (error) {
-			console.error(error);
 			toast.error("An error occurred while creating the account. Please try again later.");
 		}
 		setIsLoading(false);

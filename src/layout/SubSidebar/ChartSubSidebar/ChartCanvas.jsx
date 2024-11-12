@@ -77,29 +77,37 @@ const ChartCanvas = ({ setCodeValue }) => {
 		setIsTableView(view === 'table');
 	};
 
-	const onCodeRunHandler = async() => {
-		setChartData(null);
-		setTableData(null);
-		setIsLoading(true);
-		const payload = {
-			code: JSON.stringify(codeSnippetData)
-		};
-		const response = await saveScriptData(graphName, payload);
-		if (response?.data?.message) {
-
-			const controller = new AbortController();
-			const { signal } = controller;
-			toast.success(response?.data?.message);
-			const { chartDataValue, tableDataValue, codeSnippetValue, loadingValue } = await fetchChartAndTable(graphName, dateRange, signal);
-			setChartData(chartDataValue);
-			setTableData(tableDataValue);
-			setCodeSnippetData(codeSnippetValue);
-			setIsLoading(loadingValue);
-		} else {
-			toast.error('Something went wrong. Please try again');
+	const onCodeRunHandler = async () => {
+		try {
+			setChartData(null);
+			setTableData(null);
+			setIsLoading(true);
+	
+			const payload = {
+				code: JSON.stringify(codeSnippetData)
+			};
+	
+			const response = await saveScriptData(graphName, payload);
+	
+			if (response?.data?.message) {
+				const controller = new AbortController();
+				const { signal } = controller;
+				toast.success(response?.data?.message);
+				
+				const { chartDataValue, tableDataValue, codeSnippetValue, loadingValue } = await fetchChartAndTable(graphName, dateRange, signal);
+				setChartData(chartDataValue);
+				setTableData(tableDataValue);
+				setCodeSnippetData(codeSnippetValue);
+				setIsLoading(loadingValue);
+			} else {
+				toast.error('Something went wrong. Please try again');
+				setIsLoading(false);
+			}
+		} catch (error) {
+			toast.error('An error occurred while processing. Please try again');
+			setIsLoading(false);
 		}
-		setIsLoading(false);
-	};
+	};	
 
 	return (
 		<>
