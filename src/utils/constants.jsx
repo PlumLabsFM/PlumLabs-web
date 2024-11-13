@@ -26,8 +26,8 @@ export const ToolkitData = [{
 },
 {
 	id: "3",
-	title: "Target",
-	text: "Target Volatility"
+	title: "Portfolio",
+	text: "View Portfolio"
 },
 {
 	id: "4",
@@ -37,18 +37,16 @@ export const ToolkitData = [{
 },
 {
 	id: "5",
-	title: "FORGE",
-	text: "Portfolio Optimizer"
+	title: "Data & Analysis Libraries"
+
 },
 {
 	id: "6",
-	title: "Cost Basis",
-	text: "Tax Loss"
+	title: "Machine Learning Libraries"
 },
 {
 	id: "7",
-	title: "Cost Basis",
-	text: "Tax Loss"
+	title: "Data Visuallzation"
 }];
 
 export const NavbarConst = {

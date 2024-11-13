@@ -78,7 +78,7 @@ const Login = () => {
 							/>
 						</div>
 						<Button text='Sign in' type='submit' loading={isLoading} />
-						<SubHeading cursor textColor="grey">Forget your password?</SubHeading>
+						<SubHeading cursor textColor="grey">Forgot your password?</SubHeading>
 						<Description textColor="grey">
 							Don&apos;t have account?
 							<span className={style.signupContent} onClick={signupHandler}> Sign up</span>
