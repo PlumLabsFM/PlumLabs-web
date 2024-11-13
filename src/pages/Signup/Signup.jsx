@@ -74,7 +74,7 @@ const Signup = () => {
 				<img src={Avatar} className={style.profileImg} alt='Avatar' />
 				<div className={style.formContainer}>
 					<Heading textColor="grey">Sign up</Heading>
-					<form onSubmit={handleSubmit}>
+					<form className={style.formSmallContainer} onSubmit={handleSubmit}>
 						<div className={style.nameContainer}>
 							<label className={style.labelText}>{SIGNUP.FIRST_NAME}</label>
 							<div className={style.inputWrapper}>

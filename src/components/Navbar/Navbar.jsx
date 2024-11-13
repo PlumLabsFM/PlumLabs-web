@@ -4,11 +4,12 @@ import { GiBigGear } from "react-icons/gi";
 import { IoPerson } from "react-icons/io5";
 import { PiGearFineBold } from "react-icons/pi";
 import { useNavigate } from 'react-router-dom';
-import { NavbarConst } from '../../utils/constants';
+import { LOCALSTORAGE, NavbarConst } from '../../utils/constants';
 import { Heading, SmallText } from '../elements/Typography/Typography';
 import styles from './Navbar.module.css';
 
 export default function Navbar({ title }) {
+	const user = JSON.parse(localStorage.getItem(LOCALSTORAGE.USER));
 	const navigate = useNavigate();
 	const handleToolkitClick = () => {
 		navigate('/tool-kit');
@@ -33,7 +34,7 @@ export default function Navbar({ title }) {
 					<div className={styles.block}>
 						<div className={styles.profile} >
 							<IoPerson className={styles.navIcon}/>
-							<div className={styles.names}><SmallText>{NavbarConst.HELLO}</SmallText></div>
+							<div className={styles.names}><SmallText>{`Hello ${user.firstname}`}</SmallText></div>
 						</div>
 					</div>
 				</div>

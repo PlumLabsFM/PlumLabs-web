@@ -65,7 +65,7 @@ const Login = () => {
 				<img src={Avatar} className={style.profileImg} alt='Avatar' />
 				<div className={style.formContainer}>
 					<Heading textColor="grey" className={style.loginText}>Login</Heading>
-					<form onSubmit={handleSubmit}>
+					<form className={style.formSmallContainer} onSubmit={handleSubmit}>
 						<div>
 							<label htmlFor='email' className={style.labelText}>{LOGIN_TEXT.EMAIL}</label>
 							<div className={style.inputWrapper}>
@@ -89,7 +89,7 @@ const Login = () => {
 							/>
 						</div>
 						<Button text='Sign in' type='submit' loading={isLoading} />
-						<SubHeading cursor textColor="grey">Forget your password?</SubHeading>
+						<SubHeading cursor textColor="grey">Forgot your password?</SubHeading>
 						<Description textColor="grey">
 							Don&apos;t have account?
 							<span className={style.signupContent} onClick={signupHandler}> Sign up</span>
