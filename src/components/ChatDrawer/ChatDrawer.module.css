@@ -36,7 +36,7 @@
     height: 500px;
     border-radius: 0.31rem;
     transition: height 0.2s ease;
-    background-color: #f9f9f9;
+    background-color: rgb(255, 255, 255);
 }
 .devider{
     border-color: var(--grey-text-color);

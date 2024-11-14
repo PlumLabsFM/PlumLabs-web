@@ -30,7 +30,7 @@
 
 .formContainer {
     background: var(--card-bg-color);
-    padding: 20px;
+    padding: 2.4rem 1.5rem;
     border-radius: var(--card-border-radius);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
     width: 300px; 
@@ -44,6 +44,9 @@
 
 .labelText {
     display: none;
+}
+.formSmallContainer{    
+    padding: 0.4rem 0;
 }
 
 .inputWrapper {

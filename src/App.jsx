@@ -20,7 +20,8 @@ function App() {
 
 	const navbarProps = {
 		"/app-store": {title: "APP  STORE" },
-		"/tool-kit": {title: "TOOL KIT" }
+		"/tool-kit": {title: "TOOL KIT" },
+		"/plum-vision": {title: "" }
 	};
 
 	const selectedNavbarProps = navbarProps[location.pathname] || {};

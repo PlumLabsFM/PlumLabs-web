@@ -6,7 +6,7 @@ export const AUTH_SERVICE = {
 	LOGOUT: `${BASE_URL}/api/auth/logout`,
 	SIGN_UP: `${BASE_URL}/api/auth/create-user`
 };
-
+	
 export const DOCUMENT = {
 	UPLOAD_DOCUMENT: `${BASE_URL}/api/portfolio/upload-portfolio`,
 	GET_TABLE: `${BASE_URL}/api/portfolio/financial-table-data`

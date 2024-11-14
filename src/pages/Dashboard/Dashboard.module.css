@@ -64,3 +64,25 @@
     margin: 0;
     padding-top: 1rem;
 }
+.block {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 3rem;
+    cursor: pointer;
+}
+.profile {
+    display: flex;
+    align-self: center;
+}
+
+.names {
+    display:flex;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.navIcon {
+    color: #9A6FF4;
+    width: 35px;
+    height: 35px;
+}

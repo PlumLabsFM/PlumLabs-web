@@ -141,7 +141,8 @@ export const ExplorerAppStoreData = [
 ];
 
 export const LOCALSTORAGE = {
-	USER: 'user'
+	USER: 'user',
+	FIREBASE_ID:'firebaseid'
 };
 
 export const MenuItemsForCharts = [

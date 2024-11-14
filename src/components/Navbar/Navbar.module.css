@@ -3,16 +3,6 @@
     background-color: white;
 }
 
-.profile {
-    display: flex;
-    align-self: center;
-}
-
-.names {
-    display:flex;
-    align-items: center;
-    padding-left: 5px;
-}
 
 .MainContainer {
     display: flex;
@@ -28,7 +18,9 @@
     justify-content: space-between;
     gap: 0.7rem;
 }
-
+.lables {
+    width: fit-content;
+}
 .block {
     display: flex;
     flex-direction: column;
@@ -37,9 +29,15 @@
     padding: 5px;
     cursor: pointer;
 }
+.profile {
+    display: flex;
+    align-self: center;
+}
 
-.lables {
-    width: fit-content;
+.names {
+    display:flex;
+    align-items: center;
+    padding-left: 5px;
 }
 
 .navIcon {
