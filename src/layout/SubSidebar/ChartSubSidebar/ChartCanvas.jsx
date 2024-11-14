@@ -84,7 +84,7 @@ const ChartCanvas = ({ setCodeValue }) => {
 			setIsLoading(true);
 	
 			const payload = {
-				code: JSON.stringify(codeSnippetData)
+				code: (codeSnippetData)
 			};
 	
 			const response = await saveScriptData(graphName, payload);
