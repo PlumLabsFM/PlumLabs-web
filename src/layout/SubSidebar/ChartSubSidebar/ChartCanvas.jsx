@@ -15,7 +15,7 @@ import { fetchChartAndTable, saveScriptData } from '../../../utils/helper';
 import style from './ChartCanvas.module.css';
 import { MyContext } from '../../../utils/ContextProvider';
 
-const ChartCanvas = ({ setCodeValue }) => {
+const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
 	const {dateRange, setDateRange} = useContext(MyContext)
 	const userData = localStorage.getItem(LOCALSTORAGE.USER);
 	const userId = JSON.parse(userData).id;
@@ -61,6 +61,7 @@ const ChartCanvas = ({ setCodeValue }) => {
 				setCodeSnippetData(codeSnippetValue);
 				setCodeValue(codeSnippetValue);
 				setIsLoading(loadingValue);
+				setGraphNm(graphName);
 			}
 
 			setIsLoading(false);
@@ -98,6 +99,7 @@ const ChartCanvas = ({ setCodeValue }) => {
 				setChartData(chartDataValue);
 				setTableData(tableDataValue);
 				setCodeSnippetData(codeSnippetValue);
+				setGraphNm(graphName);
 				setIsLoading(loadingValue);
 			} else {
 				toast.error('Something went wrong. Please try again');

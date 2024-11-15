@@ -32,3 +32,6 @@ export const getCodeScript = async (chartName, signal) => {
 export const saveCodeScript = async (chartName, data) => {
 	return await HttpPut(`${API_URL.CHART.SAVE_CHART}?graph_name=${chartName}`,  data );
 };
+export const shareReportFile = async (graphNm) => {
+	return await HttpGet(`${API_URL.CHART.GET_REPORT}/share-report-file?graph_name=${graphNm}`);
+};

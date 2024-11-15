@@ -7,13 +7,13 @@ import { MdOutlinePersonAddAlt } from "react-icons/md";
 import { PiCalendarHeart, PiHeadCircuitLight } from "react-icons/pi";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { logoutUser } from '../../services/apiServices';
+import { logoutUser, shareReportFile } from '../../services/apiServices';
 import { LOCALSTORAGE } from '../../utils/constants';
 import NavbarButton from '../elements/NavbarButton/NavbarButton';
 import { Heading, SmallText } from '../elements/Typography/Typography';
 import styles from './BackTestNavbar.module.css';
 
-export default function BackTestNavbar({codeValue, showDrawer}) {
+export default function BackTestNavbar({codeValue, showDrawer, graphNm}) {
 
 	const navigate = useNavigate();
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -41,11 +41,15 @@ export default function BackTestNavbar({codeValue, showDrawer}) {
 		}
 	};
 
-	const saveToFile = () => {
-		const blob = new Blob([codeValue], { type: "text/plain" });
+	const saveToFile = async() => {
+		const res = await shareReportFile(graphNm)
+		const blob = new Blob([res.data], { type: "text/plain" });
 		const link = document.createElement("a");
 		link.href = URL.createObjectURL(blob);
-		link.download = "code.py";
+		const filename = res.headers['content-disposition']
+		? res.headers['content-disposition'].split('filename=')[1].replace(/"/g, '')
+		: 'chart_script.py';
+		link.download = filename;
 		link.click();
 	};
 
