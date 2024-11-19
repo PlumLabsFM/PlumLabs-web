@@ -83,18 +83,15 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
 			setChartData(null);
 			setTableData(null);
 			setIsLoading(true);
-	
-			const payload = {
-				code: (codeSnippetData)
-			};
-	
+			if (!codeSnippetData || typeof codeSnippetData !== 'string' || codeSnippetData.trim() === '') {
+				throw new Error('Invalid code snippet provided.');
+			}
+			const payload = { code: codeSnippetData };
 			const response = await saveScriptData(graphName, payload);
-	
 			if (response?.data?.message) {
 				const controller = new AbortController();
 				const { signal } = controller;
 				toast.success(response?.data?.message);
-				
 				const { chartDataValue, tableDataValue, codeSnippetValue, loadingValue } = await fetchChartAndTable(graphName, dateRange, signal);
 				setChartData(chartDataValue);
 				setTableData(tableDataValue);
@@ -106,10 +103,14 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
 				setIsLoading(false);
 			}
 		} catch (error) {
-			toast.error('An error occurred while processing. Please try again');
+			if (error.message === 'Invalid code snippet provided.') {
+				toast.error('Please provide a valid code snippet to proceed.');
+			} else {
+				toast.error('An error occurred while processing. Please try again.');
+			}
 			setIsLoading(false);
 		}
-	};	
+	};
 
 	return (
 		<>
@@ -152,12 +153,17 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
 										layout={{
 											showlegend: false,
 											xaxis: {
-												title: '',
+												// title: 'x axis label',
 												showgrid: true,
 												zeroline: true,
-												visible: false
+												visible: true
 											},
-											height: "300px"
+											yaxis: {
+												showgrid: false,
+												zeroline: true,
+												visible: true
+											},
+											height: "300px",
 										}}
 										config={{
 											responsive: true,

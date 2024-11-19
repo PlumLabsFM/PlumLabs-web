@@ -11,7 +11,7 @@ import ChatDrawer from '../../components/ChatDrawer/ChatDrawer';
 export default function PlumDashboard() {
 	const [codeValue, setCodeValue] = useState(null);
 	const [open, setOpen] = useState(false);
-	const [graphNm, setGraphNm] = useState()
+	const [graphNm, setGraphNm] = useState('')
     const showDrawer = () => {
         setOpen(true);
     };

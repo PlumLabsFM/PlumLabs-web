@@ -41,16 +41,25 @@ export default function BackTestNavbar({codeValue, showDrawer, graphNm}) {
 		}
 	};
 
-	const saveToFile = async() => {
-		const res = await shareReportFile(graphNm)
-		const blob = new Blob([res.data], { type: "text/plain" });
-		const link = document.createElement("a");
-		link.href = URL.createObjectURL(blob);
-		const filename = res.headers['content-disposition']
-		? res.headers['content-disposition'].split('filename=')[1].replace(/"/g, '')
-		: 'chart_script.py';
-		link.download = filename;
-		link.click();
+	const saveToFile = async () => {
+		try {
+			const res = await shareReportFile(graphNm);
+			if (!res || !res.data) {
+				throw new Error('Failed to fetch the report file.');
+			}
+			const blob = new Blob([res.data], { type: "text/plain" });
+			const link = document.createElement("a");
+			const filename = res.headers['content-disposition']
+				? res.headers['content-disposition'].split('filename=')[1].replace(/"/g, '')
+				: 'chart_script.py';
+			link.href = URL.createObjectURL(blob);
+			link.download = filename;
+			link.click();
+			URL.revokeObjectURL(link.href);
+		} catch (error) {
+			console.error('Error saving the file:', error);
+			toast.error('Failed to save the file. Please try again.');
+		}
 	};
 
 	const fileUrl = codeValue;
