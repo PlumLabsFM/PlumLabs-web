@@ -11,6 +11,7 @@ import ChatDrawer from '../../components/ChatDrawer/ChatDrawer';
 export default function PlumDashboard() {
 	const [codeValue, setCodeValue] = useState(null);
 	const [open, setOpen] = useState(false);
+	const [graphNm, setGraphNm] = useState('')
     const showDrawer = () => {
         setOpen(true);
     };
@@ -36,9 +37,9 @@ export default function PlumDashboard() {
 					</div>
 				</div>
 				<div className={styles.dropArea}>
-					<BackTestNavbar codeValue={codeValue} showDrawer={showDrawer}/>
+					<BackTestNavbar codeValue={codeValue} showDrawer={showDrawer} graphNm={graphNm}/>
 					<div className={styles.chartDiv}>
-						<ChartCanvas setCodeValue={setCodeValue} />
+						<ChartCanvas setCodeValue={setCodeValue} setGraphNm={setGraphNm}/>
 					</div>
 				</div>
 			</div>
