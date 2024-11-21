@@ -146,10 +146,12 @@ export const LOCALSTORAGE = {
 };
 
 export const MenuItemsForCharts = [
-	{ name: 'Asset Allocation', icon: <FaChartLine style={{color: 'yellow', width: '50px', height: '30px'}}/>, graphName: 'portfolio_distribution' },
-	{ name: 'Asset Performance', icon: <FaRegChartBar style={{color: 'pink', width: '50px', height: '30px'}}/>, graphName: 'asset_performance'},
-	{ name: 'Drawdown', icon: <FaRegChartBar style={{color: 'red', width: '50px', height: '30px'}}/>, graphName: 'portfolio_drawdown'},
-	{ name: 'Portfolio Growth', icon: <FaRegChartBar style={{color: 'violet', width: '50px', height: '30px'}}/>, graphName: 'portfolio_growth'},
+	{ name: 'Asset Allocation', icon: <FaChartLine style={{color: 'yellow', width: '50px', height: '30px'}}/>, graphName: 'Allocation_percentage_plot' },
+	{ name: 'Asset Performance', icon: <FaRegChartBar style={{color: 'pink', width: '50px', height: '30px'}}/>, graphName: 'Portfolio_allocation_plot_mtm'},
+	{ name: 'Drawdown', icon: <FaRegChartBar style={{color: 'red', width: '50px', height: '30px'}}/>, graphName: 'Drawdown_graph'},
+	{ name: 'Portfolio Growth', icon: <FaRegChartBar style={{color: 'violet', width: '50px', height: '30px'}}/>, graphName: 'Portfolio_growth_plot'},
+	{ name: 'Monthly Pnl Heatmap', icon: <FaRegChartBar style={{color: 'violet', width: '50px', height: '30px'}}/>, graphName: 'Monthly_pnl_heatmap'},
+	{ name: 'Monthly Heatmap', icon: <FaRegChartBar style={{color: 'violet', width: '50px', height: '30px'}}/>, graphName: 'Monthly_heatmap'},
 	{ name: 'Financial Table', icon: <FaRegChartBar style={{color: 'violet', width: '50px', height: '30px'}}/>, graphName: 'financial-table-data'}
 ];
 

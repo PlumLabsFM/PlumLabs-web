@@ -1,5 +1,5 @@
-// export const BASE_URL = "https://0zzgwn9r-5000.inc1.devtunnels.ms";
-export const BASE_URL = "https://plumlabs-backend-jdj2.onrender.com";
+export const BASE_URL = "https://0zzgwn9r-5000.inc1.devtunnels.ms";
+// export const BASE_URL = "https://plumlabs-backend-jdj2.onrender.com";
 
 export const AUTH_SERVICE = {
 	LOGIN: `${BASE_URL}/api/auth/login`,
@@ -13,8 +13,10 @@ export const DOCUMENT = {
 };
 
 export const CHART = {
-	GET_CHART: `${BASE_URL}/api/portfolio/graph-dashbord`,
-	GET_SCRIPT: `${BASE_URL}/api/editor/get-code`,
+	// GET_CHART: `${BASE_URL}/api/portfolio/graph-dashbord`,
+	// GET_SCRIPT: `${BASE_URL}/api/editor/get-code`,
+	GET_CHART: `${BASE_URL}/api/portfolio/graph-dataframe`,
+	GET_SCRIPT: `${BASE_URL}/api/editor/get-code-backtest`,
 	SAVE_CHART: `${BASE_URL}/api/editor/save-code`,
 	GET_REPORT: `${BASE_URL}/api/editor`,
 };

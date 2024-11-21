@@ -112,6 +112,8 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
 		}
 	};
 
+	console.log('chartdata',chartData)
+
 	return (
 		<>
 			{tableData && graphName !== 'financial-table-data' && (
@@ -162,7 +164,7 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
 												showgrid: false,
 												zeroline: true,
 												visible: true
-											},
+											},								
 											height: "300px",
 										}}
 										config={{
@@ -182,7 +184,7 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
 									onClick={onCodeRunHandler}
 								/>
 							</div>
-							<CodeEditor codeValue={codeSnippetData} setCodeValue={setCodeValue} setCodeSnippetData={setCodeSnippetData} />
+							<CodeEditor className={style.codeEditorContainer} codeValue={codeSnippetData} setCodeValue={setCodeValue} setCodeSnippetData={setCodeSnippetData} />
 						</>
 					) : tableData ? (
 						<Table tableData={tableData} />

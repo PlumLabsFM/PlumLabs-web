@@ -26,7 +26,7 @@ const CodeEditor = ({ codeValue, setCodeValue, setCodeSnippetData }) => {
 	return (
 		<div className={styles.mainDiv}>
 			<MonacoEditor
-				height="15rem"
+				height="25rem"
 				width={"100%"}
 				language="python"
 				value={codeValue}
