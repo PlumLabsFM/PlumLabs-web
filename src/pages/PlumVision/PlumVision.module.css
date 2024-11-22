@@ -156,13 +156,11 @@
 .datePicker {
     width: 90%;
     height: 50%;
-    background-color: transparent;
     border: none;
 }
 
 .datePicker:hover {
     border: none; 
-    background-color: transparent;
     cursor: default; 
 }
 
