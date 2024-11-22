@@ -1,5 +1,5 @@
-export const BASE_URL = "https://0zzgwn9r-5000.inc1.devtunnels.ms";
-// export const BASE_URL = "https://plumlabs-backend-jdj2.onrender.com";
+// export const BASE_URL = "https://0zzgwn9r-5000.inc1.devtunnels.ms";
+export const BASE_URL = "https://plumlabs-backend-jdj2.onrender.com";
 
 export const AUTH_SERVICE = {
 	LOGIN: `${BASE_URL}/api/auth/login`,
