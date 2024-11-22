@@ -22,11 +22,18 @@ export default function PlumVision() {
 	const [userId, setUserId] = useState(null);
 	const [isFileUploaded, setIsFileUploaded] = useState(false);
 	const navigate = useNavigate();
+	const [inputRange, setInputRange] = useState({
+		startDate:'',
+		endDate:''
+	})
 
 	useEffect(() => {
 		const userData = JSON.parse(localStorage.getItem(LOCALSTORAGE.USER));
 		setUserId(userData.id);
-	}, []);
+		if(!userData){
+			navigate('/login');
+		}
+	}, [])
 
 	const handleFileChange = async (event) => {
 		const file = event.target.files[0];
@@ -48,15 +55,21 @@ export default function PlumVision() {
 			alert('Please upload a valid Excel (.xlsx) file.');
 			setIsFileUploaded(false);
 		}
-	};
+	}
 
 	const handlePlayButtonClick = () => {
-		if (isFileUploaded) {
+		if (isFileUploaded && inputRange.startDate && inputRange.endDate) {
 			navigate('/plum-dashboard');
 		}
-	};
+		else if(!inputRange.startDate){
+			toast.warning('Please select date range!');
+		}
+		else if(!isFileUploaded){
+			toast.warning('Please upload csv file!');
+		}
+	}
 
-	return (
+	return ( 
 		<div className={styles.rootContainer}>
 			<div className={styles.appContainer}>
 				<div className={styles.appBox}>
@@ -106,7 +119,11 @@ export default function PlumVision() {
 													setDateRange({'startDate':dateString[0],
 														'endDate':dateString[1]
 													});
+													setInputRange({'startDate':dateString[0],
+														'endDate':dateString[1]
+													});
 												  }}
+												  required
 											/>
 										</div>
 									</div>
@@ -125,7 +142,7 @@ export default function PlumVision() {
 													(optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
 												}
 												options={ItemsForDropdown}
-												disabled={!isFileUploaded}
+												disabled
 											/>
 										</div>
 									</div>
