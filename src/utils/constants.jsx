@@ -157,7 +157,7 @@ export const MenuItemsForCharts = [
 	{ name: 'Portfolio Growth', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Portfolio_growth_plot'},
 	{ name: 'Monthly Pnl Heatmap', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Monthly_pnl_heatmap'},
 	{ name: 'Monthly Heatmap', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Monthly_heatmap'},
-	{ name: 'Financial Table', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'financial-table-data'}
+	// { name: 'Financial Table', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'financial-table-data'}
 ];
 
 export const ItemsForDropdown = [
