@@ -40,6 +40,14 @@ PlumLabs Web Application is a robust platform designed for portfolio management,
 3. **Editor Functionality**  
    A rich text editor with robust capabilities.
 
+4. **Chat Engine**  
+   A real-time chat engine built using Firebase, enabling seamless communication between users.  
+   - **Key Features**:
+     - Real-time messaging.
+     - User presence tracking.
+     - Chat history storage.  
+   - Implementation details can be found in `Chat system implementation.docx`.
+
 ---
 
 ## Code Flow and Structure
