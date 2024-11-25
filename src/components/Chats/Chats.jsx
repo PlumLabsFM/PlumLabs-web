@@ -15,7 +15,6 @@ const Chats = ({ chatId }) => {
         if (!chatId) return;
             const unsubscribe = onSnapshot(doc(db, "chats", chatId), (doc) => {
                 if (doc.exists()) {
-                    console.log("Current data: ", doc.data());
                     setChats(doc.data().messages || []);
                 } else {
                    toast.error("No such document!");

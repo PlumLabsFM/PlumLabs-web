@@ -42,7 +42,7 @@
                 e.parentNode.insertBefore(t, e);
             })();
         } catch (e) {
-            console.log(e);
+            // console.log(e);
             throw e;
         }
     </script>

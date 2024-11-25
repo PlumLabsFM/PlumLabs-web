@@ -52,7 +52,6 @@ export const fetchChartAndTable = async (graphName, dateRange, signal) => {
 };
 
 export const saveScriptData = async (graphName, data) => {
-	console.log('data', data)
 	let response;
 	try {
 		response = await saveCodeScript(graphName, data);

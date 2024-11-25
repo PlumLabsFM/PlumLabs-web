@@ -11,7 +11,7 @@ const ChartItem = ({graphName, graphNm, label, icon, types}) => {
 		})
 	});
 	const opacity = isDragging ? 0.5 : 1;
-
+	
 	return (
 		<div ref={drag} style={{ opacity }} className={ graphName == graphNm ? `${styles.activeBlock} `:`${styles.blockDiv}`}>
 			<div className={styles.block}>

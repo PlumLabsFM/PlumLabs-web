@@ -49,11 +49,12 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
 
                 const { signal } = controller;
 
-                if (graphName === 'financial-table-data') {
+                if ( graphName === 'Drawdown_graph') {
                     try {
-                        const response = await getTable(signal);
-                        if (response?.data) {
-                            setTableData(response.data);
+                        const { chartDataValue } = await fetchChartAndTable(graphName, dateRange, signal);
+                        if (chartDataValue) {
+                            setTableData( chartDataValue);
+                            setGraphNm(graphName);
                         } else {
                             throw new Error('Failed to fetch table data.');
                         }
@@ -65,10 +66,9 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
                     const {
                         chartDataValue,
                         tableDataValue,
-                        codeSnippetValue,
-                        loadingValue,
+                        codeSnippetValue
                     } = await fetchChartAndTable(graphName, dateRange, signal);
-
+                    console.log('tabledataval',tableDataValue)
                     setChartData(chartDataValue || []);
                     setTableData(tableDataValue || []);
                     setCodeSnippetData(codeSnippetValue || '');
@@ -125,10 +125,9 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
 
     const toggleView = (view) => setIsTableView(view === 'table');
 
-	console.log('chartdata', chartData)
     return (
         <div>
-            {tableData && graphName !== 'financial-table-data' && (
+            {/* {tableData && graphName !== ('financial-table-data' || 'Drawdown_graph') && (
                 <div className={style.toggleBtn}>
                     <Tooltip placement="bottom" title="Chart View">
                         <GiChart
@@ -145,7 +144,7 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
                         />
                     </Tooltip>
                 </div>
-            )}
+            )} */}
             <div
                 ref={drop}
                 style={{
