@@ -142,7 +142,8 @@ export const ExplorerAppStoreData = [
 
 export const LOCALSTORAGE = {
 	USER: 'user',
-	FIREBASE_ID:'firebaseid'
+	FIREBASE_ID:'firebaseid',
+	DATETIME:{}
 };
 
 const menuItemDimentions = {

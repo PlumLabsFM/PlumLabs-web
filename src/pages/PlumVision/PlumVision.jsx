@@ -18,19 +18,19 @@ import styles from './PlumVision.module.css';
 import { MyContext } from '../../utils/ContextProvider';
 
 export default function PlumVision() {
-	const {dateRange, setDateRange} = useContext(MyContext)
+	const { dateRange, setDateRange } = useContext(MyContext)
 	const [userId, setUserId] = useState(null);
 	const [isFileUploaded, setIsFileUploaded] = useState(false);
 	const navigate = useNavigate();
 	const [inputRange, setInputRange] = useState({
-		startDate:'',
-		endDate:''
+		startDate: '',
+		endDate: ''
 	})
 
 	useEffect(() => {
 		const userData = JSON.parse(localStorage.getItem(LOCALSTORAGE.USER));
 		setUserId(userData.id);
-		if(!userData){
+		if (!userData) {
 			navigate('/login');
 		}
 	}, [])
@@ -59,17 +59,18 @@ export default function PlumVision() {
 
 	const handlePlayButtonClick = () => {
 		if (isFileUploaded && inputRange.startDate && inputRange.endDate) {
+			localStorage.setItem(LOCALSTORAGE.DATETIME, JSON.stringify(inputRange));
 			navigate('/plum-dashboard');
 		}
-		else if(!inputRange.startDate){
+		else if (!inputRange.startDate) {
 			toast.warning('Please select date range!');
 		}
-		else if(!isFileUploaded){
+		else if (!isFileUploaded) {
 			toast.warning('Please upload csv file!');
 		}
 	}
 
-	return ( 
+	return (
 		<div className={styles.rootContainer}>
 			<div className={styles.appContainer}>
 				<div className={styles.appBox}>
@@ -116,14 +117,16 @@ export default function PlumVision() {
 												disabled={!isFileUploaded}
 												className={styles.datePicker}
 												onChange={(value, dateString) => {
-													setDateRange({'startDate':dateString[0],
-														'endDate':dateString[1]
+													setDateRange({
+														'startDate': dateString[0],
+														'endDate': dateString[1]
 													});
-													setInputRange({'startDate':dateString[0],
-														'endDate':dateString[1]
+													setInputRange({
+														'startDate': dateString[0],
+														'endDate': dateString[1]
 													});
-												  }}
-												  required
+												}}
+												required
 											/>
 										</div>
 									</div>
