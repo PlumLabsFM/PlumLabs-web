@@ -13,12 +13,11 @@ import Table from '../../../components/elements/Table/Table';
 import { getTable } from '../../../services/apiServices';
 import { LOCALSTORAGE } from '../../../utils/constants';
 import { fetchChartAndTable, saveScriptData } from '../../../utils/helper';
-import { MyContext } from '../../../utils/ContextProvider';
 
 import style from './ChartCanvas.module.css';
 
 const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
-    const { dateRange, setDateRange } = useContext(MyContext);
+    const dateRange = JSON.parse(localStorage.getItem(LOCALSTORAGE.DATETIME));
     const userData = localStorage.getItem(LOCALSTORAGE.USER);
     const userId = userData ? JSON.parse(userData).id : null;
 
@@ -36,6 +35,7 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
             isOver: monitor.isOver(),
         }),
     });
+    // console.log('dateold',dateRange)
 
     useEffect(() => {
         if (!graphName) return;
@@ -85,7 +85,7 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
 
         fetchData();
         return () => controller.abort();
-    }, [graphName, dateRange, setCodeValue, setGraphNm]);
+    }, [graphName, setCodeValue, setGraphNm]);
 
     const onCodeRunHandler = async () => {
         try {
