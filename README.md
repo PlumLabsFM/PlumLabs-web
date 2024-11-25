@@ -46,7 +46,7 @@ PlumLabs Web Application is a robust platform designed for portfolio management,
      - Real-time messaging.
      - User presence tracking.
      - Chat history storage.  
-   - Implementation details can be found in `Chat system implementation.docx`.
+   - Implementation details can be found in [Chat system implementation.docx](https://flairmindssoftwarepvtltd623.sharepoint.com/:w:/r/sites/FlairMindsSoftwarePvt.Ltd/_layouts/15/Doc.aspx?sourcedoc=%7BE8306A98-0AE9-4A94-A268-F7478F6BE785%7D&file=Chat%20system%20implementation.docx&action=default&mobileredirect=true).
 
 ---
 
@@ -70,8 +70,8 @@ Environment-specific variables are defined for secure and consistent operation. 
 ## Important Libraries
 
 - **React**: Core library for building the user interface.
+- **Firebase**: Manages chat service and user communication.
 - **Eslint**: Ensures code quality and consistency.
-- **Postman**: Useful for API testing and debugging.
 
 ---
 
@@ -81,7 +81,7 @@ Environment-specific variables are defined for secure and consistent operation. 
    Handles API calls for portfolio management, authentication, and other services.
 
 2. **Firebase**  
-   Provides the chat functionality. Refer to `Chat system implementation.docx` for implementation details.
+   Provides the chat functionality. Refer to [Chat system implementation.docx](https://flairmindssoftwarepvtltd623.sharepoint.com/:w:/r/sites/FlairMindsSoftwarePvt.Ltd/_layouts/15/Doc.aspx?sourcedoc=%7BE8306A98-0AE9-4A94-A268-F7478F6BE785%7D&file=Chat%20system%20implementation.docx&action=default&mobileredirect=true) for implementation details.
 
 ---
 
