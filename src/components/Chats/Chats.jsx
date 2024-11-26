@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { doc, onSnapshot } from "firebase/firestore";
 import { LOCALSTORAGE } from '../../utils/constants';
-import { db } from '../../Firebase';
+import { db } from '../../services/Firebase';
 import styles from "./Chats.module.css";
 import blankImg from '../../assets/blank_profile.webp';
 import { toast } from 'react-toastify';
