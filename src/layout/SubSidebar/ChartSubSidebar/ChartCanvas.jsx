@@ -23,7 +23,7 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
 
     const [graphName, setGraphName] = useState(null);
     const [chartData, setChartData] = useState(null);
-    const [tableData, setTableData] = useState(null);
+    const [tableData, setTableData] = useState([]);
     const [isTableView, setIsTableView] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [codeSnippetData, setCodeSnippetData] = useState('');
@@ -35,7 +35,6 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
             isOver: monitor.isOver(),
         }),
     });
-    // console.log('dateold',dateRange)
 
     useEffect(() => {
         if (!graphName) return;
@@ -48,33 +47,22 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
                 setTableData(null);
 
                 const { signal } = controller;
-
-                if ( graphName === 'Drawdown_graph') {
-                    try {
-                        const { chartDataValue } = await fetchChartAndTable(graphName, dateRange, signal);
-                        if (chartDataValue) {
-                            setTableData( chartDataValue);
-                            setGraphNm(graphName);
-                        } else {
-                            throw new Error('Failed to fetch table data.');
-                        }
-                    } catch (error) {
-                        console.error('Table fetch error:', error);
-                        toast.error('Unable to load table data. Please try again.');
-                    }
+                const { newTable, chartDataValue, tableDataValue, codeSnippetValue } = await fetchChartAndTable(graphName, dateRange, signal);
+                if (graphName === 'Drawdown_graph') {
+                    setTableData(newTable);
+                    setGraphNm(graphName);
                 } else {
-                    const {
-                        chartDataValue,
-                        tableDataValue,
-                        codeSnippetValue
-                    } = await fetchChartAndTable(graphName, dateRange, signal);
-                    console.log('tabledataval',tableDataValue)
-                    setChartData(chartDataValue || []);
+                    console.log('codeval',codeSnippetValue)
+                    console.log('chartval',chartDataValue)
+                    console.log('tableval',tableDataValue)
+
+                    setChartData(chartDataValue.data || []);
                     setTableData(tableDataValue || []);
                     setCodeSnippetData(codeSnippetValue || '');
                     setCodeValue(codeSnippetValue || '');
                     setGraphNm(graphName);
                 }
+
             } catch (error) {
                 console.error('Data fetch error:', error);
                 toast.error('Error fetching data. Please try again.');
@@ -124,7 +112,6 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
     };
 
     const toggleView = (view) => setIsTableView(view === 'table');
-
     return (
         <div>
             {/* {tableData && graphName !== ('financial-table-data' || 'Drawdown_graph') && (
@@ -161,31 +148,34 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
                                 </div>
                             ) : (
                                 <div className={style.chartContainer}>
-                                    <Plot
-                                        data={Array.isArray(chartData.data) ? chartData.data : [chartData.data]}
-                                        layout={{
-                                            showlegend: false,
-											xaxis: {
-												title: chartData.layout.xaxis.title, 
-												showgrid: true,
-												zeroline: true,
-												visible: true,
-											},
-											yaxis: {
-												title: chartData.layout.yaxis.title,
-												showgrid: false,
-												zeroline: true,
-												visible: true,
-											},
-                                            height: '300px',
-											
-                                        }}
-                                        config={{
-                                            responsive: true,
-                                            displayModeBar: false,
-                                        }}
-                                        style={{ height: '330px' }}
-                                    />
+                                    {chartData && chartData.layout ? (
+                                        <Plot
+                                            data={Array.isArray(chartData.data) ? chartData.data : [chartData.data]}
+                                            layout={{
+                                                showlegend: false,
+                                                xaxis: {
+                                                    title: chartData.layout.xaxis?.title || 'X-Axis', 
+                                                    showgrid: true,
+                                                    zeroline: true,
+                                                    visible: true,
+                                                },
+                                                yaxis: {
+                                                    title: chartData.layout.yaxis?.title || 'Y-Axis', 
+                                                    showgrid: false,
+                                                    zeroline: true,
+                                                    visible: true,
+                                                },
+                                                height: 300,
+                                            }}
+                                            config={{
+                                                responsive: true,
+                                                displayModeBar: false,
+                                            }}
+                                            style={{ height: '330px' }}
+                                        />
+                                    ) : (
+                                        <div>No chart layout data available.</div>
+                                    )}
                                 </div>
                             )}
                             <div className={style.playButtonContainer}>
@@ -202,7 +192,7 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
                                 setCodeSnippetData={setCodeSnippetData}
                             />
                         </>
-                    ) : tableData ? (
+                    ) : tableData.length > 0 ? (
                         <Table tableData={tableData} />
                     ) : (
                         <div className={style.dropChartContainer}>

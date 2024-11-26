@@ -5,7 +5,7 @@ import { Input } from 'antd';
 import { RiSendPlaneFill } from "react-icons/ri";
 import blankImg from '../../assets/blank_profile.webp';
 import { doc, updateDoc, arrayUnion, Timestamp } from "firebase/firestore";
-import { db } from '../../Firebase';
+import { db } from '../../services/Firebase';
 import { LOCALSTORAGE } from '../../utils/constants';
 import Chats from '../Chats/Chats';
 import { toast } from 'react-toastify';

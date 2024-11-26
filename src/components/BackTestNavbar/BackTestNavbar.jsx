@@ -1,5 +1,5 @@
 import { Modal } from 'antd';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsSearch, BsFillChatDotsFill } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { HiDocument } from "react-icons/hi2";
@@ -17,6 +17,7 @@ export default function BackTestNavbar({codeValue, showDrawer, graphNm}) {
 
 	const navigate = useNavigate();
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [newData, setNewData] = useState('')
 
 	const showModal = () => {
 		setIsModalOpen(true);
@@ -32,6 +33,7 @@ export default function BackTestNavbar({codeValue, showDrawer, graphNm}) {
 			if (response.status === 200) {
 				toast.success(response.data.msg);
 				localStorage.removeItem(LOCALSTORAGE.USER);
+				localStorage.removeItem(LOCALSTORAGE.FIREBASE_ID);
 				navigate('/');
 			} else {
 				toast.error('Something went wrong. Please try again.');
@@ -48,6 +50,7 @@ export default function BackTestNavbar({codeValue, showDrawer, graphNm}) {
 				throw new Error('Failed to fetch the report file.');
 			}
 			const blob = new Blob([res.data], { type: "text/plain" });
+			setNewData(res.data)
 			const link = document.createElement("a");
 			const filename = res.headers['content-disposition']
 				? res.headers['content-disposition'].split('filename=')[1].replace(/"/g, '')
@@ -69,6 +72,10 @@ export default function BackTestNavbar({codeValue, showDrawer, graphNm}) {
 	const mailtoLink = `mailto:?subject=${encodeURIComponent(
 		subject
 	)}&body=${encodeURIComponent(body)}`;
+	
+	useEffect(() => {
+		console.log('new',newData)
+	},[newData, setNewData])
 
 	return (
 		<div className={styles.mainContainer}>
@@ -98,7 +105,7 @@ export default function BackTestNavbar({codeValue, showDrawer, graphNm}) {
 								<HiDownload className={styles.btnImage}/>
 								<SmallText className={styles.textForImg}>Download</SmallText>
 							</div>
-							<a className={styles.btnImageDiv} href={mailtoLink}>
+							<a className={styles.btnImageDiv} href={mailtoLink} >
 								<PiCalendarHeart className={styles.btnImage}/>
 								<SmallText className={styles.textForImg}>Share on mail</SmallText>
 							</a>

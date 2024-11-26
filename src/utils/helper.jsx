@@ -1,7 +1,7 @@
 import { getChart, getCodeScript, saveCodeScript } from '../services/apiServices';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { LOCALSTORAGE } from "./constants";
-import { auth, db } from '../Firebase';
+import { auth, db } from '../services/Firebase';
 import { collection, doc, getDoc, getDocs, serverTimestamp, setDoc } from 'firebase/firestore';
 // const auth = getAuth();
 
@@ -21,17 +21,20 @@ export const fetchChartAndTable = async (graphName, dateRange, signal) => {
 	let tableDataValue = null;
 	let codeSnippetValue = null;
 	let loadingValue = true;
+	let newTable = [];
 
 	try {
 		const response = await Promise.allSettled([
 			getChart(graphName, dateRange, signal),
 			getCodeScript(graphName, signal)
 		]);
-
 		response.forEach(result => {
 			if (result.status === "fulfilled") {
+				if (graphName === 'Drawdown_graph') {
+	               newTable.push(result.value.data.data[0]);
+				}
 				if (result.value.data.data) {
-					chartDataValue = result.value.data.data;
+					chartDataValue = result.value.data;
 					if (result.value.data.dataframe) {
 						tableDataValue = result.value.data.dataframe;
 					}
@@ -48,7 +51,7 @@ export const fetchChartAndTable = async (graphName, dateRange, signal) => {
 		loadingValue = false;
 	}
 
-	return { chartDataValue, tableDataValue, codeSnippetValue, loadingValue };
+	return { chartDataValue, tableDataValue, codeSnippetValue, loadingValue, newTable };
 };
 
 export const saveScriptData = async (graphName, data) => {

@@ -12,7 +12,7 @@ import { SIGNUP } from '../../utils/constants';
 import style from './Signup.module.css';
 import { fireSighupAuth } from '../../utils/helper';
 import { doc, setDoc } from "firebase/firestore";
-import { db } from '../../Firebase';
+import { db } from '../../services/Firebase';
 
 const Signup = () => {
 	const [isLoading, setIsLoading] = useState(false);

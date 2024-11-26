@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Table.module.css';
 
 export default function Table({ tableData }) {
+	console.log('tabledata',tableData)
 	const headers = Object.keys(tableData[0]);
 
 	return (
