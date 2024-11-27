@@ -52,10 +52,6 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
                     setTableData(newTable);
                     setGraphNm(graphName);
                 } else {
-                    console.log('codeval',codeSnippetValue)
-                    console.log('chartval',chartDataValue)
-                    console.log('tableval',tableDataValue)
-
                     setChartData(chartDataValue.data || []);
                     setTableData(tableDataValue || []);
                     setCodeSnippetData(codeSnippetValue || '');
@@ -91,8 +87,7 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
                 toast.success(response.data.message);
                 const { chartDataValue, tableDataValue, codeSnippetValue } =
                     await fetchChartAndTable(graphName, dateRange);
-
-                setChartData(chartDataValue || []);
+                setChartData(chartDataValue.data || []);
                 setTableData(tableDataValue || []);
                 setCodeSnippetData(codeSnippetValue || '');
                 setGraphNm(graphName);
