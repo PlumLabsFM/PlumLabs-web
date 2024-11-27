@@ -18,8 +18,19 @@ export default function BackTestNavbar({codeValue, showDrawer, graphNm}) {
 	const navigate = useNavigate();
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [newData, setNewData] = useState('')
+	const [mailtoLink, setMailToLink] = useState('#')
 
 	const showModal = () => {
+		const fileUrl = codeValue;
+		const subject = "Check out this file!";
+		const body = `I wanted to share this file with you: \n \n ${fileUrl} \n \n`;
+		if (encodeURIComponent(body).length > 1500) {
+			toast.info('Email body is too large. Please download and share separately.')
+		} else {
+			setMailToLink(`mailto:?subject=${encodeURIComponent(
+				subject
+			)}&body=${encodeURIComponent(body)}`)
+		}
 		setIsModalOpen(true);
 	};
 
@@ -64,18 +75,6 @@ export default function BackTestNavbar({codeValue, showDrawer, graphNm}) {
 			toast.error('Failed to save the file. Please try again.');
 		}
 	};
-
-	const fileUrl = codeValue;
-	const subject = "Check out this file!";
-	const body = `I wanted to share this file with you: \n \n ${fileUrl} \n \n`;
-
-	const mailtoLink = `mailto:?subject=${encodeURIComponent(
-		subject
-	)}&body=${encodeURIComponent(body)}`;
-	
-	useEffect(() => {
-		console.log('new',newData)
-	},[newData, setNewData])
 
 	return (
 		<div className={styles.mainContainer}>
