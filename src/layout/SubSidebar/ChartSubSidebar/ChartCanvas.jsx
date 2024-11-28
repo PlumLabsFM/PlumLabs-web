@@ -91,8 +91,12 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
 
             if (response?.data?.message) {
                 toast.success(response.data.message);
-                const { chartDataValue, tableDataValue, codeSnippetValue } =
-                    await fetchChartAndTable(graphName, dateRange);
+                const { chartDataValue, tableDataValue, errorMessage, codeSnippetValue } = await fetchChartAndTable(graphName, dateRange);
+                if (errorMessage) {
+                    toast.error(`Error: ${errorMessage}`);
+                    setErrorValue(true);
+                    return;
+                }
                 setChartData(chartDataValue.data || []);
                 setTableData(tableDataValue || []);
                 setCodeSnippetData(codeSnippetValue || '');

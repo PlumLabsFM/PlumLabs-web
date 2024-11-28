@@ -47,6 +47,15 @@ export default function PlumVision() {
 				setIsFileUploaded(true);
 				toast.success("File uploaded sucessfully.");
 			} catch (error) {
+				if(error.status == 401){
+					if(error.response.data['msg'] === 'Missing cookie "access_token_cookie"' || error.response.data['msg'] === '"Token has expired"'){
+						toast.error('Please try logging in again!');
+						localStorage.removeItem(LOCALSTORAGE.USER);
+				        localStorage.removeItem(LOCALSTORAGE.FIREBASE_ID);
+				        navigate('/login');
+						return
+					}
+				}
 				console.error('Error uploading file:', error);
 				toast.error('An error occurred while uploading the file. Please try again.');
 				setIsFileUploaded(false);
