@@ -31,7 +31,7 @@ export const fetchChartAndTable = async (graphName, dateRange, signal) => {
 		response.forEach(result => {
 			if (result.status === "fulfilled") {
 				if (graphName === 'Drawdown_graph') {
-	               newTable.push(result.value.data.data[0]);
+	            	newTable.push(result.value.data.data.data[0]);
 				}
 				if (result.value.data.data) {
 					chartDataValue = result.value.data;
