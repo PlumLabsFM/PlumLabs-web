@@ -21,12 +21,13 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
     const userData = localStorage.getItem(LOCALSTORAGE.USER);
     const userId = userData ? JSON.parse(userData).id : null;
 
-    const [graphName, setGraphName] = useState(null);
-    const [chartData, setChartData] = useState(null);
+    const [graphName, setGraphName] = useState('');
+    const [chartData, setChartData] = useState([]);
     const [tableData, setTableData] = useState([]);
     const [isTableView, setIsTableView] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [codeSnippetData, setCodeSnippetData] = useState('');
+    const [errorValue, setErrorValue] = useState(true)
 
     const [{ isOver }, drop] = useDrop({
         accept: 'default',
@@ -38,43 +39,49 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
 
     useEffect(() => {
         if (!graphName) return;
-
         const controller = new AbortController();
         const fetchData = async () => {
             try {
                 setIsLoading(true);
-                setChartData(null);
-                setTableData(null);
-
+                setChartData([]);
+                setTableData([]);
                 const { signal } = controller;
-                const { newTable, chartDataValue, tableDataValue, codeSnippetValue } = await fetchChartAndTable(graphName, dateRange, signal);
+                const { newTable, chartDataValue, tableDataValue, codeSnippetValue, errorMessage } = await fetchChartAndTable(graphName, dateRange, signal);
+                if (errorMessage) {
+                    // Display the error message in a toast
+                    toast.error(`Error: ${errorMessage}`);
+                    setErrorValue(true);
+                    return;
+                }
                 if (graphName === 'Drawdown_graph') {
                     setTableData(newTable);
                     setGraphNm(graphName);
+                    setErrorValue(false)
                 } else {
                     setChartData(chartDataValue.data || []);
                     setTableData(tableDataValue || []);
                     setCodeSnippetData(codeSnippetValue || '');
                     setCodeValue(codeSnippetValue || '');
                     setGraphNm(graphName);
-                }
+                    setErrorValue(false);
 
+                }
             } catch (error) {
+                setErrorValue(true);
                 console.error('Data fetch error:', error);
                 toast.error('Error fetching data. Please try again.');
             } finally {
                 setIsLoading(false);
             }
         };
-
         fetchData();
         return () => controller.abort();
     }, [graphName, setCodeValue, setGraphNm]);
 
     const onCodeRunHandler = async () => {
         try {
-            setChartData(null);
-            setTableData(null);
+            setChartData([]);
+            setTableData([]);
             setIsLoading(true);
 
             if (!codeSnippetData.trim()) {
@@ -91,11 +98,13 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
                 setTableData(tableDataValue || []);
                 setCodeSnippetData(codeSnippetValue || '');
                 setGraphNm(graphName);
+                setErrorValue(false);
             } else {
                 throw new Error('Unexpected response from server.');
             }
         } catch (error) {
             console.error('Code run error:', error);
+            setErrorValue(true);
             toast.error(
                 error.message === 'Code snippet is empty.'
                     ? 'Please provide a valid code snippet to run.'
@@ -105,7 +114,6 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
             setIsLoading(false);
         }
     };
-
     const toggleView = (view) => setIsTableView(view === 'table');
     return (
         <div>
@@ -135,9 +143,9 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
                 }}
             >
                 {!isLoading ? (
-                    chartData ? (
+                chartData.data ? (
                         <>
-                            {isTableView ? (
+                            {isTableView && !errorValue ? (
                                 <div className={style.tableContainer}>
                                     <Table tableData={tableData} />
                                 </div>
@@ -187,9 +195,9 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
                                 setCodeSnippetData={setCodeSnippetData}
                             />
                         </>
-                    ) : tableData.length > 0 ? (
+                    ) : tableData.length>0 && !errorValue ? (
                         <Table tableData={tableData} />
-                    ) : (
+                    ) : errorValue && (
                         <div className={style.dropChartContainer}>
                             Drop a chart type to display it here.
                         </div>
