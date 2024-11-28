@@ -43,8 +43,8 @@ export const fetchChartAndTable = async (graphName, dateRange, signal) => {
 					codeSnippetValue = result.value.data.code;
 				}
 			} else {
-				console.error("Error:", result.reason.response.data.error);
-				errorMessage = result.reason.response.data.error;
+				console.error("ErrorMessage:", result.reason.response.data);
+				errorMessage = result.reason.response.data;
 			}
 		});
 	} catch (error) {

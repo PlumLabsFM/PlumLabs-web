@@ -48,7 +48,6 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
                 const { signal } = controller;
                 const { newTable, chartDataValue, tableDataValue, codeSnippetValue, errorMessage } = await fetchChartAndTable(graphName, dateRange, signal);
                 if (errorMessage) {
-                    // Display the error message in a toast
                     toast.error(`Error: ${errorMessage}`);
                     setErrorValue(true);
                     return;
