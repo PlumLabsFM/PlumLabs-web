@@ -22,6 +22,7 @@ export const fetchChartAndTable = async (graphName, dateRange, signal) => {
 	let codeSnippetValue = null;
 	let loadingValue = true;
 	let newTable = [];
+	let errorMessage = null;
 
 	try {
 		const response = await Promise.allSettled([
@@ -31,7 +32,7 @@ export const fetchChartAndTable = async (graphName, dateRange, signal) => {
 		response.forEach(result => {
 			if (result.status === "fulfilled") {
 				if (graphName === 'Drawdown_graph') {
-	            	newTable.push(result.value.data.data.data[0]);
+	            	newTable = (result.value.data.data.data);
 				}
 				if (result.value.data.data) {
 					chartDataValue = result.value.data;
@@ -42,7 +43,8 @@ export const fetchChartAndTable = async (graphName, dateRange, signal) => {
 					codeSnippetValue = result.value.data.code;
 				}
 			} else {
-				console.error("Error:", result.reason);
+				console.error("Error:", result.reason.response.data.error);
+				errorMessage = result.reason.response.data.error;
 			}
 		});
 	} catch (error) {
@@ -51,7 +53,7 @@ export const fetchChartAndTable = async (graphName, dateRange, signal) => {
 		loadingValue = false;
 	}
 
-	return { chartDataValue, tableDataValue, codeSnippetValue, loadingValue, newTable };
+	return { chartDataValue, tableDataValue, codeSnippetValue, loadingValue, newTable, errorMessage };
 };
 
 export const saveScriptData = async (graphName, data) => {
