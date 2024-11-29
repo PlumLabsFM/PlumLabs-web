@@ -13,8 +13,6 @@ function App() {
 	function Protected({ children }) {
 		if (!isloggedIn()) {
 			return <Navigate to="/login" replace />;
-		}else{
-			toast.warn('Please login!')
 		}
 		return children;
 	}
