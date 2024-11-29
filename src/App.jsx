@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import { PageLayout } from './layout/Pagelayout/Pagelayout';
 import { Dashboard, Home, Login, PlumDashboard, PlumVision, Signup, ToolKit, AppStore, Demo } from './pages';
 import { isloggedIn } from './utils/helper';
+import { toast } from 'react-toastify';
 
 function App() {
 	const location = useLocation();
@@ -12,6 +13,8 @@ function App() {
 	function Protected({ children }) {
 		if (!isloggedIn()) {
 			return <Navigate to="/login" replace />;
+		}else{
+			toast.warn('Please login!')
 		}
 		return children;
 	}

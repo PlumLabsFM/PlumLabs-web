@@ -21,17 +21,17 @@ axiosInstance.interceptors.response.use(
           data.msg === 'Missing cookie "access_token_cookie"' ||
           data.msg === '"Token has expired"'
         ) {
-          toast.error("Session expired. Please log in again.");
-          localStorage.removeItem("user");
-          localStorage.removeItem("firebase_id");
-          window.location.href = "/login"; 
+			localStorage.removeItem("user");
+			localStorage.removeItem("firebase_id");
+			window.location.href = "/login"; 
+			toast.error("Session expired. Please log in again.");
         }
       }
       if (status === 403) {
-        toast.error("You do not have permission to perform this action.");
-		localStorage.removeItem("user");
-        localStorage.removeItem("firebase_id");
-		window.location.href = "/login"; 
+		  localStorage.removeItem("user");
+		  localStorage.removeItem("firebase_id");
+		  window.location.href = "/login"; 
+		  toast.error("You do not have permission to perform this action.");
       }
 
       if (status >= 500) {
