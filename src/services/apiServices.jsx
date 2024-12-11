@@ -21,9 +21,20 @@ export const getTable = async (signal) => {
 	return await HttpGet(API_URL.DOCUMENT.GET_TABLE, {}, {}, signal);
 };
 
+// export const getChart = async (chartName, dateRange, signal) => {
+// 	return await HttpGet(`${API_URL.CHART.GET_CHART}?graph_name=${chartName}&start_date=${dateRange.startDate}&end_date=${dateRange.endDate}`, {}, {}, signal);
+// };
 export const getChart = async (chartName, dateRange, signal) => {
-	return await HttpGet(`${API_URL.CHART.GET_CHART}?graph_name=${chartName}&start_date=${dateRange.startDate}&end_date=${dateRange.endDate}`, {}, {}, signal);
+    const { startDate, endDate } = dateRange.inputRange;
+    let url = `${API_URL.CHART.GET_CHART}?graph_name=${chartName}&start_date=${startDate}&end_date=${endDate}`;
+
+    if (dateRange.rebalanceValue && dateRange.cash) {
+        url += `&rebalance_freq=${dateRange.rebalanceValue}D&start_cash=${dateRange.cash}`;
+    }
+
+    return await HttpGet(url, {}, {}, signal);
 };
+
 
 export const getCodeScript = async (chartName, signal) => {
 	return await HttpGet(`${API_URL.CHART.GET_SCRIPT}?graph_name=${chartName}`, {}, {}, signal);
@@ -34,4 +45,9 @@ export const saveCodeScript = async (chartName, data) => {
 };
 export const shareReportFile = async (graphNm) => {
 	return await HttpGet(`${API_URL.CHART.GET_REPORT}/share-report-file?graph_name=${graphNm}`);
+};
+
+export const getTableData = async () => {
+	const response = await HttpGet(`${API_URL.DOCUMENT.GET_TABLE_DATA}`)
+	return response;  
 };

@@ -140,10 +140,33 @@ export const ExplorerAppStoreData = [
 	}
 ];
 
+export const options = [
+	{
+		label: "Fixed Allocation",
+		value: "allocation"
+	},
+	{
+		label: "Fixed Position",
+		value: "position"
+	}
+];
+
+export const rebalanceOptions = [
+	{
+		label: "15",
+		value: "15"
+	},
+	{
+		label: "30",
+		value: "30"
+	}
+];
+
 export const LOCALSTORAGE = {
 	USER: 'user',
 	FIREBASE_ID:'firebaseid',
-	DATETIME:{}
+	DATETIME:{},
+	ACCESS_TOKEN: 'access_token'
 };
 
 const menuItemDimentions = {

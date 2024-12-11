@@ -171,7 +171,8 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
                                                     zeroline: true,
                                                     visible: true,
                                                 },
-                                                height: 300,
+                                                height: 400,
+                                                width: 1000,
                                             }}
                                             config={{
                                                 responsive: true,

@@ -1,5 +1,5 @@
-// export const BASE_URL = "https://0zzgwn9r-5000.inc1.devtunnels.ms";
-export const BASE_URL = "https://plumlabs-backend-ep0q.onrender.com";
+export const BASE_URL = "https://0zzgwn9r-5000.inc1.devtunnels.ms";
+// export const BASE_URL = "https://plumlabs-backend-ep0q.onrender.com";
 
 export const AUTH_SERVICE = {
 	LOGIN: `${BASE_URL}/api/auth/login`,
@@ -9,7 +9,8 @@ export const AUTH_SERVICE = {
 	
 export const DOCUMENT = {
 	UPLOAD_DOCUMENT: `${BASE_URL}/api/portfolio/upload-portfolio`,
-	GET_TABLE: `${BASE_URL}/api/portfolio/financial-table-data`
+	GET_TABLE: `${BASE_URL}/api/portfolio/financial-table-data`,
+	GET_TABLE_DATA: `${BASE_URL}/api/portfolio/get-upload-portfolio`
 };
 
 export const CHART = {
