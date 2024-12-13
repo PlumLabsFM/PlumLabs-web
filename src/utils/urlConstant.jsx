@@ -9,7 +9,8 @@ export const AUTH_SERVICE = {
 	
 export const DOCUMENT = {
 	UPLOAD_DOCUMENT: `${BASE_URL}/api/portfolio/upload-portfolio`,
-	GET_TABLE: `${BASE_URL}/api/portfolio/financial-table-data`
+	GET_TABLE: `${BASE_URL}/api/portfolio/financial-table-data`,
+	GET_TABLE_DATA: `${BASE_URL}/api/portfolio/get-upload-portfolio`
 };
 
 export const CHART = {

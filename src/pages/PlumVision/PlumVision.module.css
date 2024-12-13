@@ -1,7 +1,7 @@
 .rootContainer {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .appContainer {
@@ -10,7 +10,8 @@
     background: radial-gradient(circle, rgba(200,193,240,1) 14%, rgba(181,209,241,0.773546918767507) 26%, rgba(254,254,254,1) 46%);
     display: flex;
     gap: 100px;
-    align-items: center;
+    /* align-items: center; */
+    margin-top: 100px;
     height: 90vh;
 }
 
@@ -19,10 +20,24 @@
     gap: 130px;
 }
 
-.logoDiv {
+.loadData{
     display: flex;
     flex-direction: column;
-    gap:50px;
+    gap: 30px;
+}
+
+.optionSelectedValue{
+    width: 150px;
+    padding: 10px 5px;
+    outline: none;
+}
+
+.logoDiv {
+    display: flex;
+    gap: 20px;
+    width: 300px;
+    justify-content: space-between;
+    height: fit-content;
 }
 
 .logoSubDiv {
@@ -33,7 +48,10 @@
 }
 
 .csvUploadLabel {
+    padding: 10px 5px;
+    border-radius: 4px;
     cursor: pointer;
+    border: 1px solid #000;
 }
 
 .csvImage {
@@ -44,6 +62,12 @@
 
 .hiddenFileInput {
     display: none;
+}
+.importBtn{
+    padding: 10px 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #000;
 }
 
 .diskImage {
@@ -61,6 +85,12 @@
 .headings {
     padding-top: 10px;
     padding-bottom: 30px;
+}
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 30px;
 }
 
 .diskImgContainer {
@@ -93,6 +123,16 @@
     color: #9A6FF4;
     width: 60px;
     height: 60px;
+}
+
+.runButton{
+    outline: none;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    width: 100px;
+    padding: 10px 4px;
+    background-color: #2f28fc;
 }
 
 .playBtnDiv {
