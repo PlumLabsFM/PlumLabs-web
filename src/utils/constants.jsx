@@ -70,7 +70,8 @@ export const AppStoreData = [
 		id: "2",
 		title: "Correlate",
 		text: "Correction Analysis",
-		logo: false
+		logo: false,
+		link: '/correlate',
 	},
 	{
 		id: "3",
@@ -182,6 +183,23 @@ export const MenuItemsForCharts = [
 	{ name: 'Monthly Pnl Heatmap', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Monthly_pnl_heatmap'},
 	{ name: 'Monthly Heatmap', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Monthly_heatmap'}
 ];
+
+export const StatCharts = [
+	{ name: 'Quantity chart', icon: <FaChartLine style={{color: 'yellow', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'create_qty_chart' },
+	{ name: 'Quantity Chart Configuration', icon: <FaRegChartBar style={{color: 'pink', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'create_qty_chart_cfg'},
+	{ name: 'Percentage Chart with Fixed Size', icon: <FaRegChartBar style={{color: 'red', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'create_pct_chart_fixed_size'},
+	{ name: 'Percentage Chart with Fixed Size in USD', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'create_pct_chart_fixes_size_usd'},
+	{ name: 'Percentage Chart with Fixed Slippage Size', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'create_pct_chart_fixed_slippage_size'},
+	{ name: 'Percentage Chart for Bid-Ask Spread', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'create_pct_chart_bid_ask'}
+];
+export const TradeCharts = [
+	{ name: '1', icon: <FaChartLine style={{color: 'yellow', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: '1' },
+	{ name: '2', icon: <FaRegChartBar style={{color: 'pink', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: '2'},
+	{ name: '3', icon: <FaRegChartBar style={{color: 'red', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: '3'},
+	{ name: '4', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: '4'},
+	{ name: '5', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: '5'},
+];
+
 
 export const ItemsForDropdown = [
 	{ value: 'USD', label: 'US Dollar' },

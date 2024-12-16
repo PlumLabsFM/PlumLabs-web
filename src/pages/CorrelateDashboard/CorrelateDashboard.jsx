@@ -1,14 +1,14 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import BackTestNavbar from '../../components/BackTestNavbar/BackTestNavbar';
 import ChartCanvas from '../../layout/SubSidebar/ChartSubSidebar/ChartCanvas';
 import ChartItem from '../../layout/SubSidebar/ChartSubSidebar/ChartItem';
-import { MenuItemsForCharts } from '../../utils/constants';
-import styles from './PlumDashboard.module.css';
+import { StatCharts, TradeCharts } from '../../utils/constants';
+import styles from './CorrelateDashboard.module.css';
 import ChatDrawer from '../../components/ChatDrawer/ChatDrawer';
 
-export default function PlumDashboard() {
+export default function CorrelateDashboard({tabName}) {
 	const [codeValue, setCodeValue] = useState(null);
 	const [open, setOpen] = useState(false);
 	const [graphNm, setGraphNm] = useState('');
@@ -16,12 +16,14 @@ export default function PlumDashboard() {
         setOpen(true);
     };
 
+	const activeTab = tabName === 'stat' ? StatCharts : TradeCharts
+
 	return (
 		<DndProvider backend={HTML5Backend}>
-			<div className={styles.plumDashboardDiv}>
+			<div className={styles.correlateDashboardDiv}>
 				<div className={styles.subSidebarDiv}>
 					<div className={styles.chartDiv}>
-						{MenuItemsForCharts.map((item, index) => {
+						{activeTab.map((item, index) => {
 							return (
 								<div key={index} className={styles.charts}>
 									<ChartItem
@@ -40,7 +42,7 @@ export default function PlumDashboard() {
 				<div className={styles.dropArea}>
 					<BackTestNavbar codeValue={codeValue} showDrawer={showDrawer} graphNm={graphNm}/>
 					<div className={styles.chartDiv}>
-						<ChartCanvas setCodeValue={setCodeValue} setGraphNm={setGraphNm} dashboardName="plum"/>
+						<ChartCanvas setCodeValue={setCodeValue} setGraphNm={setGraphNm} dashboardName="correlate" tabName={tabName}/>
 					</div>
 				</div>
 			</div>

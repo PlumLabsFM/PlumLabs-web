@@ -16,7 +16,7 @@ import { fetchChartAndTable, saveScriptData } from '../../../utils/helper';
 
 import style from './ChartCanvas.module.css';
 
-const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
+const ChartCanvas = ({ setCodeValue, setGraphNm, dashboardName, tabName }) => {
     const dateRange = JSON.parse(localStorage.getItem(LOCALSTORAGE.DATETIME));
     const userData = localStorage.getItem(LOCALSTORAGE.USER);
     const userId = userData ? JSON.parse(userData).id : null;
@@ -46,7 +46,7 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
                 setChartData([]);
                 setTableData([]);
                 const { signal } = controller;
-                const { newTable, chartDataValue, tableDataValue, codeSnippetValue, errorMessage } = await fetchChartAndTable(graphName, dateRange, signal);
+                const { newTable, chartDataValue, tableDataValue, codeSnippetValue, errorMessage } = await fetchChartAndTable(graphName, dateRange, signal, dashboardName, tabName);
                 if (errorMessage) {
                     toast.error(`Error: ${errorMessage}`);
                     setErrorValue(true);
@@ -171,33 +171,32 @@ const ChartCanvas = ({ setCodeValue, setGraphNm }) => {
                                                     zeroline: true,
                                                     visible: true,
                                                 },
-                                                height: 400,
-                                                width: 1000,
+                                                height: 500,
                                             }}
                                             config={{
                                                 responsive: true,
                                                 displayModeBar: false,
                                             }}
-                                            style={{ height: '330px' }}
+                                            style={{ height: '330px', width: '90%' }}
                                         />
                                     ) : (
                                         <div>No chart layout data available.</div>
                                     )}
                                 </div>
                             )}
-                            <div className={style.playButtonContainer}>
+                            {dashboardName === 'plum' && <div className={style.playButtonContainer}>
                                 <FaRegPlayCircle
                                     title="Run"
                                     className={style.playButton}
                                     onClick={onCodeRunHandler}
                                 />
-                            </div>
-                            <CodeEditor
+                            </div>}
+                            {dashboardName === 'plum' && <CodeEditor
                                 className={style.codeEditorContainer}
                                 codeValue={codeSnippetData}
                                 setCodeValue={setCodeValue}
                                 setCodeSnippetData={setCodeSnippetData}
-                            />
+                            />}
                         </>
                     ) : tableData.length>0 && !errorValue ? (
                         <Table tableData={tableData} />

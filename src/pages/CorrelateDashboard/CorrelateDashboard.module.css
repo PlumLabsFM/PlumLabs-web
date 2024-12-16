@@ -1,0 +1,51 @@
+.correlateDashboardDiv {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.subSidebarDiv {
+    width: 8rem;
+    background: rgb(45,81,185);
+    background: linear-gradient(38deg, rgba(45,81,185,1) 29%, rgba(175,103,222,1) 63%);
+    color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 7rem;
+}
+  
+.dropArea {
+    padding: 0 20px;
+    width: calc(100% - 17rem);
+   position: absolute;
+    right: 0;
+}
+
+.link {
+    display: flex;
+    padding: 15px 0px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+  
+
+.link:hover {
+    background: rgb(45,81,185);
+    background: linear-gradient(38deg, rgba(45,81,185,1) 29%, rgba(175,103,222,1) 63%);
+}
+
+.chartDiv {
+    padding: 10px 0px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.charts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

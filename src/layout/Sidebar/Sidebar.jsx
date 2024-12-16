@@ -6,14 +6,22 @@ import { SiJupyter } from "react-icons/si";
 import { NavLink } from 'react-router-dom';
 import styles from './Sidebar.module.css';
 
-export default function Sidebar() {
-	const [activeItem, setActiveItem] = useState(2);
+export default function Sidebar({dashboardName}) {
+	const [activeItem, setActiveItem] = useState(0);
 
 	const handleClick = (index) => {
 		setActiveItem(index);
 	};
 
 	const menuItems = [
+		...(dashboardName === 'plum' ?
+		[
+		{
+			path: '/plum-dashboard',
+			name: 'Chart',
+			Icon: <FaRegChartBar />,
+			subSideBar: ''
+		},
 		{
 			path: '/demo',
 			name: 'App Store',
@@ -25,16 +33,21 @@ export default function Sidebar() {
 			Icon: <RiLayoutMasonryLine />
 		},
 		{
-			path: '/plum-dashboard',
-			name: 'Chart',
-			Icon: <FaRegChartBar />,
-			subSideBar: ''
-		},
-		{
 			path: '/demo',
 			name: 'Notebook',
 			Icon: <SiJupyter />
-		}
+		}] : []),
+		...(dashboardName === 'correlate' ?
+		[{
+			path: '/stat-dashboard',
+			name: 'Stat',
+			Icon: <SiJupyter />
+		},
+		{
+			path: '/trade-dashboard',
+			name: 'Trade',
+			Icon: <SiJupyter />
+		}] : []),
 	];
 
 	return (

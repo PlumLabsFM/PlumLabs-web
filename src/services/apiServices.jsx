@@ -51,3 +51,11 @@ export const getTableData = async () => {
 	const response = await HttpGet(`${API_URL.DOCUMENT.GET_TABLE_DATA}`)
 	return response;  
 };
+
+export const getStatCharts = async(chartName, signal) => {
+	return await HttpGet(`${API_URL.CHART.GET_STAT_CHARTS}?graph_name=${chartName}`, {}, {}, signal);
+};
+
+export const getTradeCharts = async(chartName, signal) => {
+	return await HttpGet(`${API_URL.CHART.GET_TRADE_CHARTS}?graph_name=${chartName}`,{} ,{}, signal);
+};
