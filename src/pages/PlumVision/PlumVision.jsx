@@ -24,7 +24,7 @@ export default function PlumVision() {
 	const [userId, setUserId] = useState(null);
 	const [isFileUploaded, setIsFileUploaded] = useState(false);
 	const [selectedValue, setSelectedValue] = useState(options?.[0]?.value);
-	const [tableData, setTableData] = useState({});
+	const [tableData, setTableData] = useState([]);
 	const [rebalanceValue, setRebalanceValue] = useState('')
 	const [cash, setCash] = useState(null)
 	const navigate = useNavigate();
@@ -33,6 +33,19 @@ export default function PlumVision() {
 		endDate: ''
 	});
 
+	const fetchTableData = async() => {
+		try {
+			const res = await getTableData();			
+			if (res.data && res.data.Portfolio_Data) {
+				setTableData(res.data.Portfolio_Data);
+			} else {
+				console.error(error);
+			}
+		} catch (error) {
+			console.error('Error fetching table data:', error);
+		}
+	}
+	
 	useEffect(() => {
 		const userData = JSON.parse(localStorage.getItem(LOCALSTORAGE.USER));
 		setUserId(userData.id);
@@ -51,6 +64,8 @@ export default function PlumVision() {
 			try {
 				await uploadDocument(formData);
 				setIsFileUploaded(true);
+				setTableData([]);
+				fetchTableData();
 				toast.success("File uploaded sucessfully.");
 			} catch (error) {
 				toast.error('An error occurred while uploading the file. Please try again.');
@@ -91,16 +106,6 @@ export default function PlumVision() {
 		setSelectedValue(value);
 		setIsFileUploaded(false)
 	};
-	
-	const fetchTableData = async() => {
-		const res = await getTableData();
-		setTableData(res.data.Portfolio_Data);
-	}
-
-	useEffect(()=>{
-		fetchTableData();
-	},[selectedValue]);
-
 
 	return (
 		<div className={styles.rootContainer}>
@@ -209,7 +214,7 @@ export default function PlumVision() {
 										<div className={styles.logoContainer}><LuClock3 className={styles.signs} /></div>
 										<div className={styles.inputContainer}>
 											<Select
-												style={{ width: 200, color: "black" }}
+												style={{ width: 223, color: "black", marginLeft: "18px" }}
 												options={rebalanceOptions}
 												onChange={(e) => setRebalanceValue(e)}
 											/>
@@ -221,7 +226,7 @@ export default function PlumVision() {
 									<div className={styles.parameterImageContainer}>
 										<div className={styles.logoContainer}><LuClock3 className={styles.signs} /></div>
 										<div className={styles.inputContainer}>
-											<input type="number" onChange={(e) => setCash(e.target.value)}/>
+											<input type="number" onChange={(e) => setCash(e.target.value)} className={styles.inputField}/>
 										</div>
 									</div>
 								</div>}
