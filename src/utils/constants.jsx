@@ -68,8 +68,8 @@ export const AppStoreData = [
 	},
 	{
 		id: "2",
-		title: "Correlate",
-		text: "Correction Analysis",
+		title: "Market Maker",
+		text: "Market Analysis",
 		logo: false,
 		link: '/correlate',
 	},
@@ -185,19 +185,21 @@ export const MenuItemsForCharts = [
 ];
 
 export const StatCharts = [
-	{ name: 'Quantity chart', icon: <FaChartLine style={{color: 'yellow', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'create_qty_chart' },
-	{ name: 'Quantity Chart Configuration', icon: <FaRegChartBar style={{color: 'pink', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'create_qty_chart_cfg'},
-	{ name: 'Percentage Chart with Fixed Size', icon: <FaRegChartBar style={{color: 'red', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'create_pct_chart_fixed_size'},
-	{ name: 'Percentage Chart with Fixed Size in USD', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'create_pct_chart_fixes_size_usd'},
-	{ name: 'Percentage Chart with Fixed Slippage Size', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'create_pct_chart_fixed_slippage_size'},
-	{ name: 'Percentage Chart for Bid-Ask Spread', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'create_pct_chart_bid_ask'}
+	{ name: 'Ask Depth[BTC]', icon: <FaChartLine style={{color: 'yellow', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Depth[BTC]' },
+	{ name: 'Bid Depth[BTC]', icon: <FaChartLine style={{color: 'yellow', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Depth[BTC]' },
+	{ name: 'Ask Depth[USD]', icon: <FaRegChartBar style={{color: 'pink', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Depth[USD]'},
+	{ name: 'Bid Depth[USD]', icon: <FaRegChartBar style={{color: 'pink', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Depth[USD]'},
+	{ name: 'Fixed Qty[BTC]', icon: <FaRegChartBar style={{color: 'red', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Fixed_Qty_[BTC]'},
+	{ name: 'Fixed Qty[USD]', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Fixed_Qty_[USD]'},
+	{ name: 'Slippage Depth', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Slippage_Depth'},
+	{ name: 'Bid Ask(bps)', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Bid_Ask_(bps)'}
 ];
 export const TradeCharts = [
-	{ name: '1', icon: <FaChartLine style={{color: 'yellow', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: '1' },
-	{ name: '2', icon: <FaRegChartBar style={{color: 'pink', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: '2'},
-	{ name: '3', icon: <FaRegChartBar style={{color: 'red', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: '3'},
-	{ name: '4', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: '4'},
-	{ name: '5', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: '5'},
+	{ name: 'Trade Volume[BTC]', icon: <FaChartLine style={{color: 'yellow', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Trade_Volume[BTC]'},
+	{ name: 'Trade Capture', icon: <FaRegChartBar style={{color: 'pink', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Trade_Capture'},
+	{ name: 'net[USD]', icon: <FaRegChartBar style={{color: 'red', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'net[USD]'},
+	{ name: 'Cumulative[Usd]', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Cumulative_[Usd]'},
+	{ name: 'Cumulativ[BTC]', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Cumulativ_[BTC]'},
 ];
 
 
