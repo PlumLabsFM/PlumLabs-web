@@ -47,7 +47,7 @@ export const shareReportFile = async (graphNm) => {
 	return await HttpGet(`${API_URL.CHART.GET_REPORT}/share-report-file?graph_name=${graphNm}`);
 };
 
-export const getTableData = async () => {
+export const getUserTableData = async () => {
 	const response = await HttpGet(`${API_URL.DOCUMENT.GET_TABLE_DATA}`)
 	return response;  
 };
@@ -58,4 +58,8 @@ export const getStatCharts = async(chartName, signal) => {
 
 export const getTradeCharts = async(chartName, signal) => {
 	return await HttpGet(`${API_URL.CHART.GET_TRADE_CHARTS}?graph_name=${chartName}`,{} ,{}, signal);
+};
+
+export const enterPortfolioData = async(payload) => {
+	return await HttpPost(`${API_URL.DOCUMENT.ENTER_PORTFOLIO}`, {data: payload});
 };

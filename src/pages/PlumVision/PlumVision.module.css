@@ -1,7 +1,9 @@
 .rootContainer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
+    padding: 0 40px;
 }
 
 .appContainer {
@@ -11,13 +13,13 @@
     display: flex;
     gap: 100px;
     /* align-items: center; */
-    margin-top: 100px;
+    margin-top: 50px;
     height: 70vh;
 }
 
 .appBox {
     display: flex;
-    gap: 130px;
+    gap: 30px;
 }
 
 .loadData{
@@ -28,8 +30,6 @@
 
 .optionSelectedValue{
     width: 150px;
-    padding: 10px 5px;
-    outline: none;
 }
 
 .logoDiv {
@@ -117,25 +117,8 @@
     gap: 0.5rem;
     align-items: center;
     padding: 5px;
-    width: max-content;
+    width:fit-content;
 }
-
-.playBtn {
-    color: #9A6FF4;
-    width: 60px;
-    height: 60px;
-}
-
-.runButton{
-    outline: none;
-    color: #fff;
-    border-radius: 3px;
-    border: none;
-    width: 100px;
-    padding: 10px 4px;
-    background-color: #2f28fc;
-}
-
 .playBtnDiv {
     opacity: 1;
     transition: opacity 0.3s ease;
@@ -206,9 +189,9 @@
     cursor: default; 
 }
 
-.dropdownBtn {
-    font-size: smaller;
-    font-weight: 200;
+.dropdown {
+    margin-top: 20px;
+    align-self: flex-start;
 }
 
 .inputField{
@@ -218,4 +201,6 @@
     outline: none;
     width: 83%;
     margin-left: 18px;
+    border: 1px solid #d5d3d3;
+    outline: none;
 }

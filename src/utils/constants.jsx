@@ -202,6 +202,14 @@ export const TradeCharts = [
 	{ name: 'Cumulativ[BTC]', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Cumulativ_[BTC]'},
 ];
 
+export const AssetValues = [
+	{label: "Bitcoin", value: "bitcoin"},
+	{label: "Ethereum", value: "ethereum"},
+	{label: "USD-Coin", value: "usd-coin"},
+	{label: "Litecoin", value: "litecoin"},
+	{label: "Binancecoin", value: "binancecoin"},
+	{label: "Cardano", value: "cardano"},
+];
 
 export const ItemsForDropdown = [
 	{ value: 'USD', label: 'US Dollar' },
