@@ -33,12 +33,14 @@ export const fetchChartAndTable = async (graphName, dateRange, signal, dashboard
 			]);
 		}
 		else if(dashboardName === 'correlate'){
-			if(tabName === 'stat'){
+			if(tabName === 'depth' || tabName === 'slippage' 
+				|| graphName === 'Bid_Ask_(bps)'
+			){
 				response = await Promise.allSettled([
 					getStatCharts(graphName, signal),
 				]);
 			}
-			else if(tabName === 'trade'){
+			else if((tabName === 'trade' || tabName === 'pnl') && graphName !== 'Bid_Ask_(bps)'){
 				response = await Promise.allSettled([
 					getTradeCharts(graphName, signal),
 				]);

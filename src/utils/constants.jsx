@@ -1,5 +1,8 @@
 import React from 'react';
 import { FaChartLine, FaRegChartBar } from 'react-icons/fa';
+import { PiTrolleyFill } from "react-icons/pi";
+import { RiLayoutMasonryLine } from "react-icons/ri";
+import { SiJupyter } from "react-icons/si";
 import Jupyter from '../assets/jupyter.png';
 
 export const LOGIN_TEXT = {
@@ -184,23 +187,30 @@ export const MenuItemsForCharts = [
 	{ name: 'Monthly Heatmap', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Monthly_heatmap'}
 ];
 
-export const StatCharts = [
-	{ name: 'Ask Depth[BTC]', icon: <FaChartLine style={{color: 'yellow', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Depth[BTC]' },
-	{ name: 'Bid Depth[BTC]', icon: <FaChartLine style={{color: 'yellow', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Depth[BTC]' },
-	{ name: 'Ask Depth[USD]', icon: <FaRegChartBar style={{color: 'pink', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Depth[USD]'},
-	{ name: 'Bid Depth[USD]', icon: <FaRegChartBar style={{color: 'pink', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Depth[USD]'},
-	{ name: 'Fixed Qty[BTC]', icon: <FaRegChartBar style={{color: 'red', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Fixed_Qty_[BTC]'},
-	{ name: 'Fixed Qty[USD]', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Fixed_Qty_[USD]'},
-	{ name: 'Slippage Depth', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Slippage_Depth'},
-	{ name: 'Bid Ask(bps)', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Bid_Ask_(bps)'}
-];
 export const TradeCharts = [
 	{ name: 'Trade Volume[BTC]', icon: <FaChartLine style={{color: 'yellow', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Trade_Volume[BTC]'},
 	{ name: 'Trade Capture', icon: <FaRegChartBar style={{color: 'pink', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Trade_Capture'},
-	{ name: 'net[USD]', icon: <FaRegChartBar style={{color: 'red', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'net[USD]'},
+	{ name: 'Bid Ask(bps)', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Bid_Ask_(bps)'},
+];
+
+export const PnlCharts = [
 	{ name: 'Cumulative[Usd]', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Cumulative_[Usd]'},
 	{ name: 'Cumulativ[BTC]', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Cumulativ_[BTC]'},
+	{ name: 'net[USD]', icon: <FaRegChartBar style={{color: 'red', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'net[USD]'},
+]
+
+export const DepthCharts = [
+	{ name: 'Ask Depth[BTC]', icon: <FaChartLine style={{color: 'yellow', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Ask_Depth[BTC]' },
+	{ name: 'Bid Depth[BTC]', icon: <FaChartLine style={{color: 'yellow', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Bid_Depth[BTC]' },
+	{ name: 'Ask Depth[USD]', icon: <FaRegChartBar style={{color: 'pink', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Ask_Depth[USD]'},
+	{ name: 'Bid Depth[USD]', icon: <FaRegChartBar style={{color: 'pink', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Bid_Depth[USD]'},
 ];
+
+export const SlippageCharts = [
+	{ name: 'Fixed Qty[BTC]', icon: <FaRegChartBar style={{color: 'red', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Fixed_Qty_[BTC]'},
+	{ name: 'Fixed Qty[USD]', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Fixed_Qty_[USD]'},
+	{ name: 'Slippage Depth', icon: <FaRegChartBar style={{color: 'violet', width: menuItemDimentions.width, height: menuItemDimentions.height}}/>, graphName: 'Slippage_Depth'},
+]
 
 export const AssetValues = [
 	{label: "Bitcoin", value: "bitcoin"},
@@ -215,4 +225,73 @@ export const ItemsForDropdown = [
 	{ value: 'USD', label: 'US Dollar' },
 	{ value: 'EUR', label: 'Euro' },
 	{ value: 'GBP', label: 'British Pound' }
+];
+
+export const TabNames = [
+	{
+		name: "trade",
+		route: "trade-dashboard",
+		charts: TradeCharts
+	},
+	{
+		name: "pnl",
+		route: "pnl-dashboard",
+		charts: PnlCharts,
+	},
+	{
+		name: "depth",
+		route: "depth-dashboard",
+		charts: DepthCharts,
+	},
+	{
+		name: "slippage",
+		route: "slippage-dashboard",
+		charts: SlippageCharts,
+	}
+];
+
+export const correlateMenuItems = [{
+		path: '/trade-dashboard',
+		name: 'Trade',
+		Icon: <SiJupyter />
+	},
+	{
+		path: '/pnl-dashboard',
+		name: 'Pnl',
+		Icon: <SiJupyter />
+	},
+	{
+		path: '/depth-dashboard',
+		name: 'Depth',
+		Icon: <SiJupyter />
+	},
+	{
+		path: '/slippage-dashboard',
+		name: 'Slippage',
+		Icon: <SiJupyter />
+	}
+];
+
+export const plumMenuItems = [
+	{
+		path: '/plum-dashboard',
+		name: 'Chart',
+		Icon: <FaRegChartBar />,
+		subSideBar: ''
+	},
+	{
+		path: '/demo',
+		name: 'App Store',
+		Icon: <PiTrolleyFill />
+	},
+	{
+		path: '/demo',
+		name: 'Layout',
+		Icon: <RiLayoutMasonryLine />
+	},
+	{
+		path: '/demo',
+		name: 'Notebook',
+		Icon: <SiJupyter />
+	}
 ];

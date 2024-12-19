@@ -1,29 +1,38 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import BackTestNavbar from '../../components/BackTestNavbar/BackTestNavbar';
 import ChartCanvas from '../../layout/SubSidebar/ChartSubSidebar/ChartCanvas';
 import ChartItem from '../../layout/SubSidebar/ChartSubSidebar/ChartItem';
-import { StatCharts, TradeCharts } from '../../utils/constants';
+import { DepthCharts, TabNames, TradeCharts } from '../../utils/constants';
 import styles from './CorrelateDashboard.module.css';
 import ChatDrawer from '../../components/ChatDrawer/ChatDrawer';
+import { useNavigate } from 'react-router-dom';
 
 export default function CorrelateDashboard({tabName}) {
 	const [codeValue, setCodeValue] = useState(null);
 	const [open, setOpen] = useState(false);
 	const [graphNm, setGraphNm] = useState('');
+	const [activeTabCharts, setActiveTabCharts] = useState([]);
+
     const showDrawer = () => {
         setOpen(true);
     };
 
-	const activeTab = tabName === 'stat' ? StatCharts : TradeCharts
+	useEffect(() => {
+        const activeTab = TabNames.find(tab => tab.name === tabName);
+        if (activeTab) {
+            setActiveTabCharts(activeTab.charts);
+        }
+    }, [tabName]);
+	
 
 	return (
 		<DndProvider backend={HTML5Backend}>
 			<div className={styles.correlateDashboardDiv}>
 				<div className={styles.subSidebarDiv}>
 					<div className={styles.chartDiv}>
-						{activeTab.map((item, index) => {
+						{activeTabCharts.map((item, index) => {
 							return (
 								<div key={index} className={styles.charts}>
 									<ChartItem

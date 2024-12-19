@@ -9,39 +9,13 @@ export default function Correlate() {
 	const { RangePicker } = DatePicker;
 
 	const handleSubmit = () => {
-		navigate('/stat-dashboard');
+		navigate('/trade-dashboard');
 	}
 
 	return (
 		<div className={styles.rootContainer}>
 			<div className={styles.appContainer}>
 				<div className={styles.mainInputContainer}>
-					<div className={styles.inputContainer}>
-						<label className={styles.csvUploadLabel}>
-							Import file 1
-							<input
-								type="file"
-								accept=".xlsx"
-								className={styles.hiddenFileInput}
-							/>
-						</label>
-						<label className={styles.csvUploadLabel}>
-							Import file 2
-							<input
-								type="file"
-								accept=".xlsx"
-								className={styles.hiddenFileInput}
-							/>
-						</label>
-						<label className={styles.csvUploadLabel}>
-							Import file 3
-							<input
-								type="file"
-								accept=".xlsx"
-								className={styles.hiddenFileInput}
-							/>
-						</label>
-					</div>
 					<div className={styles.parameterContainer}>
 						<div>
 							<SubHeading className={styles.textHeading}>Date Range</SubHeading>
@@ -67,8 +41,8 @@ export default function Correlate() {
 								</div>
 							</div>
 						</div>
-						<div className={styles.runButton}>
-							<button className={styles.playBtn} onClick={handleSubmit}>Run</button>
+						<div>
+							<button className={`btn ${styles.playBtn}`} onClick={handleSubmit}>Run</button>
 						</div>
 					</div>
 				</div>

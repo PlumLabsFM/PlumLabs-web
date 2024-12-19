@@ -7,6 +7,8 @@ import { Dashboard, Home, Login, PlumDashboard, PlumVision, Signup, ToolKit, App
 import { isloggedIn } from './utils/helper';
 import Correlate from './pages/Correlate/Correlate';
 import CorrelateDashboard from './pages/CorrelateDashboard/CorrelateDashboard';
+import { TabNames } from './utils/constants';
+
 
 function App() {
 	const location = useLocation();
@@ -44,8 +46,9 @@ function App() {
 					<Route path="/plum-dashboard" element={<Protected><PlumDashboard /></Protected>} />
 				</Route>
 				<Route path="/" element={<PageLayout dashboardName="correlate"/>}>
-					<Route path="/stat-dashboard" element={<Protected><CorrelateDashboard tabName="stat"/></Protected>} />
-					<Route path="/trade-dashboard" element={<Protected><CorrelateDashboard tabName="trade"/></Protected>} />
+					{TabNames.map(tab => {
+						return <Route path={tab.route} element={<Protected><CorrelateDashboard tabName={tab.name}/></Protected>} />
+					})}
 				</Route>
 			</Routes>
 		</>

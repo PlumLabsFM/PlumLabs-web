@@ -13,41 +13,18 @@
 }
 .mainInputContainer{
     display: flex;
-}
-.inputContainer{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 30px;
-    justify-content: space-between;
 }
-
 .hiddenFileInput {
     display: none;
 }
 
-.csvUploadLabel {
-    cursor: pointer;
-    width: fit-content;
-    padding: 20px;
-    background-color: rgb(62, 62, 62);
-    border-radius: 12px;
-    color: #fff;
-}
 .playBtn{
-    background-color: blue;
-    color: #fff;
-    padding: 15px 10px;
-    outline: none;
-    border: none;
-    border-radius: 10px;
     width: 90px;
-    cursor: pointer;
 }
 .parameterContainer {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     gap: 0.5rem;
     align-items: center;

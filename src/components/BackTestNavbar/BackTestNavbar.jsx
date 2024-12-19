@@ -79,7 +79,7 @@ export default function BackTestNavbar({codeValue, showDrawer, graphNm}) {
 	return (
 		<div className={styles.mainContainer}>
 			<div>
-				<Heading textColor='black'>Back Testing</Heading>
+				<Heading textColor='black'>Market Maker</Heading>
 			</div>
 			<div className={styles.rightContainer}>
 				<div className={styles.imgBlock}><BsFillChatDotsFill className={styles.img} onClick={showDrawer} /><SmallText><span className={styles.text}>Chat</span></SmallText></div>
