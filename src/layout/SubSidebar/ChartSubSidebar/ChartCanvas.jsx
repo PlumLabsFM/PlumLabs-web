@@ -28,6 +28,8 @@ const ChartCanvas = ({ setCodeValue, setGraphNm, dashboardName, tabName }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [codeSnippetData, setCodeSnippetData] = useState('');
     const [errorValue, setErrorValue] = useState(true)
+    const controller = new AbortController();
+    const { signal } = controller;
 
     const [{ isOver }, drop] = useDrop({
         accept: 'default',
@@ -39,13 +41,11 @@ const ChartCanvas = ({ setCodeValue, setGraphNm, dashboardName, tabName }) => {
 
     useEffect(() => {
         if (!graphName) return;
-        const controller = new AbortController();
         const fetchData = async () => {
             try {
                 setIsLoading(true);
                 setChartData([]);
                 setTableData([]);
-                const { signal } = controller;
                 const { newTable, chartDataValue, tableDataValue, codeSnippetValue, errorMessage } = await fetchChartAndTable(graphName, dateRange, signal, dashboardName, tabName);
                 if (errorMessage) {
                     toast.error(`Error: ${errorMessage}`);
@@ -88,10 +88,9 @@ const ChartCanvas = ({ setCodeValue, setGraphNm, dashboardName, tabName }) => {
             }
 
             const response = await saveScriptData(graphName, { code: codeSnippetData });
-
             if (response?.data?.message) {
                 toast.success(response.data.message);
-                const { chartDataValue, tableDataValue, errorMessage, codeSnippetValue } = await fetchChartAndTable(graphName, dateRange);
+                const { chartDataValue, tableDataValue, errorMessage, codeSnippetValue } = await fetchChartAndTable(graphName, dateRange, signal, dashboardName);
                 if (errorMessage) {
                     toast.error(`Error: ${errorMessage}`);
                     setErrorValue(true);
@@ -116,6 +115,7 @@ const ChartCanvas = ({ setCodeValue, setGraphNm, dashboardName, tabName }) => {
         } finally {
             setIsLoading(false);
         }
+        return () => controller.abort();
     };
     const toggleView = (view) => setIsTableView(view === 'table');
     return (

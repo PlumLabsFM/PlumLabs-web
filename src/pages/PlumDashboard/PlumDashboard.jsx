@@ -15,6 +15,7 @@ export default function PlumDashboard() {
     const showDrawer = () => {
         setOpen(true);
     };
+	const dashboardName="plum";
 
 	return (
 		<DndProvider backend={HTML5Backend}>
@@ -38,9 +39,9 @@ export default function PlumDashboard() {
 					</div>
 				</div>
 				<div className={styles.dropArea}>
-					<BackTestNavbar codeValue={codeValue} showDrawer={showDrawer} graphNm={graphNm}/>
+					<BackTestNavbar codeValue={codeValue} showDrawer={showDrawer} graphNm={graphNm} dashboardName={dashboardName}/>
 					<div className={styles.chartDiv}>
-						<ChartCanvas setCodeValue={setCodeValue} setGraphNm={setGraphNm} dashboardName="plum"/>
+						<ChartCanvas setCodeValue={setCodeValue} setGraphNm={setGraphNm} dashboardName={dashboardName}/>
 					</div>
 				</div>
 			</div>

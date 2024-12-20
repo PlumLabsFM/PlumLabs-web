@@ -13,7 +13,7 @@ import NavbarButton from '../elements/NavbarButton/NavbarButton';
 import { Heading, SmallText } from '../elements/Typography/Typography';
 import styles from './BackTestNavbar.module.css';
 
-export default function BackTestNavbar({codeValue, showDrawer, graphNm}) {
+export default function BackTestNavbar({codeValue, showDrawer, graphNm, dashboardName}) {
 
 	const navigate = useNavigate();
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -79,7 +79,7 @@ export default function BackTestNavbar({codeValue, showDrawer, graphNm}) {
 	return (
 		<div className={styles.mainContainer}>
 			<div>
-				<Heading textColor='black'>Market Maker</Heading>
+				<Heading textColor='black'>{dashboardName === 'plum' ? 'Back Testing' : 'Market Maker'}</Heading>
 			</div>
 			<div className={styles.rightContainer}>
 				<div className={styles.imgBlock}><BsFillChatDotsFill className={styles.img} onClick={showDrawer} /><SmallText><span className={styles.text}>Chat</span></SmallText></div>

@@ -24,7 +24,7 @@ function App() {
 		"/app-store": { title: "APP STORE" },
 		"/tool-kit": { title: "TOOL KIT" },
 		"/plum-vision": { title: "" },
-		"/correlate": { title: "CORRELATE" },
+		"/market-maker": { title: "MARKET MAKER" },
 	};
 
 	const selectedNavbarProps = navbarProps[location.pathname] || {};
@@ -40,7 +40,7 @@ function App() {
 				<Route path="/app-store" element={<Protected><AppStore /></Protected>} />
 				<Route path="/tool-kit" element={<Protected><ToolKit /></Protected>} />
 				<Route path="/plum-vision" element={<Protected><PlumVision /></Protected>} />
-				<Route path="/correlate" element={<Protected><Correlate /></Protected>} />
+				<Route path="/market-maker" element={<Protected><Correlate /></Protected>} />
 				<Route path="/" element={<PageLayout dashboardName="plum"/>}>
 					<Route path="/demo" element={<Demo />} />
 					<Route path="/plum-dashboard" element={<Protected><PlumDashboard /></Protected>} />

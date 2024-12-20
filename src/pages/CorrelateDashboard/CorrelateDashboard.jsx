@@ -14,6 +14,7 @@ export default function CorrelateDashboard({tabName}) {
 	const [open, setOpen] = useState(false);
 	const [graphNm, setGraphNm] = useState('');
 	const [activeTabCharts, setActiveTabCharts] = useState([]);
+	const dashboardName="correlate";
 
     const showDrawer = () => {
         setOpen(true);
@@ -49,9 +50,9 @@ export default function CorrelateDashboard({tabName}) {
 					</div>
 				</div>
 				<div className={styles.dropArea}>
-					<BackTestNavbar codeValue={codeValue} showDrawer={showDrawer} graphNm={graphNm}/>
+					<BackTestNavbar codeValue={codeValue} showDrawer={showDrawer} graphNm={graphNm} dashboardName={dashboardName} />
 					<div className={styles.chartDiv}>
-						<ChartCanvas setCodeValue={setCodeValue} setGraphNm={setGraphNm} dashboardName="correlate" tabName={tabName}/>
+						<ChartCanvas setCodeValue={setCodeValue} setGraphNm={setGraphNm} dashboardName={dashboardName} tabName={tabName}/>
 					</div>
 				</div>
 			</div>

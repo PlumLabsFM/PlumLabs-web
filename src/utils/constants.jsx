@@ -74,7 +74,7 @@ export const AppStoreData = [
 		title: "Market Maker",
 		text: "Market Analysis",
 		logo: false,
-		link: '/correlate',
+		link: '/market-maker',
 	},
 	{
 		id: "3",

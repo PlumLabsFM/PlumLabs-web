@@ -87,7 +87,7 @@ export default function PlumVision() {
 		if (!inputRange.startDate && !inputRange.endDate) {
 		  return toast.warning('Please select date range!');
 		}
-		if (selectedValue === 'position') {
+		if (selectedValue === 'allocation') {
 		  if (!cash) {
 			return toast.warning('Please enter cash');
 		  }
@@ -118,22 +118,20 @@ export default function PlumVision() {
 	}
 
 	const handleEnableFields = async() => {
-		const nonEmptyObjects = getTableData.filter(row => 
-			Object.values(row).some(value => value !== "")
-		);
-		if (nonEmptyObjects.length > 0) {
+		const filteredData = getTableData.filter(item => item.asset !== "");
+		
+		if(filteredData.length > 0){
 			setIsTableDataFilled(true);
-			
-			try {
-				const res = await enterPortfolioData(getTableData);
-				if(res.user_id){
-					setEnableFields(true);
-				}
-			} catch (error) {
-				console.error('Error entering portfolio data:', error);
+		}
+		
+		try {
+			const res = await enterPortfolioData(filteredData);
+			if(res.data.user_id && (filteredData && filteredData.length > 0)){
+				setEnableFields(true);
 			}
-		} else {
-			setIsTableDataFilled(false);
+		} catch (error) {
+			console.error('Error entering portfolio data:', error);
+			toast.error(error.response.data.error)
 			setEnableFields(false);
 		}
 	};
@@ -248,7 +246,7 @@ export default function PlumVision() {
 									</div>
 								</div> */}
 								{/* <div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Revaluation Frequency</SubHeading> */}
-								{selectedValue === 'position' && <div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Rebalance</SubHeading>
+								{selectedValue === 'allocation' && <div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Rebalance</SubHeading>
 									<div className={styles.parameterImageContainer}>
 										<div className={styles.logoContainer}><LuClock3 className={styles.signs} /></div>
 										<div className={styles.inputContainer}>
@@ -262,7 +260,7 @@ export default function PlumVision() {
 									</div>
 								</div>}
 								{/* <div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Rebalance Frequency</SubHeading> */}
-								{selectedValue === 'position' && <div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Start cash</SubHeading>
+								{selectedValue === 'allocation' && <div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Start cash</SubHeading>
 									<div className={styles.parameterImageContainer}>
 										<div className={styles.logoContainer}><LuClock3 className={styles.signs} /></div>
 										<div className={styles.inputContainer}>
