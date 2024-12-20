@@ -1,0 +1,42 @@
+.rootContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.appContainer {
+    width: 70%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+.mainInputContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hiddenFileInput {
+    display: none;
+}
+
+.playBtn{
+    width: 90px;
+}
+.parameterContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    align-items: center;
+    width: 50%;
+}
+.parameterImageContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+.datePicker{
+    width: 100%;
+    height: 50%;
+}

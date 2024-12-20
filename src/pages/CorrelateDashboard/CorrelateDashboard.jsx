@@ -1,28 +1,39 @@
-import React, { useCallback, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import BackTestNavbar from '../../components/BackTestNavbar/BackTestNavbar';
 import ChartCanvas from '../../layout/SubSidebar/ChartSubSidebar/ChartCanvas';
 import ChartItem from '../../layout/SubSidebar/ChartSubSidebar/ChartItem';
-import { MenuItemsForCharts } from '../../utils/constants';
-import styles from './PlumDashboard.module.css';
+import { DepthCharts, TabNames, TradeCharts } from '../../utils/constants';
+import styles from './CorrelateDashboard.module.css';
 import ChatDrawer from '../../components/ChatDrawer/ChatDrawer';
+import { useNavigate } from 'react-router-dom';
 
-export default function PlumDashboard() {
+export default function CorrelateDashboard({tabName}) {
 	const [codeValue, setCodeValue] = useState(null);
 	const [open, setOpen] = useState(false);
 	const [graphNm, setGraphNm] = useState('');
+	const [activeTabCharts, setActiveTabCharts] = useState([]);
+	const dashboardName="correlate";
+
     const showDrawer = () => {
         setOpen(true);
     };
-	const dashboardName="plum";
+
+	useEffect(() => {
+        const activeTab = TabNames.find(tab => tab.name === tabName);
+        if (activeTab) {
+            setActiveTabCharts(activeTab.charts);
+        }
+    }, [tabName]);
+	
 
 	return (
 		<DndProvider backend={HTML5Backend}>
-			<div className={styles.plumDashboardDiv}>
+			<div className={styles.correlateDashboardDiv}>
 				<div className={styles.subSidebarDiv}>
 					<div className={styles.chartDiv}>
-						{MenuItemsForCharts.map((item, index) => {
+						{activeTabCharts.map((item, index) => {
 							return (
 								<div key={index} className={styles.charts}>
 									<ChartItem
@@ -39,9 +50,9 @@ export default function PlumDashboard() {
 					</div>
 				</div>
 				<div className={styles.dropArea}>
-					<BackTestNavbar codeValue={codeValue} showDrawer={showDrawer} graphNm={graphNm} dashboardName={dashboardName}/>
+					<BackTestNavbar codeValue={codeValue} showDrawer={showDrawer} graphNm={graphNm} dashboardName={dashboardName} />
 					<div className={styles.chartDiv}>
-						<ChartCanvas setCodeValue={setCodeValue} setGraphNm={setGraphNm} dashboardName={dashboardName}/>
+						<ChartCanvas setCodeValue={setCodeValue} setGraphNm={setGraphNm} dashboardName={dashboardName} tabName={tabName}/>
 					</div>
 				</div>
 			</div>

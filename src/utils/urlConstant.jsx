@@ -10,7 +10,8 @@ export const AUTH_SERVICE = {
 export const DOCUMENT = {
 	UPLOAD_DOCUMENT: `${BASE_URL}/api/portfolio/upload-portfolio`,
 	GET_TABLE: `${BASE_URL}/api/portfolio/financial-table-data`,
-	GET_TABLE_DATA: `${BASE_URL}/api/portfolio/get-upload-portfolio`
+	GET_TABLE_DATA: `${BASE_URL}/api/portfolio/get-upload-portfolio`,
+	ENTER_PORTFOLIO: `${BASE_URL}/api/portfolio/enter-portfolio`,
 };
 
 export const CHART = {
@@ -20,6 +21,8 @@ export const CHART = {
 	GET_SCRIPT: `${BASE_URL}/api/editor/get-code-backtest`,
 	SAVE_CHART: `${BASE_URL}/api/editor/save-code`,
 	GET_REPORT: `${BASE_URL}/api/editor`,
+	GET_STAT_CHARTS: `${BASE_URL}/api/portfolio/graph-stats-depth`,
+	GET_TRADE_CHARTS: `${BASE_URL}/api/portfolio/graph-trades`
 };
 
 export const API_URL = { AUTH_SERVICE, DOCUMENT, CHART };

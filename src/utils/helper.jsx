@@ -1,4 +1,4 @@
-import { getChart, getCodeScript, saveCodeScript } from '../services/apiServices';
+import { getChart, getCodeScript, getStatCharts, getTradeCharts, saveCodeScript } from '../services/apiServices';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { LOCALSTORAGE } from "./constants";
 import { auth, db } from '../services/Firebase';
@@ -15,7 +15,7 @@ export const isloggedIn = () => {
 	return false;
 };
 
-export const fetchChartAndTable = async (graphName, dateRange, signal) => {
+export const fetchChartAndTable = async (graphName, dateRange, signal, dashboardName, tabName) => {
 
 	let chartDataValue = null;
 	let tableDataValue = null;
@@ -25,10 +25,27 @@ export const fetchChartAndTable = async (graphName, dateRange, signal) => {
 	let errorMessage = null;
 
 	try {
-		const response = await Promise.allSettled([
-			getChart(graphName, dateRange, signal),
-			getCodeScript(graphName, signal)
-		]);
+		let response;
+		if(dashboardName === 'plum'){
+			response = await Promise.allSettled([
+				getChart(graphName, dateRange, signal),
+				getCodeScript(graphName, signal)
+			]);
+		}
+		else if(dashboardName === 'correlate'){
+			if(tabName === 'depth' || tabName === 'slippage' 
+				|| graphName === 'Bid_Ask_(bps)'
+			){
+				response = await Promise.allSettled([
+					getStatCharts(graphName, signal),
+				]);
+			}
+			else if((tabName === 'trade' || tabName === 'pnl') && graphName !== 'Bid_Ask_(bps)'){
+				response = await Promise.allSettled([
+					getTradeCharts(graphName, signal),
+				]);
+			}
+		}
 		response.forEach(result => {
 			if (result.status === "fulfilled") {
 				if (graphName === 'Drawdown_graph') {

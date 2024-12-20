@@ -12,11 +12,12 @@ import API from '../../assets/api.png';
 import CSV from '../../assets/csv.png';
 import { Heading, SubHeading } from '../../components/elements/Typography/Typography';
 const { RangePicker } = DatePicker;
-import { uploadDocument, getTableData } from '../../services/apiServices';
+import { uploadDocument, getUserTableData, enterPortfolioData } from '../../services/apiServices';
 import { ItemsForDropdown, LOCALSTORAGE, options, rebalanceOptions } from '../../utils/constants';
 import { MyContext } from '../../utils/ContextProvider';
 import styles from './PlumVision.module.css';
 import Table from '../../components/elements/Table/Table'
+import CustomTable from '../../components/elements/CustomTable/CustomTable';
 
 export default function PlumVision() {
 
@@ -24,15 +25,33 @@ export default function PlumVision() {
 	const [userId, setUserId] = useState(null);
 	const [isFileUploaded, setIsFileUploaded] = useState(false);
 	const [selectedValue, setSelectedValue] = useState(options?.[0]?.value);
-	const [tableData, setTableData] = useState({});
+	const [tableData, setTableData] = useState([]);
 	const [rebalanceValue, setRebalanceValue] = useState('')
-	const [cash, setCash] = useState(null)
+	const [cash, setCash] = useState(null);
+	const [showEmptyTable, setShowEmptyTable] = useState(false);
+	const [istableDataFilled, setIsTableDataFilled] = useState(false);
+	const [getTableData, setGetTableData] = useState([])
+	const [enableFields, setEnableFields] = useState(false);
 	const navigate = useNavigate();
 	const [inputRange, setInputRange] = useState({
 		startDate: '',
 		endDate: ''
 	});
 
+	const fetchTableData = async() => {
+		try {
+			setShowEmptyTable(false);
+			const res = await getUserTableData();
+			if (res.data && res.data.Portfolio_Data) {
+				setTableData(res.data.Portfolio_Data);
+			} else {
+				console.error(error);
+			}
+		} catch (error) {
+			console.error('Error fetching table data:', error);
+		}
+	}
+	
 	useEffect(() => {
 		const userData = JSON.parse(localStorage.getItem(LOCALSTORAGE.USER));
 		setUserId(userData.id);
@@ -51,6 +70,8 @@ export default function PlumVision() {
 			try {
 				await uploadDocument(formData);
 				setIsFileUploaded(true);
+				fetchTableData();
+				setShowEmptyTable(false)
 				toast.success("File uploaded sucessfully.");
 			} catch (error) {
 				toast.error('An error occurred while uploading the file. Please try again.');
@@ -60,17 +81,13 @@ export default function PlumVision() {
 			alert('Please upload a valid Excel (.xlsx) file.');
 			setIsFileUploaded(false);
 		}
-		event.target.value = null;
 	}
 
 	const handlePlayButtonClick = () => {
-		if (!isFileUploaded) {
-		  return toast.warning('Please upload CSV file!');
-		}
 		if (!inputRange.startDate && !inputRange.endDate) {
 		  return toast.warning('Please select date range!');
 		}
-		if (selectedValue === 'position') {
+		if (selectedValue === 'allocation') {
 		  if (!cash) {
 			return toast.warning('Please enter cash');
 		  }
@@ -85,22 +102,45 @@ export default function PlumVision() {
 		}
 	  	localStorage.setItem(LOCALSTORAGE.DATETIME, JSON.stringify(resultantData));
 		navigate('/plum-dashboard');
-	  };
+	};
 
 	const handleOptionChange = (value) => {
 		setSelectedValue(value);
-		setIsFileUploaded(false)
+		setIsFileUploaded(false);
+		setShowEmptyTable(false);
+		setEnableFields(false);
 	};
-	
-	const fetchTableData = async() => {
-		const res = await getTableData();
-		setTableData(res.data.Portfolio_Data);
+
+	const handleCreateTable = () => {
+		setTableData([]);
+		setShowEmptyTable(!showEmptyTable);
+		setEnableFields(false);
 	}
 
-	useEffect(()=>{
-		fetchTableData();
-	},[selectedValue]);
+	const handleEnableFields = async() => {
+		const filteredData = getTableData.filter(item => item.asset !== "");
+		
+		if(filteredData.length > 0){
+			setIsTableDataFilled(true);
+		}
+		
+		try {
+			const res = await enterPortfolioData(filteredData);
+			if(res.data.user_id && (filteredData && filteredData.length > 0)){
+				setEnableFields(true);
+			}
+		} catch (error) {
+			console.error('Error entering portfolio data:', error);
+			toast.error(error.response.data.error)
+			setEnableFields(false);
+		}
+	};
 
+	useEffect(()=>{
+		if(istableDataFilled || isFileUploaded){
+			setEnableFields(true);
+		}
+	},[istableDataFilled, isFileUploaded]);
 
 	return (
 		<div className={styles.rootContainer}>
@@ -131,7 +171,7 @@ export default function PlumVision() {
 							{/* <div>
 								<img src={API} alt="API" />
 							</div> */}
-							<button className={styles.optionSelectedValue}>{options.find(item => item.value === selectedValue)?.label}</button>
+							<button className={`btn ${styles.optionSelectedValue}`} onClick={handleCreateTable}>Enter table Data</button>
 							<label className={styles.csvUploadLabel}>
 								Import csv
 								<input
@@ -144,12 +184,14 @@ export default function PlumVision() {
 								{/* <button className={styles.importBtn}>Import csv</button> */}
 							</label>
 						</div>
-						{isFileUploaded && <Table tableData={tableData}/>}
+						{isFileUploaded && <Table tableData={tableData} showEmptyTable={showEmptyTable} selectedValue={selectedValue}/>}
+						{showEmptyTable && <CustomTable setGetTableData={setGetTableData} selectedValue={selectedValue}/>}
+						{showEmptyTable && <button className='btn' onClick={handleEnableFields}>Done</button>}
 					</div>
 					<div className={styles.setParameters}>
 						<div className={styles.mainContainer}>
 							{/* <Heading className={styles.headings}>SET PARAMETERS</Heading> */}
-							<div className={isFileUploaded ? styles.diskImgContainer : styles.diskImgContainerFaded}>
+							<div className={enableFields ? styles.diskImgContainer : styles.diskImgContainerFaded}>
 								{/* <div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Instruments</SubHeading>
 									<div className={styles.parameterImageContainer}>
 										<div className={styles.logoContainer}><GiPolarBear style={{ color: 'red', width: '40px', height: '40px' }} /></div>
@@ -167,7 +209,7 @@ export default function PlumVision() {
 											<RangePicker
 												placeholder={['Start Date', 'End Date']}
 												format={'YYYY/MM/DD'}
-												disabled={!isFileUploaded}
+												disabled={!enableFields}
 												className={styles.datePicker}
 												onChange={(value, dateString) => {
 													setDateRange({
@@ -204,24 +246,25 @@ export default function PlumVision() {
 									</div>
 								</div> */}
 								{/* <div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Revaluation Frequency</SubHeading> */}
-								{selectedValue === 'position' && <div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Rebalance</SubHeading>
+								{selectedValue === 'allocation' && <div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Rebalance</SubHeading>
 									<div className={styles.parameterImageContainer}>
 										<div className={styles.logoContainer}><LuClock3 className={styles.signs} /></div>
 										<div className={styles.inputContainer}>
 											<Select
-												style={{ width: 200, color: "black" }}
+												style={{ width: 223, color: "black", marginLeft: "18px" }}
 												options={rebalanceOptions}
 												onChange={(e) => setRebalanceValue(e)}
+												disabled={!enableFields}
 											/>
 										</div>
 									</div>
 								</div>}
 								{/* <div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Rebalance Frequency</SubHeading> */}
-								{selectedValue === 'position' && <div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Start cash</SubHeading>
+								{selectedValue === 'allocation' && <div className={styles.parameterContainer}><SubHeading className={styles.textHeading}>Start cash</SubHeading>
 									<div className={styles.parameterImageContainer}>
 										<div className={styles.logoContainer}><LuClock3 className={styles.signs} /></div>
 										<div className={styles.inputContainer}>
-											<input type="number" onChange={(e) => setCash(e.target.value)}/>
+											<input type="number" disabled={!enableFields} onChange={(e) => setCash(e.target.value)} className={styles.inputField}/>
 										</div>
 									</div>
 								</div>}
@@ -232,7 +275,7 @@ export default function PlumVision() {
 									</div>
 								</div> */}
 							</div>
-							<button className={`${styles.runButton} ${!isFileUploaded && styles.playBtnDivFaded}`} onClick={handlePlayButtonClick}>Run</button>
+							<button className={`btn ${(!enableFields) && styles.playBtnDivFaded}`} onClick={handlePlayButtonClick}>Run</button>
 						</div>
 					</div>
 				</div>}

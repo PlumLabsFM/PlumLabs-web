@@ -1,7 +1,9 @@
 .rootContainer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
+    padding: 0 40px;
 }
 
 .appContainer {
@@ -11,13 +13,13 @@
     display: flex;
     gap: 100px;
     /* align-items: center; */
-    margin-top: 100px;
-    height: 90vh;
+    margin-top: 50px;
+    height: 70vh;
 }
 
 .appBox {
     display: flex;
-    gap: 130px;
+    gap: 30px;
 }
 
 .loadData{
@@ -28,8 +30,6 @@
 
 .optionSelectedValue{
     width: 150px;
-    padding: 10px 5px;
-    outline: none;
 }
 
 .logoDiv {
@@ -117,24 +117,8 @@
     gap: 0.5rem;
     align-items: center;
     padding: 5px;
+    width:fit-content;
 }
-
-.playBtn {
-    color: #9A6FF4;
-    width: 60px;
-    height: 60px;
-}
-
-.runButton{
-    outline: none;
-    color: #fff;
-    border-radius: 3px;
-    border: none;
-    width: 100px;
-    padding: 10px 4px;
-    background-color: #2f28fc;
-}
-
 .playBtnDiv {
     opacity: 1;
     transition: opacity 0.3s ease;
@@ -148,7 +132,7 @@
 }
 
 .signs {
-    color: white;
+    /* color: white; */
     width: 35px;
     height: 30px;
 }
@@ -161,8 +145,8 @@
 .logoContainer {
     width: 60px; 
     height: 60px;
-    background-color:#03CAFF; 
-    border-radius: 50%; 
+    /* background-color:#03CAFF;  */
+    /* border-radius: 50%;  */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -173,10 +157,10 @@
 .inputContainer {
     width: 250px;  
     height: 40px;  
-    background: rgb(59,160,222);
+    /* background: rgb(59,160,222);
     background: linear-gradient(38deg, rgba(59,160,222,0.989233193277311) 40%, rgba(14,87,172,0.76234243697479) 59%);
     border-top-right-radius: 30px; 
-    border-bottom-right-radius: 30px; 
+    border-bottom-right-radius: 30px;  */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -196,7 +180,8 @@
 .datePicker {
     width: 90%;
     height: 50%;
-    border: none;
+    /* border: none; */
+    padding: 20px 5px;
 }
 
 .datePicker:hover {
@@ -204,7 +189,18 @@
     cursor: default; 
 }
 
-.dropdownBtn {
-    font-size: smaller;
-    font-weight: 200;
+.dropdown {
+    margin-top: 20px;
+    align-self: flex-start;
+}
+
+.inputField{
+    padding: 8px;
+    bottom: 0.5px solid #d5d3d3;
+    border-radius: 5px;
+    outline: none;
+    width: 83%;
+    margin-left: 18px;
+    border: 1px solid #d5d3d3;
+    outline: none;
 }

@@ -1,45 +1,26 @@
-import React, { useState } from 'react';
-import { FaRegChartBar } from "react-icons/fa";
-import { PiTrolleyFill } from "react-icons/pi";
-import { RiLayoutMasonryLine } from "react-icons/ri";
-import { SiJupyter } from "react-icons/si";
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import styles from './Sidebar.module.css';
+import { correlateMenuItems, plumMenuItems, TabNames } from '../../utils/constants';
 
-export default function Sidebar() {
-	const [activeItem, setActiveItem] = useState(2);
-
+export default function Sidebar({dashboardName}) {
+	const [activeItem, setActiveItem] = useState(0);
+	const location = useLocation();
 	const handleClick = (index) => {
 		setActiveItem(index);
 	};
 
-	const menuItems = [
-		{
-			path: '/demo',
-			name: 'App Store',
-			Icon: <PiTrolleyFill />
-		},
-		{
-			path: '/demo',
-			name: 'Layout',
-			Icon: <RiLayoutMasonryLine />
-		},
-		{
-			path: '/plum-dashboard',
-			name: 'Chart',
-			Icon: <FaRegChartBar />,
-			subSideBar: ''
-		},
-		{
-			path: '/demo',
-			name: 'Notebook',
-			Icon: <SiJupyter />
-		}
-	];
+	useEffect(() => {
+		const currentTab = location.pathname.split('/').pop();
+		const itemIndex = TabNames.findIndex(tab => tab.route === currentTab);
+		setActiveItem(itemIndex >= 0 ? itemIndex : 0);
+	}, [location]);
+
+	const storeItem = dashboardName === 'plum' ? plumMenuItems : correlateMenuItems;
 
 	return (
 		<div className={styles.sidebar}>
-			{menuItems.map((items, index) => (
+			{storeItem.map((items, index) => (
 				<div
 					key={index}
 					className={`${styles.mainContainer} ${activeItem === index ? styles.active : ''}`}
@@ -50,7 +31,6 @@ export default function Sidebar() {
 							<div className={styles.menuIcon}>{items.Icon}</div>
 							<div className={styles.label}>{items.name}</div>
 						</div>
-						{items.subSideBar && <div className={styles.subSideBar}>{items.subSideBar}</div>}
 					</NavLink>
 				</div>
 			))}
